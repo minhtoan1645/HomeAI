@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="V-Agent — Nền tảng AI Workforce giúp doanh nghiệp xây dựng đội ngũ AI vận hành toàn diện. Tạo Agent, kết nối hệ thống, thực thi end-to-end.">
+  <meta property="og:title" content="V-Agent — AI Workforce cho Doanh Nghiệp">
+  <meta property="og:description" content="Từ AI hỗ trợ sang AI vận hành doanh nghiệp. Xây dựng đội ngũ AI Workforce với V-Agent của Viettel Software.">
+  <meta property="og:type" content="website">
+  <title>V-Agent — AI Workforce cho Doanh Nghiệp | Viettel Software</title>
+
+  <!-- Google Fonts: Inter 400/500/600/700 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 00. HEADER / NAV ===== -->
+  <!-- CSS-only mobile menu: checkbox hack -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <!-- Logo -->
+      <a href="#top" class="site-logo" aria-label="V-Agent trang chu">
+        <!-- Placeholder SVG logo — thay bang logo that khi co -->
+        <svg width="120" height="36" viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#ee0033"/>
+          <text x="8" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="14" fill="white">V</text>
+          <text x="40" y="23" font-family="Inter,sans-serif" font-weight="700" font-size="16" fill="white">V-Agent</text>
+        </svg>
+      </a>
+
+      <!-- Nav -->
+      <nav class="site-nav" aria-label="Menu chinh">
+        <ul class="nav-menu" role="list">
+          <li><a href="#giai-phap" class="nav-link">Giai Phap</a></li>
+          <li><a href="#ung-dung" class="nav-link">Ung dung</a></li>
+          <li><a href="#chung-chi" class="nav-link">Chung chi</a></li>
+          <li><a href="#faqs" class="nav-link">FAQs</a></li>
+          <li><a href="#lien-he" class="nav-link">Lien he</a></li>
+          <li><a href="#" class="nav-link">Ho tro</a></li>
+          <li><a href="#" class="nav-link">Guidelines</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA buttons -->
+      <div class="header-actions">
+        <a href="#" class="btn btn-outline-dark btn-sm">Dang nhap</a>
+        <a href="#cta-form" class="btn btn-primary btn-sm">Dung thu mien phi</a>
+      </div>
+
+      <!-- Hamburger (CSS-only) -->
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Mo menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== 01. HERO ===== -->
+    <section class="hero-section" id="hero" aria-label="Hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="section-label">Viettel Software</p>
+          <h1 class="hero-title">
+            Xay dung doi ngu<br>
+            <span class="text-gradient">AI Workforce</span><br>
+            cho doanh nghiep
+          </h1>
+          <p class="hero-desc">
+            Loi the canh tranh khong chi la su dung AI,<br>
+            ma la van hanh doanh nghiep bang AI.
+          </p>
+          <div class="hero-actions">
+            <a href="#giai-phap" class="btn btn-primary">Xem giai phap</a>
+            <a href="#cta-form" class="btn btn-outline">Dung thu mien phi</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <!-- Placeholder: thay bang hero-visual.png khi co -->
+          <div class="img-placeholder img-placeholder--dark hero-visual-placeholder">
+            Product Visual
+          </div>
+          <!-- SVG decorative background (quyet dinh: tinh, khong animation) -->
+          <div class="hero-bg-svg" aria-hidden="true">
+            <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <circle cx="300" cy="250" r="220" stroke="rgba(238,0,51,.15)" stroke-width="1"/>
+              <circle cx="300" cy="250" r="160" stroke="rgba(238,0,51,.1)" stroke-width="1"/>
+              <circle cx="300" cy="250" r="100" stroke="rgba(238,0,51,.08)" stroke-width="1"/>
+              <circle cx="480" cy="80" r="60" fill="rgba(238,0,51,.06)"/>
+              <circle cx="120" cy="400" r="80" fill="rgba(238,0,51,.04)"/>
+              <polygon points="300,30 370,150 230,150" fill="rgba(238,0,51,.05)"/>
+              <rect x="420" y="300" width="100" height="100" rx="16" fill="rgba(255,255,255,.03)" transform="rotate(20 470 350)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02. PAIN POINT ===== -->
+    <section class="pain-section section" id="dau-bai" aria-label="Doanh nghiep dang bi gioi han">
+      <div class="container">
+        <div class="pain-header text-center">
+          <h2 class="section-title">
+            Doanh nghiep dang bi <span class="text-red">gioi han</span>
+          </h2>
+          <p class="section-desc" style="margin:16px auto 0">
+            boi mo hinh van hanh truyen thong khien doanh nghiep kho mo rong va toi uu van hanh.
+          </p>
+        </div>
+        <div class="pain-grid grid-3">
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><path d="M8 24l4-8 4 4 4-12 4 8" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="pain-title">Khoi luong cong viec thu cong ngay cang tang</h3>
+            <p class="pain-desc">Quy trinh thu cong chiem nhieu nhan luc, kho scale khi doanh nghiep tang truong.</p>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><circle cx="16" cy="16" r="7" stroke="#ee0033" stroke-width="2"/><path d="M16 12v4l3 3" stroke="#ee0033" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="pain-title">Thieu kha nang giam sat toan dien</h3>
+            <p class="pain-desc">Du lieu roi rac, khong co cai nhin tong the ve hieu suat hoat dong theo thoi gian thuc.</p>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><circle cx="16" cy="12" r="4" stroke="#ee0033" stroke-width="2"/><path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#ee0033" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="pain-title">Phu thuoc hoan toan vao con nguoi</h3>
+            <p class="pain-desc">Nang suat bi gioi han boi so luong nhan su, khong the hoat dong 24/7 lien tuc.</p>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><path d="M10 16h12M16 10v12" stroke="#ee0033" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="pain-title">Kho thay doi &amp; mo rong quy mo</h3>
+            <p class="pain-desc">Quy trinh cung nhac, khong linh hoat — thay doi ton kem thoi gian va chi phi tich hop.</p>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><path d="M10 22l4-10 4 6 2-4 4 8" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="pain-title">Nhap lieu thu cong, de sai sot</h3>
+            <p class="pain-desc">Du lieu phan tan, nhap tay gay loi — mat thoi gian kiem tra, doi soat lien tuc.</p>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="rgba(238,0,51,.08)"/><path d="M8 16h4l3-6 4 12 3-6h4" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="pain-title">Mat nhieu thoi gian, thieu sot phan hoi</h3>
+            <p class="pain-desc">Xu ly cham, phan hoi khong nhat quan — khach hang va doi tac mat niem tin.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03. TRANSFORMATION ===== -->
+    <section class="transform-section section" id="giai-phap" aria-label="Tu AI ho tro sang AI van hanh">
+      <div class="container">
+        <div class="transform-header text-center">
+          <h2 class="section-title">
+            Tu AI ho tro sang <span class="text-red">AI van hanh doanh nghiep</span>
+          </h2>
+        </div>
+        <div class="transform-compare">
+
+          <div class="transform-col transform-col--before">
+            <div class="transform-col-label">
+              <span class="badge badge--gray">BEFORE</span>
+              <span class="transform-col-name">AI truyen thong</span>
+            </div>
+            <ul class="transform-list">
+              <li class="transform-item transform-item--bad">
+                <span class="transform-item-icon" aria-hidden="true">&#x2715;</span>
+                Cac cong cu AI dang roi rac, khong ket noi
+              </li>
+              <li class="transform-item transform-item--bad">
+                <span class="transform-item-icon" aria-hidden="true">&#x2715;</span>
+                Chi ho tro tung tac vu don le, khong end-to-end
+              </li>
+              <li class="transform-item transform-item--bad">
+                <span class="transform-item-icon" aria-hidden="true">&#x2715;</span>
+                Can can thiep thu cong lien tuc
+              </li>
+              <li class="transform-item transform-item--bad">
+                <span class="transform-item-icon" aria-hidden="true">&#x2715;</span>
+                Kho tich hop voi he thong hien tai
+              </li>
+              <li class="transform-item transform-item--bad">
+                <span class="transform-item-icon" aria-hidden="true">&#x2715;</span>
+                Thieu giam sat va kiem soat tap trung
+              </li>
+            </ul>
+          </div>
+
+          <div class="transform-divider" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#ee0033" stroke-width="2"/><path d="M18 24h12M26 19l5 5-5 5" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="transform-col transform-col--after">
+            <div class="transform-col-label">
+              <span class="badge badge--red">AFTER</span>
+              <span class="transform-col-name">V-Agent AI Workforce</span>
+            </div>
+            <ul class="transform-list">
+              <li class="transform-item transform-item--good">
+                <span class="transform-item-icon" aria-hidden="true">&#x2713;</span>
+                Multi-Agent phoi hop nhip nhang, chia viec song song
+              </li>
+              <li class="transform-item transform-item--good">
+                <span class="transform-item-icon" aria-hidden="true">&#x2713;</span>
+                Thuc thi quy trinh end-to-end tu dong hoan toan
+              </li>
+              <li class="transform-item transform-item--good">
+                <span class="transform-item-icon" aria-hidden="true">&#x2713;</span>
+                Tu chu van hanh 24/7, khong can giam sat lien tuc
+              </li>
+              <li class="transform-item transform-item--good">
+                <span class="transform-item-icon" aria-hidden="true">&#x2713;</span>
+                Ket noi moi he thong: API / ERP / CRM / Database
+              </li>
+              <li class="transform-item transform-item--good">
+                <span class="transform-item-icon" aria-hidden="true">&#x2713;</span>
+                Governance &amp; Audit — luu log, canh bao, can thiep khi can
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04. V-AGENT FEATURES ===== -->
+    <section class="features-section section" id="vagent" aria-label="V-Agent la gi">
+      <div class="container">
+        <div class="features-header text-center">
+          <h2 class="section-title">
+            Vay <span class="text-red">V-Agent</span> la gi?
+          </h2>
+          <p class="section-desc" style="margin:16px auto 0">
+            Nen tang xay dung AI Workforce — cho phep tao, ket noi va van hanh doi ngu Agent AI trong doanh nghiep ma khong can lap trinh.
+          </p>
+        </div>
+        <div class="features-grid grid-2">
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(238,0,51,.1)"/><path d="M12 28l4-16 4 8 4-12 4 8" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Tao Agent bang ngon ngu tu nhien</h3>
+              <p class="feature-desc">Khong can lap trinh. Mo ta cong viec bang tieng Viet — V-Agent tu xay dung quy trinh thuc thi.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(238,0,51,.1)"/><rect x="10" y="10" width="8" height="8" rx="2" stroke="#ee0033" stroke-width="2"/><rect x="22" y="22" width="8" height="8" rx="2" stroke="#ee0033" stroke-width="2"/><path d="M18 14h4a4 4 0 014 4v4" stroke="#ee0033" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Ket noi he thong noi bo</h3>
+              <p class="feature-desc">Tich hop moi nguon du lieu: API, Database, ERP, CRM, Web, File — khong can viet connector phuc tap.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(238,0,51,.1)"/><circle cx="14" cy="20" r="4" stroke="#ee0033" stroke-width="2"/><circle cx="26" cy="14" r="4" stroke="#ee0033" stroke-width="2"/><circle cx="26" cy="26" r="4" stroke="#ee0033" stroke-width="2"/><path d="M18 20h4M22 16l-4 4M22 24l-4-4" stroke="#ee0033" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Multi-Agent Collaboration</h3>
+              <p class="feature-desc">Cac Agent phoi hop, chia viec va lam song song — xu ly quy trinh phuc tap nhanh gap nhieu lan.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="rgba(238,0,51,.1)"/><path d="M20 10v4M20 26v4M10 20h4M26 20h4" stroke="#ee0033" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="5" stroke="#ee0033" stroke-width="2"/></svg>
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">Governance &amp; Audit</h3>
+              <p class="feature-desc">Giam sat tap trung, luu log toan bo hoat dong, canh bao rui ro va can thiep khi can — dam bao tuan thu.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05. HOW IT WORKS ===== -->
+    <section class="howitworks-section section" id="cach-van-hanh" aria-label="Cach V-Agent van hanh">
+      <div class="container">
+        <div class="howitworks-header text-center">
+          <h2 class="section-title section-title--white">
+            Cach V-Agent van hanh
+          </h2>
+          <p class="section-desc section-desc--white" style="margin:16px auto 0">
+            Tu y tuong den thuc thi — 3 buoc don gian de trien khai AI Workforce trong doanh nghiep.
+          </p>
+        </div>
+        <div class="howitworks-steps">
+
+          <div class="howitworks-step">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-body">
+              <h3 class="step-title">Tao Agent</h3>
+              <p class="step-desc">Mo ta cong viec bang ngon ngu tu nhien. He thong tu hoc tri thuc, thiet lap cong viec va thu nghiem thuc te.</p>
+              <ul class="step-tags">
+                <li>IDE tich hop</li>
+                <li>Hoc tri thuc</li>
+                <li>Thu nghiem</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="howitworks-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16h16M19 11l5 5-5 5" stroke="rgba(238,0,51,.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="howitworks-step">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-body">
+              <h3 class="step-title">Ket noi Agent</h3>
+              <p class="step-desc">Ket noi Agent voi cac he thong noi bo. Phan cong va phoi hop nhieu Agent lam viec song song.</p>
+              <ul class="step-tags">
+                <li>API / ERP / CRM</li>
+                <li>Phan cong viec</li>
+                <li>Song song</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="howitworks-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16h16M19 11l5 5-5 5" stroke="rgba(238,0,51,.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="howitworks-step">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-body">
+              <h3 class="step-title">Van hanh &amp; Bao cao</h3>
+              <p class="step-desc">Runner thuc thi end-to-end tu dong. He thong giam sat, luu log, canh bao va tao bao cao theo thoi gian thuc.</p>
+              <ul class="step-tags">
+                <li>Thuc thi 24/7</li>
+                <li>Giam sat</li>
+                <li>Bao cao tu dong</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06. USE CASES ===== -->
+    <!-- CSS-only tabs: radio buttons — phai nam ngoai section de sibling selector hoat dong -->
+    <input type="radio" name="usecase-tabs" id="tab-tuyen-dung" class="tab-input" checked hidden>
+    <input type="radio" name="usecase-tabs" id="tab-phap-che" class="tab-input" hidden>
+    <input type="radio" name="usecase-tabs" id="tab-van-hanh" class="tab-input" hidden>
+
+    <section class="usecase-section section" id="ung-dung" aria-label="Ung dung thuc te">
+      <div class="container">
+        <div class="usecase-header text-center">
+          <h2 class="section-title">
+            Ung dung thuc te trong <span class="text-red">doanh nghiep</span>
+          </h2>
+        </div>
+        <div class="tab-bar" role="tablist">
+          <label for="tab-tuyen-dung" class="tab-label" role="tab">Tuyen dung</label>
+          <label for="tab-phap-che" class="tab-label" role="tab">Phap che (Legal)</label>
+          <label for="tab-van-hanh" class="tab-label" role="tab">Van hanh &amp; Bao cao</label>
+        </div>
+        <div class="tab-panels">
+
+          <div class="tab-panel panel-tuyen-dung" role="tabpanel">
+            <div class="usecase-card">
+              <div class="usecase-card-header">
+                <span class="usecase-tag">AI Recruitment Operations</span>
+                <h3 class="usecase-card-title">Tro ly tuyen dung so</h3>
+              </div>
+              <div class="usecase-steps">
+                <div class="usecase-step"><span class="usecase-step-num">1</span><span>Nhan &amp; xu ly hang nghin CV</span></div>
+                <div class="usecase-step"><span class="usecase-step-num">2</span><span>Chuan hoa ho so tu dong</span></div>
+                <div class="usecase-step"><span class="usecase-step-num">3</span><span>Sang loc &amp; danh gia CV</span></div>
+                <div class="usecase-step"><span class="usecase-step-num">4</span><span>Len lich phong van</span></div>
+                <div class="usecase-step"><span class="usecase-step-num">5</span><span>Bao cao &amp; phan tich ung vien</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel panel-phap-che" role="tabpanel">
+            <div class="usecase-card usecase-card--placeholder">
+              <p class="text-gray text-center">Noi dung dang cap nhat — Phap che (Legal)</p>
+            </div>
+          </div>
+
+          <div class="tab-panel panel-van-hanh" role="tabpanel">
+            <div class="usecase-card usecase-card--placeholder">
+              <p class="text-gray text-center">Noi dung dang cap nhat — Van hanh &amp; Bao cao</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 07. CASE STUDY ===== -->
+    <section class="casestudy-section section" id="case-study" aria-label="Case study tieu bieu">
+      <div class="container">
+        <div class="casestudy-header text-center">
+          <h2 class="section-title section-title--white">
+            Case study tieu bieu cua <span class="text-red">V-Agent</span>
+          </h2>
+        </div>
+        <div class="casestudy-card">
+          <div class="casestudy-card-title">
+            <span class="usecase-tag">AI Recruitment Operations</span>
+            <h3>Tro ly tuyen dung so — So sanh truoc &amp; sau V-Agent</h3>
+          </div>
+          <div class="casestudy-compare">
+
+            <div class="casestudy-col casestudy-col--before">
+              <div class="casestudy-col-label"><span class="badge badge--gray">BEFORE</span></div>
+              <ul class="casestudy-list">
+                <li>Nhan hang nghin CV — xu ly thu cong</li>
+                <li>Nhap lieu thu cong vao he thong</li>
+                <li>Sang loc, danh gia CV thu cong</li>
+                <li>Tong hop bao cao bang Excel</li>
+                <li>Len lich &amp; dieu phoi phong van thu cong</li>
+                <li>Mat nhieu thoi gian, thieu sot phan hoi</li>
+              </ul>
+            </div>
+
+            <div class="casestudy-arrow" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#ee0033" stroke-width="2"/><path d="M14 20h12M22 15l5 5-5 5" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="casestudy-col casestudy-col--after">
+              <div class="casestudy-col-label"><span class="badge badge--red">AFTER</span></div>
+              <ul class="casestudy-list">
+                <li>Tu dong nhan &amp; xu ly CV theo batch</li>
+                <li>Chuan hoa ho so tu dong, dong nhat</li>
+                <li>Sang loc CV bang AI theo tieu chi JD</li>
+                <li>Quan ly toan bo nhiem vu tuyen dung</li>
+                <li>Len lich phong van tu dong, dong bo lich</li>
+                <li>Bao cao &amp; phan tich ung vien theo thoi gian thuc</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 08. METRICS ===== -->
+    <section class="metrics-section" aria-label="Ket qua dat duoc">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-value">30&ndash;60%</span>
+            <span class="metric-label">Giam chi phi van hanh</span>
+          </div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div class="metric-item">
+            <span class="metric-value">40&ndash;70%</span>
+            <span class="metric-label">Rut ngan processing time</span>
+          </div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div class="metric-item">
+            <span class="metric-value">30&ndash;60%</span>
+            <span class="metric-label">Giam manual work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 09. CERTIFICATIONS ===== -->
+    <section class="cert-section section" id="chung-chi" aria-label="Chung chi va giai thuong">
+      <div class="container">
+        <div class="cert-header text-center">
+          <h2 class="section-title">
+            Chung chi va <span class="text-red">giai thuong</span>
+          </h2>
+          <p class="section-desc" style="margin:16px auto 0">
+            Duoc cong nhan boi cac to chuc uy tin trong va ngoai nuoc.
+          </p>
+        </div>
+        <div class="cert-track" role="list">
+          <div class="cert-slide img-placeholder" role="listitem">Logo 1</div>
+          <div class="cert-slide img-placeholder" role="listitem">Logo 2</div>
+          <div class="cert-slide img-placeholder" role="listitem">Logo 3</div>
+          <div class="cert-slide img-placeholder" role="listitem">Logo 4</div>
+          <div class="cert-slide img-placeholder" role="listitem">Logo 5</div>
+          <div class="cert-slide img-placeholder" role="listitem">Logo 6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. CTA + FORM ===== -->
+    <section class="cta-section" id="cta-form" aria-label="Dang ky dung thu">
+      <div class="container">
+        <div class="cta-inner">
+
+          <div class="cta-content">
+            <h2 class="cta-title">
+              Bat dau xay dung<br>
+              <span class="text-gradient">AI Workforce</span><br>
+              cho doanh nghiep cua ban
+            </h2>
+            <p class="cta-desc">
+              Loi the canh tranh khong chi la su dung AI, ma la van hanh doanh nghiep bang AI.
+            </p>
+            <a href="#" class="btn btn-outline">
+              Dung thu mien phi V-Agent ngay hom nay
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <!-- Form style-only: action rong theo quyet dinh da duyet -->
+          <form class="cta-form" id="lien-he-form" aria-label="Form dang ky">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name" class="form-label">Ho va ten *</label>
+                <input type="text" id="f-name" name="name" class="form-input" placeholder="Nguyen Van A" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="f-email" class="form-label">Email *</label>
+                <input type="email" id="f-email" name="email" class="form-input" placeholder="email@company.com" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-phone" class="form-label">So dien thoai</label>
+                <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="+84 xxx xxx xxx" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="f-company" class="form-label">Cong ty *</label>
+                <input type="text" id="f-company" name="company" class="form-input" placeholder="Ten cong ty" required autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-message" class="form-label">Nhu cau cua ban *</label>
+              <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Mo ta ngan ve quy trinh ban muon tu dong hoa..." required rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Dang ky tai day
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 11. FOOTER ===== -->
+  <footer class="site-footer" id="lien-he" aria-label="Footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="#top" class="site-logo footer-logo" aria-label="V-Agent trang chu">
+          <svg width="120" height="36" viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="6" fill="#ee0033"/>
+            <text x="8" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="14" fill="white">V</text>
+            <text x="40" y="23" font-family="Inter,sans-serif" font-weight="700" font-size="16" fill="white">V-Agent</text>
+          </svg>
+        </a>
+        <p class="footer-tagline">
+          with AI-enabled capabilities embedded<br>across the entire value chain.
+        </p>
+        <address class="footer-contact" style="font-style:normal">
+          <a href="tel:+84988889446" class="footer-contact-item">(+84) 988 889 446</a>
+          <a href="mailto:contact@viettelsoftware.com" class="footer-contact-item">contact@viettelsoftware.com</a>
+          <span class="footer-contact-item">36A P.Dich Vong Hau, Cau Giay, Ha Noi</span>
+        </address>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4 class="footer-nav-title">Giai Phap</h4>
+          <ul role="list">
+            <li><a href="#" class="footer-link">IDE</a></li>
+            <li><a href="#" class="footer-link">Runner</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-nav-title">Ho tro</h4>
+          <ul role="list">
+            <li><a href="#" class="footer-link">Guidelines</a></li>
+            <li><a href="#faqs" class="footer-link">FAQs</a></li>
+            <li><a href="#lien-he" class="footer-link">Lien he</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-nav-title">Chung toi</h4>
+          <ul role="list">
+            <li><a href="#" class="footer-link">Ve chung toi</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>Copyright 2022, Viettel Software. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
