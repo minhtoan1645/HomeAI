@@ -101,3 +101,122 @@ Dùng `<details>/<summary>` native HTML — không cần hack.
 - Form submit: style-only, action rỗng
 - Case Study tabs Pháp chế / Vận hành: placeholder
 - Carousel navigation: scroll-snap + dots (không cần ← →)
+
+---
+
+## Trạng thái hoàn thành
+
+### Phase 0 — Setup ✅
+- `reset.css`: design tokens, base styles, layout helpers, grid utilities, button/text utilities
+- `index.html`: skeleton HTML đầy đủ tất cả section (nav → footer)
+- `css/style.css`: khởi tạo, import cấu trúc
+
+### Phase 1 — Nav ✅
+HTML: `index.html`
+CSS: `style.css` lines 1–287
+
+Hoàn chỉnh:
+- Header pill với gradient `#ECEEF3 → #E9EBF0`, border-radius full, box-shadow nhẹ
+- Logo bên trái, nav links căn giữa, button "Đăng nhập" bên phải
+- Active state: pill đen + chữ trắng; hover: chữ đỏ + bg đỏ nhạt
+- Sticky header: `position: sticky; top: 0`
+- Scroll dissolve: `animation-timeline: scroll()` — nền `#ededed` tan dần thành transparent khi scroll 80px (dùng `@supports` để fallback an toàn)
+- Mobile hamburger: CSS-only checkbox hack — `input:checked ~ .site-header .nav-mobile-panel`
+- Mobile: bỏ pill, quay về full-width header trắng, ẩn desktop nav
+
+### Phase 1 — Hero ✅
+HTML: `index.html`
+CSS: `style.css` lines 289–446
+
+Hoàn chỉnh:
+- Layer 0: `images/Rectangle.png` full-width background (`object-fit: cover`)
+- Layer 1: `images/Rectangle1.png` bên trái đè lên background, dưới text (z-index 1)
+- Layer 1: `images/8.png` badge AI chip, vị trí `top: 24.5%; right: 15.5%` (z-index 3)
+- Layer 2: hero content — H1, info paragraph, CTA button
+- H1: "XÂY DỰNG ĐỘI NGŨ / AI WORKFORCE / CHO DOANH NGHIỆP"
+- "AI WORKFORCE": font-size 80px, font-weight 900, gradient đỏ `#ee0033 → #ff4d6d` qua `background-clip: text`
+- Shadow "AI WORKFORCE": `filter: drop-shadow` 3 lớp (gray gradient `#C3C3C3 → #4A4A4A`) trên wrapper `.hero-ai-border` — KHÔNG dùng `text-shadow` trực tiếp
+- CTA button: pill đỏ `#ee0033`, uppercase, SVG arrow icon
+
+---
+
+## Quyết định kỹ thuật quan trọng (Phase 1)
+
+**1. `filter: drop-shadow` thay vì `text-shadow` cho "AI WORKFORCE"**
+- `text-shadow` với `background-clip: text` bị bleed qua transparent fill → làm chữ đỏ bị nhạt thành hồng
+- `filter: drop-shadow` trên wrapper cast shadow từ alpha của chữ ra ngoài, không ảnh hưởng fill → đỏ giữ nguyên
+
+**2. Scroll dissolve dùng `animation-timeline: scroll()` + `@supports`**
+- Không dùng JS để theo dõi scroll
+- `@supports` bọc ngoài để trình duyệt cũ fallback về sticky header bình thường
+
+**3. Mobile hamburger: checkbox đặt TRƯỚC `<header>` trong DOM**
+- CSS sibling selector `~` chỉ chọn được phần tử theo sau trong DOM, không lên trên được
+- Nếu checkbox nằm trong header thì không thể toggle mobile panel bằng `~`
+
+**4. `white-space: nowrap` trên cả wrapper lẫn span "AI WORKFORCE"**
+- Text 80px dễ xuống dòng ở breakpoint trung bình → cần lock cứng 1 dòng
+
+**5. Positioning `images/8.png` bằng % thay vì px**
+- Figma cho tọa độ px trên canvas 1920px → convert sang % để responsive đúng tỉ lệ
+
+---
+
+### Phase 2 — Pain Point ✅
+HTML: `index.html` lines 152–215
+CSS: `style.css` lines 450–559
+
+Hoàn chỉnh:
+- Background tối `#0d0d0d`, heading đỏ + trắng
+- Grid 4 cột desktop / 2 cột tablet / 1 cột mobile
+- 4 pain card: icon + tiêu đề + mô tả + ảnh minh họa
+- `pain-section > .container` override `max-width: 1400px` để khớp Figma frame rộng
+
+### Phase 2 — Transformation ✅
+HTML: `index.html` lines 217–291 (viết lại hoàn toàn từ scaffold cũ)
+CSS: `style.css` lines 561–700+
+
+Hoàn chỉnh:
+- Background: `images/Asset 1@4x 1.png`, `background-size: cover`
+- Heading: Inter Bold 36px; "AI vận hành doanh nghiệp" tô đỏ qua `.text-red`
+- Subtitle: Inter Regular 16px, `color: #000000`
+- 2 bảng so sánh song song (flex row), `border-radius: 16px`, `border: 4px solid transparent`
+- Header bảng trái: `linear-gradient(90deg, #454545, #000000)`
+- Header bảng phải: `linear-gradient(90deg, #9D0611, #EF0039)`
+- Rows body: `linear-gradient(to bottom, #DFE0E4, #FFFFFF)` đặt trên `<ul>`, `<li>` dùng `background: transparent`
+- Border gradient: `linear-gradient(to top, #DFE0E4, #FFFFFF) border-box` + `padding-box` trắng
+- Robot `images/chat.png`: `position: absolute`, `width: 240px`, `bottom: -80px`, `right: -135px`, `z-index: 10`
+- Desktop: `padding-top: 50px; padding-bottom: 88px` (override `.section` 96px)
+- Mobile: 2 bảng xếp dọc, robot ẩn
+
+## Quyết định kỹ thuật quan trọng (Phase 2 — Transformation)
+
+**1. Viết lại HTML scaffold thay vì giữ BEFORE/AFTER + badge/checkmark**
+- Scaffold cũ dùng `.transform-col--before/.after` với icon ✕/✓ không khớp thiết kế Figma
+- Thiết kế thực tế là bảng header + rows → rewrite toàn bộ sang `.transform-table` pattern
+
+**2. Gradient border dùng `background-clip: padding-box / border-box`**
+- CSS `border` không nhận gradient trực tiếp
+- `border-image` với gradient không respect `border-radius` → góc vuông
+- Giải pháp: `border: 4px solid transparent` + `background: ... padding-box, gradient border-box` → giữ border-radius tròn
+
+**3. Gradient rows đặt trên `<ul>`, không đặt trên từng `<li>`**
+- Nếu đặt gradient trên mỗi `<li>`, gradient restart từng hàng → không liên tục
+- Đặt trên `<ul>` + `<li> { background: transparent }` → gradient chạy xuyên suốt toàn body bảng
+
+**4. Robot dùng `position: absolute` trong `.transform-table-wrap` (position: relative)**
+- Cần robot tràn ra ngoài bảng phải và đè lên background section
+- `z-index: 10` đảm bảo robot nổi trên cả table và background image
+
+---
+
+## Bước tiếp theo — Phase 3: V-Agent Features
+
+Section tiếp theo cần build (HTML scaffold đã có, chưa có CSS):
+
+**04. V-Agent Features** (`.features-`)
+- "Vậy V-Agent là gì?" — giới thiệu tính năng
+- Grid 2 cột: icon + tiêu đề + mô tả ngắn
+- Cần xem Figma để xác nhận: số lượng feature card, layout, màu nền (sáng hay tối), icon style
+
+Trước khi bắt đầu Phase 3: **xem lại Figma node features** để confirm số card, màu nền, kích thước icon.
