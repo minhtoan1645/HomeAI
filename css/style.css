@@ -469,7 +469,8 @@
 
 .pain-sub {
   font-size: var(--size-body);
-  line-height: var(--lh-loose);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
   color: var(--text-gray);
 }
 
@@ -495,7 +496,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 20px 20px 16px;
+  padding: 16px 16px 12px;
 }
 
 .pain-badge {
@@ -526,14 +527,14 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 0 20px 20px;
+  padding: 0 16px 16px;
 }
 
 .pain-card-img {
   display: block;
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
@@ -550,6 +551,7 @@
 }
 
 @media (min-width: 1025px) {
-  .pain-title { font-size: 40px; }
-  .pain-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .pain-header { max-width: 820px; }
+  .pain-title { font-size: 44px; }
+  .pain-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
 }
