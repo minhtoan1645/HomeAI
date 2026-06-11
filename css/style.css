@@ -685,3 +685,301 @@
     z-index: 10;
   }
 }
+
+/* ===== 04. V-Agent Features ===== */
+
+.features-section {
+  background: #ffffff;
+  padding-top: 48px;
+}
+
+.features-header {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.features-title {
+  font-size: 28px;
+  font-weight: var(--weight-bold);
+  color: var(--black);
+  line-height: var(--lh-tight);
+}
+
+.features-desc {
+  font-size: var(--size-body);
+  color: var(--black);
+  line-height: var(--lh-loose);
+  margin: 16px auto 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 4px solid transparent;
+  border-radius: 16px;
+  background:
+    linear-gradient(to bottom, #DFE0E4, #FFFFFF) padding-box,
+    linear-gradient(to bottom, #FFFFFF, #DFE0E4) border-box;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+}
+
+.feature-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.feature-body { flex: 1; }
+
+.feature-title {
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+  color: var(--black);
+  margin: 0 0 6px;
+}
+
+.feature-desc {
+  font-size: var(--size-sm);
+  color: #3f3f3f;
+  line-height: var(--lh-normal);
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .feature-icon img { width: 54px; height: 54px; }
+  .feature-title { font-size: 20px; }
+}
+
+@media (min-width: 1025px) {
+  .features-title { font-size: 36px; }
+  .feature-card { padding: 24px; gap: 24px; }
+  .feature-icon img { width: 60px; height: 60px; }
+  .feature-title { font-size: 22px; }
+}
+
+/* ===== 05. How It Works ===== */
+
+.howitworks-section {
+  background: #ffffff;
+  padding-top: 0;
+  margin-top: -10px;
+}
+
+.howitworks-title {
+  font-size: 24px;
+  font-weight: var(--weight-bold);
+  color: var(--black);
+}
+
+.howitworks-track-scroller {
+  margin-top: 24px;
+}
+
+/* Mobile-first: dọc, line bên trái */
+.howitworks-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 48px;
+}
+
+/* Line dọc — mobile — gradient #9D0611 → #EF0039 */
+.howitworks-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 19px;
+  width: 4px;
+  background: linear-gradient(to bottom, #9D0611, #EF0039);
+}
+
+/* Arrow xuống dưới — mobile */
+.howitworks-track::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 12px;
+  border-top: 14px solid #EF0039;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.howitworks-step {
+  position: relative;
+  flex: 1;
+}
+
+/* Dot đỏ viền trắng bên trái — mobile */
+.howitworks-step::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -32px;    /* left edge = 48-32 = 16px; center = 16+8 = 24px ≈ line center */
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #EF0039;
+  border: 3px solid #ffffff;
+  z-index: 1;
+}
+
+/* Connector ẩn ở mobile */
+.howitworks-step::after {
+  display: none;
+}
+
+/* === Card — 3 lớp lồng nhau === */
+
+/* Lớp 1: Đỏ gradient chéo 135° — ngoài cùng */
+.step-card-red {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #9D0611, #EF0039);
+  padding: 2px;
+}
+
+/* Lớp 2: Trắng #F6F6F6 */
+.step-card-white {
+  border-radius: 18px;
+  background: #F6F6F6;
+  padding: 2px;
+}
+
+/* Lớp 3: Xanh gradient #393D75 — nơi đặt nội dung */
+.step-card-inner {
+  border-radius: 17px;
+  background: linear-gradient(to bottom, transparent 50%, rgba(57,61,117,.2) 100%);
+  padding: 18px 12px;
+}
+
+.step-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #EF0039;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+/* --- Responsive: Tablet ≥768px — ngang, scroll nếu cần --- */
+@media (min-width: 768px) {
+  .howitworks-title { font-size: 32px; }
+
+  .howitworks-track-scroller {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .howitworks-track {
+    flex-direction: row;
+    gap: 28px;
+    padding-left: 0;
+    min-width: 640px;
+  }
+
+  /* Line ngang dày 9px — gradient #9D0611 → #EF0039
+     top: 5px → center = 5+4 ≈ 10px */
+  .howitworks-track::before {
+    top: 5px;
+    bottom: auto;
+    left: 0;
+    width: calc(100% - 14px);
+    height: 7.5px;
+    background: linear-gradient(to right, #9D0611, #EF0039);
+  }
+
+  /* Arrow phải — center = 2+8 = 10px ✓ */
+  .howitworks-track::after {
+    top: 2px;
+    bottom: auto;
+    right: 0;
+    left: auto;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 14px solid #EF0039;
+    border-right: 0;
+  }
+
+  /* Step: padding-top tạo vùng cho dot + connector, equal height */
+  .howitworks-step {
+    padding-top: 52px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Dot trên line — 16px, center = 2+8 = 10px ✓ */
+  .howitworks-step::before {
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Connector dọc: từ đáy dot (2+16=18px) xuống đầu card (52px) */
+  .howitworks-step::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 34px;       /* 18+34 = 52 = step padding-top ✓ */
+    background: var(--red);
+  }
+
+  /* 3 lớp card đều stretch để equal height */
+  .step-card-red,
+  .step-card-white,
+  .step-card-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* --- Desktop ≥1025px --- */
+@media (min-width: 1025px) {
+  .howitworks-title { font-size: 36px; }
+  .howitworks-track-scroller { overflow-x: visible; }
+  .howitworks-track {
+    min-width: unset;
+    justify-content: space-between;
+    gap: 0;
+  }
+  /* Card hẹp + cao: fixed width, giữ equal height */
+  .howitworks-step { flex: none; width: 195px; }
+}
