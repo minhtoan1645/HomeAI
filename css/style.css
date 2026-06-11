@@ -551,6 +551,8 @@
 }
 
 @media (min-width: 1025px) {
+  /* Nới container riêng cho section này — Figma frame ~1600px */
+  .pain-section > .container { max-width: 1600px; }
   .pain-header { max-width: 820px; }
   .pain-title { font-size: 44px; }
   .pain-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
