@@ -397,145 +397,299 @@
     </section>
 
     <!-- ===== 06. USE CASES ===== -->
-    <!-- CSS-only tabs: radio buttons — phai nam ngoai section de sibling selector hoat dong -->
-    <input type="radio" name="usecase-tabs" id="tab-tuyen-dung" class="tab-input" checked hidden>
-    <input type="radio" name="usecase-tabs" id="tab-phap-che" class="tab-input" hidden>
-    <input type="radio" name="usecase-tabs" id="tab-van-hanh" class="tab-input" hidden>
+    <section class="usecase-section section" id="ung-dung" aria-label="Ứng dụng thực tế">
+      <button type="button" class="usecase-nav usecase-nav--prev" tabindex="-1" aria-hidden="true">&#8249;</button>
+      <button type="button" class="usecase-nav usecase-nav--next" tabindex="-1" aria-hidden="true">&#8250;</button>
 
-    <section class="usecase-section section" id="ung-dung" aria-label="Ung dung thuc te">
       <div class="container">
-        <div class="usecase-header text-center">
-          <h2 class="section-title">
-            Ung dung thuc te trong <span class="text-red">doanh nghiep</span>
-          </h2>
+        <h2 class="usecase-title">Ứng dụng thực tế trong doanh nghiệp</h2>
+
+        <div class="usecase-track">
+          <div class="usecase-card">
+            <div class="usecase-card-icon">
+              <img src="images/g537.png" alt="Tuyển dụng">
+            </div>
+            <h3 class="usecase-card-title">Tuyển dụng</h3>
+            <ul class="usecase-card-desc">
+              <li>Sàng lọc CV</li>
+              <li>Lên lịch phỏng vấn</li>
+            </ul>
+          </div>
+
+          <div class="usecase-card">
+            <div class="usecase-card-icon">
+              <img src="images/Vector.png" alt="Pháp chế (Legal)">
+            </div>
+            <h3 class="usecase-card-title">Pháp chế (Legal)</h3>
+            <ul class="usecase-card-desc">
+              <li>Rà sát hợp đồng</li>
+              <li>Cảnh báo rủi ro</li>
+            </ul>
+          </div>
+
+          <div class="usecase-card">
+            <div class="usecase-card-icon">
+              <img src="images/4.png" alt="Vận hành &amp; Báo cáo">
+            </div>
+            <h3 class="usecase-card-title">Vận hành &amp; Báo cáo</h3>
+            <ul class="usecase-card-desc">
+              <li>Tổng hợp dữ liệu</li>
+              <li>Tự động báo cáo</li>
+            </ul>
+          </div>
         </div>
-        <div class="tab-bar" role="tablist">
-          <label for="tab-tuyen-dung" class="tab-label" role="tab">Tuyen dung</label>
-          <label for="tab-phap-che" class="tab-label" role="tab">Phap che (Legal)</label>
-          <label for="tab-van-hanh" class="tab-label" role="tab">Van hanh &amp; Bao cao</label>
-        </div>
-        <div class="tab-panels">
 
-          <div class="tab-panel panel-tuyen-dung" role="tabpanel">
-            <div class="usecase-card">
-              <div class="usecase-card-header">
-                <span class="usecase-tag">AI Recruitment Operations</span>
-                <h3 class="usecase-card-title">Tro ly tuyen dung so</h3>
-              </div>
-              <div class="usecase-steps">
-                <div class="usecase-step"><span class="usecase-step-num">1</span><span>Nhan &amp; xu ly hang nghin CV</span></div>
-                <div class="usecase-step"><span class="usecase-step-num">2</span><span>Chuan hoa ho so tu dong</span></div>
-                <div class="usecase-step"><span class="usecase-step-num">3</span><span>Sang loc &amp; danh gia CV</span></div>
-                <div class="usecase-step"><span class="usecase-step-num">4</span><span>Len lich phong van</span></div>
-                <div class="usecase-step"><span class="usecase-step-num">5</span><span>Bao cao &amp; phan tich ung vien</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel panel-phap-che" role="tabpanel">
-            <div class="usecase-card usecase-card--placeholder">
-              <p class="text-gray text-center">Noi dung dang cap nhat — Phap che (Legal)</p>
-            </div>
-          </div>
-
-          <div class="tab-panel panel-van-hanh" role="tabpanel">
-            <div class="usecase-card usecase-card--placeholder">
-              <p class="text-gray text-center">Noi dung dang cap nhat — Van hanh &amp; Bao cao</p>
-            </div>
-          </div>
-
+        <div class="usecase-dots" aria-hidden="true">
+          <span class="usecase-dot usecase-dot--active"></span>
+          <span class="usecase-dot"></span>
+          <span class="usecase-dot"></span>
+          <span class="usecase-dot"></span>
         </div>
       </div>
     </section>
 
+    <!-- CSS-only carousel: 4 radio inputs ngay trước section (sibling selector ~) -->
+    <input type="radio" name="cs-slide" id="cs-1" hidden checked>
+    <input type="radio" name="cs-slide" id="cs-2" hidden>
+    <input type="radio" name="cs-slide" id="cs-3" hidden>
+    <input type="radio" name="cs-slide" id="cs-4" hidden>
+
     <!-- ===== 07. CASE STUDY ===== -->
-    <section class="casestudy-section section" id="case-study" aria-label="Case study tieu bieu">
+    <section class="casestudy-section section" id="case-study" aria-label="Case study tiêu biểu của V-Agent">
+
+      <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
+      <label for="cs-4" class="usecase-nav usecase-nav--prev casestudy-p1">&#8249;</label>
+      <label for="cs-1" class="usecase-nav usecase-nav--prev casestudy-p2">&#8249;</label>
+      <label for="cs-2" class="usecase-nav usecase-nav--prev casestudy-p3">&#8249;</label>
+      <label for="cs-3" class="usecase-nav usecase-nav--prev casestudy-p4">&#8249;</label>
+
+      <!-- Nút next: 4 label -->
+      <label for="cs-2" class="usecase-nav usecase-nav--next casestudy-n1">&#8250;</label>
+      <label for="cs-3" class="usecase-nav usecase-nav--next casestudy-n2">&#8250;</label>
+      <label for="cs-4" class="usecase-nav usecase-nav--next casestudy-n3">&#8250;</label>
+      <label for="cs-1" class="usecase-nav usecase-nav--next casestudy-n4">&#8250;</label>
+
       <div class="container">
         <div class="casestudy-header text-center">
-          <h2 class="section-title section-title--white">
-            Case study tieu bieu cua <span class="text-red">V-Agent</span>
-          </h2>
+          <h2 class="section-title">Case study tiêu biểu của <span class="text-red">V-Agent</span></h2>
         </div>
-        <div class="casestudy-card">
-          <div class="casestudy-card-title">
-            <span class="usecase-tag">AI Recruitment Operations</span>
-            <h3>Tro ly tuyen dung so — So sanh truoc &amp; sau V-Agent</h3>
-          </div>
-          <div class="casestudy-compare">
 
-            <div class="casestudy-col casestudy-col--before">
-              <div class="casestudy-col-label"><span class="badge badge--gray">BEFORE</span></div>
-              <ul class="casestudy-list">
-                <li>Nhan hang nghin CV — xu ly thu cong</li>
-                <li>Nhap lieu thu cong vao he thong</li>
-                <li>Sang loc, danh gia CV thu cong</li>
-                <li>Tong hop bao cao bang Excel</li>
-                <li>Len lich &amp; dieu phoi phong van thu cong</li>
-                <li>Mat nhieu thoi gian, thieu sot phan hoi</li>
-              </ul>
+        <div class="casestudy-viewport">
+          <div class="casestudy-track">
+
+            <!-- Slide 1: Tuyển dụng -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Recruitment Operations: Trợ lý tuyển dụng số</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">BEFORE</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Nhận hàng nghìn CV</li>
+                      <li class="transform-table-row">Nhập liệu thủ công</li>
+                      <li class="transform-table-row">Tổng hợp báo cáo bằng Excel</li>
+                      <li class="transform-table-row">Mất nhiều thời gian, thiếu sót phản hồi</li>
+                      <li class="transform-table-row">Sàng lọc, đánh giá CV thủ công</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">AFTER</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Xử lý CV</li>
+                      <li class="transform-table-row">Chuẩn hóa hồ sơ</li>
+                      <li class="transform-table-row">Lên lịch và điều phối phỏng vấn</li>
+                      <li class="transform-table-row">Quản lý nhiệm vụ tuyển dụng</li>
+                      <li class="transform-table-row">Báo cáo và phân tích ứng viên</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="AI Agent">
+              </div>
             </div>
 
-            <div class="casestudy-arrow" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#ee0033" stroke-width="2"/><path d="M14 20h12M22 15l5 5-5 5" stroke="#ee0033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <!-- Slide 2: Pháp chế -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Legal Operations: Trợ lý pháp chế số</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">BEFORE</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Rà soát hợp đồng thủ công</li>
+                      <li class="transform-table-row">Tra cứu điều khoản mất thời gian</li>
+                      <li class="transform-table-row">Rủi ro bỏ sót điều khoản quan trọng</li>
+                      <li class="transform-table-row">Phê duyệt chậm, ách tắc quy trình</li>
+                      <li class="transform-table-row">Lưu trữ tài liệu phân tán, khó tra cứu</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">AFTER</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Tự động rà soát điều khoản</li>
+                      <li class="transform-table-row">Cảnh báo rủi ro pháp lý tức thì</li>
+                      <li class="transform-table-row">Đề xuất chỉnh sửa hợp đồng</li>
+                      <li class="transform-table-row">Tăng tốc phê duyệt tự động</li>
+                      <li class="transform-table-row">Lưu trữ &amp; tra cứu thông minh</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="AI Agent">
+              </div>
             </div>
 
-            <div class="casestudy-col casestudy-col--after">
-              <div class="casestudy-col-label"><span class="badge badge--red">AFTER</span></div>
-              <ul class="casestudy-list">
-                <li>Tu dong nhan &amp; xu ly CV theo batch</li>
-                <li>Chuan hoa ho so tu dong, dong nhat</li>
-                <li>Sang loc CV bang AI theo tieu chi JD</li>
-                <li>Quan ly toan bo nhiem vu tuyen dung</li>
-                <li>Len lich phong van tu dong, dong bo lich</li>
-                <li>Bao cao &amp; phan tich ung vien theo thoi gian thuc</li>
-              </ul>
+            <!-- Slide 3: Vận hành -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Operations: Trợ lý vận hành doanh nghiệp</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">BEFORE</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Tổng hợp dữ liệu vận hành thủ công</li>
+                      <li class="transform-table-row">Báo cáo định kỳ mất nhiều ngày</li>
+                      <li class="transform-table-row">Thông tin phân tán, thiếu đồng bộ</li>
+                      <li class="transform-table-row">Quyết định chậm do thiếu insight</li>
+                      <li class="transform-table-row">Xử lý ngoại lệ thủ công, dễ sai sót</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">AFTER</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Thu thập &amp; xử lý dữ liệu tự động</li>
+                      <li class="transform-table-row">Báo cáo real-time tức thì</li>
+                      <li class="transform-table-row">Dashboard tập trung, đồng bộ</li>
+                      <li class="transform-table-row">AI phân tích xu hướng &amp; cảnh báo</li>
+                      <li class="transform-table-row">Tự động hóa xử lý ngoại lệ</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="AI Agent">
+              </div>
             </div>
 
-          </div>
+            <!-- Slide 4: Customer Service -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Customer Service: Trợ lý chăm sóc khách hàng</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">BEFORE</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Phản hồi khách hàng chậm, không đồng đều</li>
+                      <li class="transform-table-row">Xử lý yêu cầu lặp lại tốn nhân lực</li>
+                      <li class="transform-table-row">Thiếu đồng nhất trong tư vấn</li>
+                      <li class="transform-table-row">Không theo dõi được lịch sử tương tác</li>
+                      <li class="transform-table-row">Khó mở rộng quy mô dịch vụ</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">AFTER</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Phản hồi tức thì 24/7</li>
+                      <li class="transform-table-row">Tự động hóa yêu cầu thường gặp</li>
+                      <li class="transform-table-row">Tư vấn nhất quán, chuẩn hóa</li>
+                      <li class="transform-table-row">Lưu trữ &amp; phân tích lịch sử đầy đủ</li>
+                      <li class="transform-table-row">Dễ dàng mở rộng không giới hạn</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="AI Agent">
+              </div>
+            </div>
+
+          </div><!-- /casestudy-track -->
+        </div><!-- /casestudy-viewport -->
+
+        <div class="casestudy-dots">
+          <label for="cs-1" class="casestudy-dot"></label>
+          <label for="cs-2" class="casestudy-dot"></label>
+          <label for="cs-3" class="casestudy-dot"></label>
+          <label for="cs-4" class="casestudy-dot"></label>
         </div>
-      </div>
+
+      </div><!-- /container -->
     </section>
 
     <!-- ===== 08. METRICS ===== -->
-    <section class="metrics-section" aria-label="Ket qua dat duoc">
+    <section class="metrics-section">
       <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-item">
-            <span class="metric-value">30&ndash;60%</span>
-            <span class="metric-label">Giam chi phi van hanh</span>
+        <div class="metrics-banner">
+          <div class="metrics-grid">
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/9.png" alt="">
+              <span class="metrics-value">30&ndash;60%</span>
+              <span class="metrics-label">Giảm manual work</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/10.png" alt="">
+              <span class="metrics-value">40&ndash;70%</span>
+              <span class="metrics-label">Rút ngắn processing time</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/11.png" alt="">
+              <span class="metrics-value">30&ndash;60%</span>
+              <span class="metrics-label">Giảm chi phí vận hành</span>
+            </div>
           </div>
-          <div class="metric-divider" aria-hidden="true"></div>
-          <div class="metric-item">
-            <span class="metric-value">40&ndash;70%</span>
-            <span class="metric-label">Rut ngan processing time</span>
-          </div>
-          <div class="metric-divider" aria-hidden="true"></div>
-          <div class="metric-item">
-            <span class="metric-value">30&ndash;60%</span>
-            <span class="metric-label">Giam manual work</span>
-          </div>
-        </div>
+        </div><!-- /metrics-banner -->
       </div>
     </section>
 
+    <!-- Radio inputs cert carousel — sibling trước section -->
+    <input type="radio" name="cert" id="cert-1" hidden>
+    <input type="radio" name="cert" id="cert-2" hidden>
+    <input type="radio" name="cert" id="cert-3" checked hidden>
+    <input type="radio" name="cert" id="cert-4" hidden>
+    <input type="radio" name="cert" id="cert-5" hidden>
+
     <!-- ===== 09. CERTIFICATIONS ===== -->
-    <section class="cert-section section" id="chung-chi" aria-label="Chung chi va giai thuong">
+    <section class="cert-section section" id="chung-chi" aria-label="Chứng chỉ và giải thưởng">
       <div class="container">
         <div class="cert-header text-center">
-          <h2 class="section-title">
-            Chung chi va <span class="text-red">giai thuong</span>
-          </h2>
-          <p class="section-desc" style="margin:16px auto 0">
-            Duoc cong nhan boi cac to chuc uy tin trong va ngoai nuoc.
-          </p>
+          <h2 class="section-title">Chứng chỉ và <span class="text-red">giải thưởng</span></h2>
         </div>
-        <div class="cert-track" role="list">
-          <div class="cert-slide img-placeholder" role="listitem">Logo 1</div>
-          <div class="cert-slide img-placeholder" role="listitem">Logo 2</div>
-          <div class="cert-slide img-placeholder" role="listitem">Logo 3</div>
-          <div class="cert-slide img-placeholder" role="listitem">Logo 4</div>
-          <div class="cert-slide img-placeholder" role="listitem">Logo 5</div>
-          <div class="cert-slide img-placeholder" role="listitem">Logo 6</div>
+        <div class="cert-coverflow-wrap">
+          <div class="cert-stage">
+            <div class="cert-slide"><img src="images/19.png" alt=""><div class="cert-caption"><p class="cert-name">Sản phẩm công nghệ số xuất sắc 2025</p><p class="cert-org">Bộ Khoa học và Công nghệ</p></div></div>
+            <div class="cert-slide"><img src="images/19.png" alt=""><div class="cert-caption"><p class="cert-name">Sản phẩm công nghệ số xuất sắc 2025</p><p class="cert-org">Bộ Khoa học và Công nghệ</p></div></div>
+            <div class="cert-slide"><img src="images/19.png" alt=""><div class="cert-caption"><p class="cert-name">Sản phẩm công nghệ số xuất sắc 2025</p><p class="cert-org">Bộ Khoa học và Công nghệ</p></div></div>
+            <div class="cert-slide"><img src="images/19.png" alt=""><div class="cert-caption"><p class="cert-name">Sản phẩm công nghệ số xuất sắc 2025</p><p class="cert-org">Bộ Khoa học và Công nghệ</p></div></div>
+            <div class="cert-slide"><img src="images/19.png" alt=""><div class="cert-caption"><p class="cert-name">Sản phẩm công nghệ số xuất sắc 2025</p><p class="cert-org">Bộ Khoa học và Công nghệ</p></div></div>
+          </div>
+          <div class="cert-nav-wrap">
+            <label for="cert-1" class="cert-nav cert-p1">&#8249;</label>
+            <label for="cert-1" class="cert-nav cert-p2">&#8249;</label>
+            <label for="cert-2" class="cert-nav cert-p3">&#8249;</label>
+            <label for="cert-3" class="cert-nav cert-p4">&#8249;</label>
+            <label for="cert-4" class="cert-nav cert-p5">&#8249;</label>
+            <label for="cert-2" class="cert-nav cert-n1">&#8250;</label>
+            <label for="cert-3" class="cert-nav cert-n2">&#8250;</label>
+            <label for="cert-4" class="cert-nav cert-n3">&#8250;</label>
+            <label for="cert-5" class="cert-nav cert-n4">&#8250;</label>
+            <label for="cert-5" class="cert-nav cert-n5">&#8250;</label>
+          </div>
         </div>
       </div>
     </section>

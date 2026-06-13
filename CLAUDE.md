@@ -210,13 +210,73 @@ Hoàn chỉnh:
 
 ---
 
-## Bước tiếp theo — Phase 3: V-Agent Features
+### Phase 3 — V-Agent Features ✅
+HTML: `index.html` lines 261–317
+CSS: `style.css` block `/* ===== 04. V-Agent Features ===== */`
 
-Section tiếp theo cần build (HTML scaffold đã có, chưa có CSS):
+Hoàn chỉnh:
+- Background trắng `#ffffff`, section `padding-top: 48px` (override `.section` 96px)
+- Heading: "Vậy V-Agent là gì ?" — "V-Agent là gì ?" tô đỏ qua `.text-red`
+- Subtitle: max-width 900px, căn giữa
+- Grid 2 cột desktop/tablet / 1 cột mobile, `gap: 20px`
+- 4 feature card: flex row, icon `<img>` bên trái + body text bên phải
+- Icon files: `images/1.png`, `2.png`, `3.png`, `21.png` — width 60px desktop
+- Card: `border: 4px solid transparent`, `border-radius: 16px`, gradient border kỹ thuật `padding-box / border-box`
+- Card nền: `linear-gradient(to bottom, #DFE0E4, #FFFFFF) padding-box`
+- Card border: `linear-gradient(to bottom, #FFFFFF, #DFE0E4) border-box`
+- Equal height cards: `.howitworks-step` column flex + `.step-card flex: 1`
 
-**04. V-Agent Features** (`.features-`)
-- "Vậy V-Agent là gì?" — giới thiệu tính năng
-- Grid 2 cột: icon + tiêu đề + mô tả ngắn
-- Cần xem Figma để xác nhận: số lượng feature card, layout, màu nền (sáng hay tối), icon style
+### Phase 3 — How It Works ✅
+HTML: `index.html` lines 319–373
+CSS: `style.css` block `/* ===== 05. How It Works ===== */`
 
-Trước khi bắt đầu Phase 3: **xem lại Figma node features** để confirm số card, màu nền, kích thước icon.
+Hoàn chỉnh:
+- Background trắng, `padding-top: 0; margin-top: -10px`
+- Heading: "Cách V-Agent vận hành" — "V-Agent vận hành" tô đỏ
+- Timeline ngang 6 bước: đường kẻ gradient + arrow + 6 dot + 6 connector + 6 card
+- Đường kẻ: `height: 7.5px`, `linear-gradient(to right, #9D0611, #EF0039)`
+- Arrow head: border-trick CSS (`border-left: 14px solid #EF0039`)
+- Dot: `16px × 16px`, `border: 3px solid #ffffff`, `background: #EF0039`
+- Connector: `width: 2px; height: 34px`, màu đỏ, nối từ đáy dot xuống đầu card
+- 6 card — cấu trúc 3 lớp lồng nhau:
+  - `.step-card-red`: `linear-gradient(135deg, #9D0611, #EF0039)`, `border-radius: 20px`, `padding: 2px`
+  - `.step-card-white`: `#F6F6F6`, `border-radius: 18px`, `padding: 2px`
+  - `.step-card-inner`: gradient `transparent 50% → rgba(57,61,117,.2) 100%`, `padding: 18px 12px`
+- Badge: `44px`, đỏ `#EF0039`, chữ trắng bold
+- Text card: 20px bold `#000000`
+- Desktop: `width: 195px` fixed per step, `justify-content: space-between`
+- Responsive: mobile → dọc (line trái); tablet → scroll ngang; desktop → 6 cột ngang
+
+## Quyết định kỹ thuật quan trọng (Phase 3 — How It Works)
+
+**1. Card 3 lớp lồng nhau thay vì padding-box/border-box**
+- Yêu cầu thiết kế: viền đỏ gradient chéo + nền trắng + nền xanh overlay
+- `padding-box/border-box` không hỗ trợ gradient chéo trên border độc lập với nền
+- Giải pháp: 3 div lồng nhau — `.step-card-red` (viền gradient 135°) → `.step-card-white` (#F6F6F6) → `.step-card-inner` (nền xanh)
+
+**2. Dot + connector dùng `::before` / `::after` trên `.howitworks-step`**
+- Tránh thêm phần tử HTML cho mỗi step
+- `padding-top: 52px` trên step tạo vùng trắng phía trên card để dot + connector hiển thị bên ngoài card
+- Tọa độ tính theo: line center = 10px từ track top → dot `top: 2px` (center = 10px) → connector `top: 18px, height: 34px` (kết thúc đúng tại padding-top = 52px)
+
+**3. Equal height cards dùng flex column chain**
+- `.howitworks-step`: `display: flex; flex-direction: column` → `.step-card-red/.white/.inner`: đều `flex: 1; display: flex; flex-direction: column`
+- Tất cả card trong hàng bằng nhau theo chiều dọc nhờ `align-items: stretch` mặc định của flex
+
+**4. Desktop: `flex: none; width: 195px` + `justify-content: space-between`**
+- `flex: 1` chia đều làm card quá rộng ở 1280px
+- Fixed width + space-between cho khoảng cách đều, card đúng kích thước thiết kế
+
+---
+
+## Bước tiếp theo — Phase 4: Use Cases
+
+Section tiếp theo cần build (HTML scaffold đã có):
+
+**06. Use Cases** (`.usecase-`)
+- "Ứng dụng thực tế trong doanh nghiệp" — tabs CSS-only (radio button hack)
+- 3 tab: Tuyển dụng / Pháp chế / Vận hành
+- Mỗi tab: icon lớn + tiêu đề + mô tả ngắn
+- Radio inputs đã đặt ngoài section (đúng vị trí cho sibling selector `~`)
+
+Trước khi bắt đầu Phase 4: **xem lại Figma node use cases** để confirm layout từng tab, màu nền, icon style.
