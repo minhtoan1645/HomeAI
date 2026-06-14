@@ -695,56 +695,54 @@
     </section>
 
     <!-- ===== 10. CTA + FORM ===== -->
-    <section class="cta-section" id="cta-form" aria-label="Dang ky dung thu">
+    <section class="cta-section" id="cta-form" aria-label="Đăng ký dùng thử">
       <div class="container">
         <div class="cta-inner">
 
           <div class="cta-content">
             <h2 class="cta-title">
-              Bat dau xay dung<br>
-              <span class="text-gradient">AI Workforce</span><br>
-              cho doanh nghiep cua ban
+              Bắt đầu xây dựng<br>
+              <span class="cta-ai">AI Workforce</span>
+              cho doanh nghiệp của bạn
             </h2>
-            <p class="cta-desc">
-              Loi the canh tranh khong chi la su dung AI, ma la van hanh doanh nghiep bang AI.
-            </p>
-            <a href="#" class="btn btn-outline">
-              Dung thu mien phi V-Agent ngay hom nay
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <p class="cta-desc">Lợi thế cạnh tranh không chỉ là sử dụng AI, mà là vận hành doanh nghiệp bằng AI.</p>
+            <img class="cta-robot" src="images/7.png" alt="AI Robot V-Agent" loading="lazy">
           </div>
 
-          <!-- Form style-only: action rong theo quyet dinh da duyet -->
-          <form class="cta-form" id="lien-he-form" aria-label="Form dang ky">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-name" class="form-label">Ho va ten *</label>
-                <input type="text" id="f-name" name="name" class="form-input" placeholder="Nguyen Van A" required autocomplete="name">
+          <div class="cta-form-card">
+            <p class="cta-form-title">DÙNG THỬ MIỄN PHÍ<br>V-AGENT NGAY HÔM NAY</p>
+            <!-- Form tĩnh: action="" theo quyết định đã duyệt -->
+            <form class="cta-form" id="lien-he-form" action="" aria-label="Đăng ký dùng thử V-Agent">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name" class="form-label">Họ và tên *</label>
+                  <input type="text" id="f-name" name="name" class="form-input" placeholder="Name*" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="f-email" class="form-label">Email *</label>
+                  <input type="email" id="f-email" name="email" class="form-input" placeholder="Email*" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-phone" class="form-label">Điện thoại</label>
+                  <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="Phone (Optional)*" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="f-company" class="form-label">Công ty *</label>
+                  <input type="text" id="f-company" name="company" class="form-input" placeholder="Company*" required autocomplete="organization">
+                </div>
               </div>
               <div class="form-group">
-                <label for="f-email" class="form-label">Email *</label>
-                <input type="email" id="f-email" name="email" class="form-input" placeholder="email@company.com" required autocomplete="email">
+                <label for="f-message" class="form-label">Tin nhắn *</label>
+                <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Message*" required rows="4"></textarea>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-phone" class="form-label">So dien thoai</label>
-                <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="+84 xxx xxx xxx" autocomplete="tel">
-              </div>
-              <div class="form-group">
-                <label for="f-company" class="form-label">Cong ty *</label>
-                <input type="text" id="f-company" name="company" class="form-input" placeholder="Ten cong ty" required autocomplete="organization">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="f-message" class="form-label">Nhu cau cua ban *</label>
-              <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Mo ta ngan ve quy trinh ban muon tu dong hoa..." required rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Dang ky tai day
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
+              <button type="submit" class="btn btn-primary form-submit">
+                ĐĂNG KÝ TẠI ĐÂY
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
 
         </div>
       </div>
@@ -757,43 +755,50 @@
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        <a href="#top" class="site-logo footer-logo" aria-label="V-Agent trang chu">
-          <svg width="120" height="36" viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="32" height="32" rx="6" fill="#ee0033"/>
-            <text x="8" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="14" fill="white">V</text>
-            <text x="40" y="23" font-family="Inter,sans-serif" font-weight="700" font-size="16" fill="white">V-Agent</text>
-          </svg>
+        <a href="#top" class="footer-logo" aria-label="Viettel Software — trang chủ">
+          <img src="images/24.png" alt="Viettel Software" class="footer-logo-img">
         </a>
         <p class="footer-tagline">
-          with AI-enabled capabilities embedded<br>across the entire value chain.
+          Viettel Software is a global IT outsourcing company, delivering end-to-end technology services
+          with AI-enabled capabilities embedded across the entire value chain.
         </p>
         <address class="footer-contact" style="font-style:normal">
-          <a href="tel:+84988889446" class="footer-contact-item">(+84) 988 889 446</a>
-          <a href="mailto:contact@viettelsoftware.com" class="footer-contact-item">contact@viettelsoftware.com</a>
-          <span class="footer-contact-item">36A P.Dich Vong Hau, Cau Giay, Ha Noi</span>
+          <span class="footer-contact-item">
+            <img src="images/16.png" alt="" class="footer-icon" aria-hidden="true">
+            36A P.Dịch Vọng Hậu, Cầu Giấy, Hà nội
+          </span>
+          <a href="tel:+84988889446" class="footer-contact-item">
+            <img src="images/17.png" alt="" class="footer-icon" aria-hidden="true">
+            (+84) 988 889 446
+          </a>
+          <a href="mailto:contact@viettelsoftware.com" class="footer-contact-item">
+            <img src="images/18.png" alt="" class="footer-icon" aria-hidden="true">
+            contact@viettelsoftware.com
+          </a>
         </address>
       </div>
 
       <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-nav-col">
-          <h4 class="footer-nav-title">Giai Phap</h4>
+          <h4 class="footer-nav-title">Giải Pháp</h4>
           <ul role="list">
             <li><a href="#" class="footer-link">IDE</a></li>
             <li><a href="#" class="footer-link">Runner</a></li>
+            <li><a href="#" class="footer-link">AT</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
-          <h4 class="footer-nav-title">Ho tro</h4>
+          <h4 class="footer-nav-title">Hỗ trợ</h4>
           <ul role="list">
             <li><a href="#" class="footer-link">Guidelines</a></li>
             <li><a href="#faqs" class="footer-link">FAQs</a></li>
-            <li><a href="#lien-he" class="footer-link">Lien he</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
-          <h4 class="footer-nav-title">Chung toi</h4>
+          <h4 class="footer-nav-title">Chúng tôi</h4>
           <ul role="list">
-            <li><a href="#" class="footer-link">Ve chung toi</a></li>
+            <li><a href="#" class="footer-link">Về chúng tôi</a></li>
+            <li><a href="#lien-he" class="footer-link">Liên hệ</a></li>
           </ul>
         </div>
       </nav>
