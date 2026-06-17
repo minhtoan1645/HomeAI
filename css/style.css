@@ -789,199 +789,208 @@
   color: var(--black);
 }
 
-.howitworks-track-scroller {
-  margin-top: 24px;
+/* --- Mobile-first: stack dọc, ẩn line uốn lượn --- */
+.hiw-scroller {
+  margin-top: 28px;
 }
 
-/* Mobile-first: dọc, line bên trái */
-.howitworks-track {
+.hiw {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-left: 48px;
+  gap: 22px;
 }
 
-/* Line dọc — mobile — gradient #9D0611 → #EF0039 */
-.howitworks-track::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 19px;
-  width: 4px;
-  background: linear-gradient(to bottom, #9D0611, #EF0039);
-}
-
-/* Arrow xuống dưới — mobile */
-.howitworks-track::after {
-  content: '';
-  position: absolute;
-  bottom: -14px;
-  left: 12px;
-  border-top: 14px solid #EF0039;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-}
-
-.howitworks-step {
-  position: relative;
-  flex: 1;
-}
-
-/* Dot đỏ viền trắng bên trái — mobile */
-.howitworks-step::before {
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: -32px;    /* left edge = 48-32 = 16px; center = 16+8 = 24px ≈ line center */
-  width: 16px;
-  height: 16px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  background: #EF0039;
-  border: 3px solid #ffffff;
-  z-index: 1;
-}
-
-/* Connector ẩn ở mobile */
-.howitworks-step::after {
+.hiw-line,
+.hiw-tri {
   display: none;
 }
 
-/* === Card — 3 lớp lồng nhau === */
-
-/* Lớp 1: Đỏ gradient chéo 135° — ngoài cùng */
-.step-card-red {
-  border-radius: 20px;
-  background: linear-gradient(135deg, #9D0611, #EF0039);
-  padding: 2px;
+.hiw-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Lớp 2: Trắng #F6F6F6 */
-.step-card-white {
-  border-radius: 18px;
-  background: #F6F6F6;
-  padding: 2px;
-}
+/* Chuẩn hoá thứ tự trên mobile: vòng tròn → icon → nhãn */
+.hiw-circle { order: 0; }
+.hiw-icon   { order: 1; }
+.hiw-label  { order: 2; }
+.hiw-stem,
+.hiw-dot    { display: none; }
 
-/* Lớp 3: Xanh gradient #393D75 — nơi đặt nội dung */
-.step-card-inner {
-  border-radius: 17px;
-  background: linear-gradient(to bottom, transparent 50%, rgba(57,61,117,.2) 100%);
-  padding: 18px 12px;
-}
-
-.step-badge {
+/* Vòng tròn 4 lớp: 1 đỏ dày → 2 trắng mỏng → 3 đỏ dày → 4 trắng đục + số */
+.hiw-circle {                 /* lớp 1: đỏ (dày) */
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--c);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #EF0039;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: var(--weight-bold);
-  margin-bottom: 12px;
-  flex-shrink: 0;
 }
 
-.step-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #000000;
+.hiw-ring {                   /* lớp 2: trắng (mỏng) */
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiw-disc {                   /* lớp 3: viền đỏ (dày) — lớp 4: nền trắng đục + số */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid var(--c);
+  background: linear-gradient(160deg, #ffffff 0%, #efece6 100%);
+  color: var(--c);
+  font-size: 19px;
+  font-weight: var(--weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiw-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: auto;
+}
+
+.hiw-label {
+  flex: 1;
+  min-width: 0;
+  font-size: 17px;
+  font-weight: var(--weight-bold);
+  color: #111111;
   line-height: var(--lh-tight);
   margin: 0;
 }
 
-/* --- Responsive: Tablet ≥768px — ngang, scroll nếu cần --- */
+/* --- Desktop / Tablet ≥768px: bố cục zigzag với line uốn lượn --- */
 @media (min-width: 768px) {
   .howitworks-title { font-size: 32px; }
 
-  .howitworks-track-scroller {
+  /* Line tràn full chiều ngang màn hình (full-bleed) */
+  .hiw-scroller {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 40px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  .howitworks-track {
-    flex-direction: row;
-    gap: 28px;
-    padding-left: 0;
-    min-width: 640px;
+  /* Canvas: line chạy trong luồng, padding = bán kính vòng tròn để
+     vòng tròn tràn lên/xuống đúng vào 2 mép line. Vòng tròn cố định
+     kích thước, line co giãn full chiều ngang → line nối liền 2 mép. */
+  .hiw {
+    position: relative;
+    width: 100%;
+    min-width: 1100px;
+    margin: 0 auto;
+    display: block;
+    gap: 0;
+    padding: 92px 0;
   }
 
-  /* Line ngang dày 9px — gradient #9D0611 → #EF0039
-     top: 5px → center = 5+4 ≈ 10px */
-  .howitworks-track::before {
-    top: 5px;
-    bottom: auto;
-    left: 0;
-    width: calc(100% - 14px);
-    height: 7.5px;
-    background: linear-gradient(to right, #9D0611, #EF0039);
+  /* Line uốn lượn: 31.png (trái 57.045%) + 32.png (phải 42.955%) ghép liền */
+  .hiw-line {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1895 / 459;
+    background:
+      url('../images/31.png') left top / 57.045% 100% no-repeat,
+      url('../images/32.png') right top / 42.955% 100% no-repeat;
   }
 
-  /* Arrow phải — center = 2+8 = 10px ✓ */
-  .howitworks-track::after {
-    top: 2px;
-    bottom: auto;
-    right: 0;
-    left: auto;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 14px solid #EF0039;
-    border-right: 0;
-  }
-
-  /* Step: padding-top tạo vùng cho dot + connector, equal height */
-  .howitworks-step {
-    padding-top: 52px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Dot trên line — 16px, center = 2+8 = 10px ✓ */
-  .howitworks-step::before {
-    top: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Connector dọc: từ đáy dot (2+16=18px) xuống đầu card (52px) */
-  .howitworks-step::after {
-    content: '';
+  /* Tam giác đầu / cuối — căn giữa đúng đoạn line ngang (228.5/459 = 49.78%) */
+  .hiw-tri {
     display: block;
     position: absolute;
-    top: 18px;
-    left: 50%;
+    top: 49.78%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: auto;
+    z-index: 1;
+  }
+  .hiw-tri--start { left: 55px; }
+  .hiw-tri--end   { right: 55px; }
+
+  /* Mỗi bước: đặt tuyệt đối theo --x, dựng dọc */
+  .hiw-step {
+    position: absolute;
+    left: var(--x);
     transform: translateX(-50%);
-    width: 2px;
-    height: 34px;       /* 18+34 = 52 = step padding-top ✓ */
-    background: var(--red);
+    width: 170px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+  .hiw-step--top    { top: 0; }
+  .hiw-step--bottom { bottom: 0; }
+
+  /* Khôi phục order theo DOM (top: tròn→nhãn, bottom: nhãn→tròn) */
+  .hiw-circle,
+  .hiw-icon,
+  .hiw-label { order: 0; }
+
+  .hiw-circle { width: 184px; height: 184px; position: relative; z-index: 0; }
+  .hiw-ring   { width: 148px; height: 148px; }
+  .hiw-disc   { width: 140px; height: 140px; border-width: 18px; font-size: 34px; }
+
+  .hiw-icon  { width: 60px; }
+
+  .hiw-label {
+    flex: none;
+    text-align: center;
+    max-width: 220px;
+    font-size: 30px;
   }
 
-  /* 3 lớp card đều stretch để equal height */
-  .step-card-red,
-  .step-card-white,
-  .step-card-inner {
-    flex: 1;
+  /* Cuống nối trắng — kéo dài & đè lên lớp 1 đỏ của vòng tròn */
+  .hiw-stem {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 4px;            /* mỏng bằng lớp 2 */
+    height: 74px;          /* line dài hơn */
+    background: #ffffff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .18);
+  }
+  /* 1 đầu line sát lớp 2 (xuyên qua lớp 1 đỏ), đầu kia sát viền chấm tròn */
+  .hiw-step--top    .hiw-stem { margin-top: -28px; }
+  .hiw-step--bottom .hiw-stem { margin-bottom: -28px; }
+  .hiw-step--top    .hiw-dot  { margin-top: -8px; }
+  .hiw-step--bottom .hiw-dot  { margin-bottom: -8px; }
+
+  /* Chấm tròn: viền linear trắng-xám bao quanh lõi màu */
+  .hiw-dot {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #ffffff 0%, #efece6 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12);
+  }
+  .hiw-dot-core {
+    width: 46%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--c);
   }
 }
 
 /* --- Desktop ≥1025px --- */
 @media (min-width: 1025px) {
   .howitworks-title { font-size: 36px; }
-  .howitworks-track-scroller { overflow-x: visible; }
-  .howitworks-track {
-    min-width: unset;
-    justify-content: space-between;
-    gap: 0;
-  }
-  /* Card hẹp + cao: fixed width, giữ equal height */
-  .howitworks-step { flex: none; width: 195px; }
 }
 
 /* ===== 06. Use Cases ===== */
