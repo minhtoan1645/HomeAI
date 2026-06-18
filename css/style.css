@@ -478,76 +478,167 @@
 .pain-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 36px;
 }
 
-/* --- Card: gradient fill + gradient border via background-clip --- */
+/* --- Card: dark glossy panel, vertical layout --- */
 .pain-card {
-  background:
-    linear-gradient(180deg, #dfe0e4 0%, #ffffff 100%) padding-box,
-    linear-gradient(180deg, #c4c6cc 0%, #e4e4e4 100%) border-box;
-  border: 1px solid transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;             /* chiều dọc toàn card */
+  /* lớp 2 (đen: viền + đáy) */
+  background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
+  border: none;
   border-radius: 20px;
+  /* lớp 1 (viền trắng ngoài cùng) + shadow đỏ cho mỗi card */
+  box-shadow:
+    0 0 0 5px #ffffff,
+    0 10px 30px rgba(239, 0, 57, 0.35);
   overflow: hidden;
 }
 
-/* --- Card Top: badge + heading --- */
-.pain-card-top {
+/* Khu vực nội dung phía trên (badge + icon + tiêu đề) — lớp 3 panel inset */
+.pain-card-inner {
+  position: relative;
+  flex: 1 1 auto;
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 14px 14px 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;       /* căn icon + heading vào giữa khối */
+  padding: 72px 16px 24px;       /* chừa chỗ cho badge phía trên */
+  margin: 7px 7px 0;             /* chừa frame quanh panel */
+  background: #ffffff;           /* lớp 3 trắng bên trong (card 2-4) */
+  border-radius: 14px;
+  overflow: hidden;              /* cắt watermark theo bo góc */
 }
 
+/* Vân mạch 34.png chỉ trang trí ở GÓC TRÊN BÊN TRÁI (sau badge) */
+.pain-card-watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  object-position: top left;
+  opacity: 0.8;                  /* vân hồng trên ruột trắng */
+  pointer-events: none;
+}
+
+.pain-card--red .pain-card-watermark {
+  opacity: 0.8;                  /* card 1 (nền trắng): vân hồng đậm hơn */
+}
+
+/* === Card 1: 3 lớp =========================================
+   Lớp 1 (trắng, viền ngoài cùng)  -> box-shadow trắng
+   Lớp 2 (đỏ linear: viền + đáy)    -> background card
+   Lớp 3 (trắng, bên trong)         -> .pain-card-inner
+   ========================================================= */
+.pain-card--red {
+  background: linear-gradient(180deg, #9D0611 0%, #EF0039 100%); /* lớp 2 đỏ */
+  border: none;
+  /* lớp 1: viền trắng ngoài cùng + đổ bóng đỏ tách khỏi nền trang */
+  box-shadow:
+    0 0 0 5px #ffffff,
+    0 8px 26px rgba(239, 0, 57, 0.30);
+}
+
+.pain-card--red .pain-card-inner {
+  margin: 7px 7px 0;             /* chừa viền đỏ linear quanh lớp trắng */
+  background: #ffffff;          /* lớp 3 trắng bên trong */
+  border-radius: 14px;
+}
+
+/* --- Badge: ô vuông đặc góc trên bên trái + số trắng --- */
 .pain-badge {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--red);
-  color: var(--text-white);
-  font-size: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #0a0a0a;           /* card 2-4: ô đen */
+}
+
+.pain-card--red .pain-badge {
+  background: #EF0039;           /* card 1: ô đỏ đặc */
+  box-shadow: 0 4px 12px rgba(239, 0, 57, 0.35);
+}
+
+.pain-badge-num {
+  color: var(--text-white);      /* số luôn màu trắng */
+  font-size: 24px;
   font-weight: var(--weight-bold);
   line-height: 1;
 }
 
+/* --- Icon trung tâm 3D (35-38.png) --- */
+.pain-card-icon {
+  position: relative;            /* nổi trên watermark */
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.pain-card-icon img {
+  display: block;
+  width: 215px;
+  height: 215px;
+  object-fit: contain;
+  /* phóng to phần nhìn thấy, không ảnh hưởng layout -> card giữ nguyên kích thước */
+  transform: scale(1.13);
+}
+
+/* --- Tiêu đề --- */
 .pain-card-title {
+  position: relative;            /* nổi trên watermark */
+  z-index: 1;
   font-size: 20px;
   font-weight: var(--weight-bold);
   line-height: var(--lh-tight);
-  color: var(--text-black);
-  margin: 2px 0 0;
+  text-align: center;
+  color: #111111;                /* card 2-4: heading đen */
+  margin: 14px 0 16px;
 }
 
-/* --- Card Bottom: icon + description --- */
+.pain-card--red .pain-card-title {
+  color: #ee0033;                /* card 1: heading đỏ */
+}
+
+/* --- Phần bên dưới: dải mô tả (đen / đỏ linear cho card 1) --- */
 .pain-card-bottom {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 0 14px 14px;
+  width: 100%;
+  margin-top: auto;              /* dính đáy card */
+  padding: 16px;
+  background: #000000;           /* card 2-4: đen */
 }
 
-.pain-card-img {
-  display: block;
-  flex-shrink: 0;
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
+/* Card 1: nền đỏ linear lấy luôn từ lớp 2 (card background) */
+.pain-card--red .pain-card-bottom {
+  background: transparent;
+  padding: 14px 18px 18px;
 }
 
 .pain-card-desc {
   font-size: 13px;
   line-height: var(--lh-loose);
-  color: #3F3F3F;
+  text-align: center;
+  color: #ffffff;                /* card 2-4 */
+}
+
+.pain-card--red .pain-card-desc {
+  color: #ffe1e8;                /* card 1: chữ sáng trên nền đỏ */
 }
 
 /* --- Responsive --- */
 @media (min-width: 768px) {
   .pain-title { font-size: 36px; }
-  .pain-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .pain-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
 }
 
 @media (min-width: 1025px) {
@@ -555,7 +646,7 @@
   .pain-section > .container { max-width: 1400px; }
   .pain-header { max-width: 820px; }
   .pain-title { font-size: 44px; }
-  .pain-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .pain-grid { grid-template-columns: repeat(4, 1fr); gap: 28px; }
 }
 
 /* ===== 03. Transformation ===== */
