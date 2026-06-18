@@ -1606,17 +1606,54 @@ section.cert-section {
 
 .cert-card {
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   width: 620px;
   height: 260px;
   max-width: 100%;
   padding: 26px 32px;
+  overflow: hidden;
   background-color: #ffffff;
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   border-radius: 16px;
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.08);
 }
+
+.cert-card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Right-side media */
+.cert-card-media {
+  flex: 0 0 auto;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-card-media img { display: block; }
+
+.cert-card-media--stack {
+  flex-direction: column;
+  gap: 10px;
+}
+.cert-card-media--stack img { width: 116px; height: auto; }
+
+.cert-card-media--badge img { width: 120px; height: auto; }
+
+.cert-card-media--tall {
+  position: absolute;
+  right: -4px;
+  bottom: 14px;
+  margin: 0;
+  align-items: flex-end;
+}
+.cert-card-media--tall img { height: 245px; width: auto; }
 
 .cert-card-icon-wrap {
   display: inline-flex;
@@ -1625,7 +1662,7 @@ section.cert-section {
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: #F8F8F8;
+  background: #FFFFFF;
   margin-bottom: 6px;
 }
 
@@ -1640,8 +1677,9 @@ section.cert-section {
   font-size: 30px;
   font-weight: var(--weight-bold);
   line-height: 1.2;
-  color: #101216;
+  color: #ffffff;
   margin-bottom: 14px;
+  white-space: nowrap;
 }
 
 .cert-card-list {
@@ -1655,10 +1693,12 @@ section.cert-section {
   font-size: 17px;
   font-weight: var(--weight-regular);
   line-height: 1.5;
-  color: #101216;
+  color: #ffffff;
 }
 
 .cert-card-list li + li { margin-top: 4px; }
+
+.cert-card-list--nowrap li { white-space: nowrap; }
 
 /* Below the fixed-size layout: let cards become fluid */
 @media (max-width: 1320px) {
