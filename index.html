@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css?v=31">
+  <link rel="stylesheet" href="css/style.css?v=48">
 </head>
 <body>
 
@@ -78,6 +78,12 @@
           </svg>
         </a>
 
+        <!-- Chọn ngôn ngữ -->
+        <button type="button" class="nav-lang" aria-label="Chọn ngôn ngữ">
+          VN
+          <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
         <!-- Hamburger CSS-only: 3 span biến thành X khi checked -->
         <label for="nav-toggle" class="nav-hamburger" aria-label="Mở menu">
           <span></span>
@@ -108,9 +114,6 @@
 
       <!-- Layer 0: nền full-width -->
       <img src="images/Rectangle.png" alt="" class="hero-bg" aria-hidden="true">
-
-      <!-- Layer 1a: AI badge trang trí đầu section -->
-      <img src="images/8.png" alt="" class="hero-ai-badge" aria-hidden="true">
 
       <!-- Layer 1b: Rectangle1 bên trái, đè lên bg, dưới text -->
       <img src="images/Rectangle1.png" alt="" class="hero-rect1" aria-hidden="true">
@@ -789,6 +792,12 @@
               <div class="form-group">
                 <label for="f-message" class="form-label">Tin nhắn *</label>
                 <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Message*" required rows="4"></textarea>
+              </div>
+              <div class="form-consent">
+                <input type="checkbox" id="f-consent" name="consent" class="form-consent-check" required>
+                <label for="f-consent" class="form-consent-text">
+                  Tôi đã đọc và đồng ý với <a href="#" class="form-consent-link">Chính sách bảo vệ dữ liệu cá nhân của Viettel Software và chấp thuận để Viettel Software xử lý dữ liệu cá nhân của tôi theo quy định của pháp luật về bảo vệ dữ liệu cá nhân.</a>
+                </label>
               </div>
               <button type="submit" class="btn btn-primary form-submit">
                 ĐĂNG KÝ TẠI ĐÂY
