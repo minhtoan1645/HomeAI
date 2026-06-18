@@ -1,5 +1,5 @@
 /* ===================================================
-   Reset & Base — V-Agent Landing Page
+   Reset & Base — vAgents Landing Page
    =================================================== */
 
 /* Box sizing toàn cục */
@@ -254,6 +254,7 @@ ul, ol { list-style: none; }
 }
 
 .section-title--white { color: var(--text-white); }
+.section-title.text-red { color: var(--red); }
 
 .section-desc {
   margin-top: 16px;

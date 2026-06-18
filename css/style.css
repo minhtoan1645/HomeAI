@@ -1,5 +1,5 @@
 ﻿/* ===================================================
-   style.css — V-Agent Landing Page
+   style.css — vAgents Landing Page
    =================================================== */
 
 /* ===== Fonts: FS Magistral ===== */
@@ -27,6 +27,12 @@
   width: 0;
   height: 0;
   pointer-events: none;
+}
+
+/* Bù chiều cao header sticky khi nhảy tới anchor (#giai-phap, #vagent, ...) */
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
 .site-header {
@@ -297,6 +303,9 @@
 }
 
 @media (max-width: 767px) {
+  /* Header mobile thấp hơn → giảm offset anchor */
+  html { scroll-padding-top: 68px; }
+
   /* Mobile: bỏ pill, quay về full-width header trắng */
   .site-header {
     padding: 0;
@@ -759,7 +768,7 @@
   border-bottom: none;
 }
 
-/* --- Modifier V-Agent (bảng phải) --- */
+/* --- Modifier vAgents (bảng phải) --- */
 .transform-table--vagent .transform-table-header {
   background: linear-gradient(90deg, #9D0611, #EF0039);
 }
@@ -807,7 +816,7 @@
   }
 }
 
-/* ===== 04. V-Agent Features ===== */
+/* ===== 04. vAgents Features ===== */
 
 .features-section {
   background: #ffffff;
@@ -1144,11 +1153,13 @@
   color: #494949;
   font-size: 26px;
   line-height: 1;
-  cursor: default;
+  cursor: pointer;
+  user-select: none;
 }
 
 .usecase-nav--prev { left: 24px; }
 .usecase-nav--next { right: 24px; }
+
 
 .usecase-title {
   font-size: 36px;
@@ -1158,15 +1169,21 @@
   margin-bottom: 40px;
 }
 
+.usecase-viewport {
+  overflow: hidden;
+}
+
 .usecase-track {
   display: flex;
   gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === Card === */
 .usecase-card {
   position: relative;
-  flex: 1;
+  /* 3 card hiển thị cùng lúc (2 khoảng gap 20px). Thêm card thứ 4 → track tràn, JS trượt để xem */
+  flex: 0 0 calc((100% - 40px) / 3);
   border: 4px solid #ffffff;
   border-radius: 20px;
   background: linear-gradient(180deg, #dfe0e4 0%, #ffffff 100%);
@@ -1308,18 +1325,23 @@
 /* --- Desktop ≥1025px --- */
 @media (min-width: 1025px) {
   .usecase-track { gap: 40px; }
-  .usecase-card { padding: 32px 24px 28px; }
+  .usecase-card {
+    flex-basis: calc((100% - 80px) / 3);
+    padding: 32px 24px 28px;
+  }
   .usecase-card-icon { width: 80px; height: 80px; }
 }
 
 /* --- Mobile <768px: scroll-snap, ẩn nút tròn --- */
 @media (max-width: 767px) {
   .usecase-section { padding-top: 40px; padding-bottom: 40px; }
+  /* Mobile: cuộn ngang native, JS không trượt (transform none) */
   .usecase-track {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
     -webkit-overflow-scrolling: touch;
+    transform: none !important;
   }
   .usecase-card {
     flex: 0 0 82%;
@@ -1338,6 +1360,14 @@
   .usecase-stat-number { font-size: 30px; }
   .usecase-stat-label { font-size: 15px; white-space: normal; }
   .usecase-stat-icon { width: 72px; height: 72px; }
+}
+
+/* Dot bấm được (JS điều khiển) */
+.usecase-dot {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 /* ===== 07. Case Study ===== */
@@ -2063,12 +2093,12 @@ section.cert-section {
     gap: 64px;
   }
 
-  .footer-brand { flex: 0 0 520px; }
+  .footer-brand { flex: 0 0 680px; }
 
   .footer-nav {
     flex: 1;
-    justify-content: flex-start;
-    gap: 120px;
-    padding-left: 48px;
+    justify-content: flex-end;
+    gap: 160px;
+    padding-right: 40px;
   }
 }
