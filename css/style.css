@@ -395,10 +395,13 @@ html {
   letter-spacing: .04em;
 }
 
-/* Wrapper: drop-shadow cast từ alpha chữ ra ngoài, không bleed qua gradient fill */
+/* Wrapper: stack 2 ảnh — 56.png (chrome) làm viền dưới, 57.png (đỏ) đè lên.
+   drop-shadow cast từ alpha ảnh ra ngoài, không bleed qua nền. */
 .hero-ai-border {
   display: inline-block;
-  white-space: nowrap;
+  position: relative;
+  width: 600px;
+  max-width: 100%;
   margin: 6px 0;
   filter:
     drop-shadow(0  2px  8px rgba(195, 195, 195, 0.08))
@@ -406,14 +409,25 @@ html {
     drop-shadow(0 12px 32px rgba( 74,  74,  74, 0.12));
 }
 
-/* "AI WORKFORCE 24/7" — đỏ đồng nhất 1 màu, 1 dòng */
-.hero-title-ai {
-  display: inline;
-  font-size: 80px;
-  font-weight: 900;
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--red);
+/* Lớp dưới: 56.png viền chrome — định kích thước cho cả khối */
+.hero-ai-base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Lớp trên: 57.png đỏ — nhỏ hơn theo đúng tỉ lệ gốc (920/931, 74/86) và
+   căn giữa → lộ đều viền chrome quanh chữ. */
+.hero-ai-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 98.8%;
+  height: auto;
+  /* Dịch lớp đỏ lên ~5px (theo tỉ lệ) để lộ đều viền chrome ở NỬA DƯỚI mỗi chữ,
+     không bị 57.png che mất rìa dưới của 56.png */
+  transform: translate(-50%, -57%);
+  pointer-events: none;
 }
 
 /* Div text thông tin */
@@ -461,7 +475,7 @@ html {
 
 @media (max-width: 1024px) {
   .hero-title { font-size: 22px; }
-  .hero-title-ai { font-size: 60px; }
+  .hero-ai-border { width: 460px; }
 }
 
 @media (max-width: 767px) {
@@ -478,8 +492,8 @@ html {
 
   .hero-title { font-size: 18px; }
   /* Co giãn theo bề rộng màn hình để "AI WORKFORCE 24/7" luôn vừa 1 dòng,
-     không bị cắt mất "24/7" trên màn nhỏ; tối đa 38px như cũ */
-  .hero-title-ai { font-size: clamp(22px, 9.2vw - 4.5px, 38px); }
+     không bị cắt trên màn nhỏ */
+  .hero-ai-border { width: clamp(240px, 78vw, 440px); }
 }
 
 
@@ -655,6 +669,12 @@ html {
 .pain-card-bottom {
   width: 100%;
   margin-top: auto;              /* dính đáy card */
+  /* Cố định chiều cao dải mô tả để 4 card đồng đều (card 2 mô tả ngắn
+     không còn để hở khoảng trắng) + căn chữ giữa dải */
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 14px 18px 18px;
   background: #000000;           /* mặc định: đáy đen */
   transition: background 0.3s ease;
@@ -1819,6 +1839,13 @@ section.cert-section {
 
 /* Xuống dòng riêng theo từng breakpoint: .cert-br-m chỉ mobile, .cert-br-d chỉ desktop */
 .cert-br-m { display: none; }
+
+/* Desktop: card 2 (Stevie) dịch icon ranking sang phải 10px */
+@media (min-width: 1025px) {
+  .cert-grid .cert-card:nth-child(2) .cert-card-icon-wrap {
+    margin-left: 10px;
+  }
+}
 
 /* Below the fixed-size layout: let cards become fluid */
 @media (max-width: 1320px) {
