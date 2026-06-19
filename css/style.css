@@ -406,17 +406,14 @@ html {
     drop-shadow(0 12px 32px rgba( 74,  74,  74, 0.12));
 }
 
-/* "AI WORKFORCE" — đỏ gradient, 1 dòng */
+/* "AI WORKFORCE 24/7" — đỏ đồng nhất 1 màu, 1 dòng */
 .hero-title-ai {
   display: inline;
   font-size: 80px;
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
-  background: linear-gradient(90deg, var(--red), var(--red-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--red);
 }
 
 /* Div text thông tin */
