@@ -532,6 +532,7 @@ html {
     0 0 0 5px #ffffff,
     0 10px 30px rgba(239, 0, 57, 0.35);
   overflow: hidden;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Khu vực nội dung phía trên (badge + icon + tiêu đề) — lớp 3 panel inset */
@@ -563,7 +564,7 @@ html {
   pointer-events: none;
 }
 
-.pain-card--red .pain-card-watermark {
+.pain-card:hover .pain-card-watermark {
   opacity: 0.8;                  /* card 1 (nền trắng): vân hồng đậm hơn */
 }
 
@@ -572,7 +573,7 @@ html {
    Lớp 2 (đỏ linear: viền + đáy)    -> background card
    Lớp 3 (trắng, bên trong)         -> .pain-card-inner
    ========================================================= */
-.pain-card--red {
+.pain-card:hover {
   background: linear-gradient(180deg, #9D0611 0%, #EF0039 100%); /* lớp 2 đỏ */
   border: none;
   /* lớp 1: viền trắng ngoài cùng + đổ bóng đỏ tách khỏi nền trang */
@@ -581,7 +582,7 @@ html {
     0 8px 26px rgba(239, 0, 57, 0.30);
 }
 
-.pain-card--red .pain-card-inner {
+.pain-card:hover .pain-card-inner {
   margin: 7px 7px 0;             /* chừa viền đỏ linear quanh lớp trắng */
   background: #ffffff;          /* lớp 3 trắng bên trong */
   border-radius: 14px;
@@ -600,9 +601,10 @@ html {
   height: 52px;
   border-radius: 12px;
   background: #0a0a0a;           /* card 2-4: ô đen */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pain-card--red .pain-badge {
+.pain-card:hover .pain-badge {
   background: #EF0039;           /* card 1: ô đỏ đặc */
   box-shadow: 0 4px 12px rgba(239, 0, 57, 0.35);
 }
@@ -640,9 +642,10 @@ html {
   text-align: center;
   color: #111111;                /* card 2-4: heading đen */
   margin: 14px 0 16px;
+  transition: color 0.3s ease;
 }
 
-.pain-card--red .pain-card-title {
+.pain-card:hover .pain-card-title {
   color: #ee0033;                /* card 1: heading đỏ */
 }
 
@@ -650,14 +653,14 @@ html {
 .pain-card-bottom {
   width: 100%;
   margin-top: auto;              /* dính đáy card */
-  padding: 16px;
-  background: #000000;           /* card 2-4: đen */
+  padding: 14px 18px 18px;
+  background: #000000;           /* mặc định: đáy đen */
+  transition: background 0.3s ease;
 }
 
-/* Card 1: nền đỏ linear lấy luôn từ lớp 2 (card background) */
-.pain-card--red .pain-card-bottom {
+/* Hover: đáy chuyển sang đỏ (lấy từ nền card lớp 2) */
+.pain-card:hover .pain-card-bottom {
   background: transparent;
-  padding: 14px 18px 18px;
 }
 
 .pain-card-desc {
@@ -667,7 +670,7 @@ html {
   color: #ffffff;                /* card 2-4 */
 }
 
-.pain-card--red .pain-card-desc {
+.pain-card:hover .pain-card-desc {
   color: #ffe1e8;                /* card 1: chữ sáng trên nền đỏ */
 }
 
