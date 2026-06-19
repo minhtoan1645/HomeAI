@@ -398,11 +398,11 @@ html {
 /* Wrapper: stack 2 ảnh — 56.png (chrome) làm viền dưới, 57.png (đỏ) đè lên.
    drop-shadow cast từ alpha ảnh ra ngoài, không bleed qua nền. */
 .hero-ai-border {
-  display: inline-block;
+  display: block;                /* khối riêng → căn đều khoảng cách trên/dưới */
   position: relative;
-  width: 600px;
+  width: 720px;
   max-width: 100%;
-  margin: 6px 0;
+  margin: 8px 0;
   filter:
     drop-shadow(0  2px  8px rgba(195, 195, 195, 0.08))
     drop-shadow(0  6px 16px rgba(104, 104, 104, 0.10))
@@ -475,7 +475,7 @@ html {
 
 @media (max-width: 1024px) {
   .hero-title { font-size: 22px; }
-  .hero-ai-border { width: 460px; }
+  .hero-ai-border { width: 540px; }
 }
 
 @media (max-width: 767px) {
@@ -493,7 +493,7 @@ html {
   .hero-title { font-size: 18px; }
   /* Co giãn theo bề rộng màn hình để "AI WORKFORCE 24/7" luôn vừa 1 dòng,
      không bị cắt trên màn nhỏ */
-  .hero-ai-border { width: clamp(240px, 78vw, 440px); }
+  .hero-ai-border { width: clamp(260px, 86vw, 500px); }
 }
 
 
