@@ -1279,16 +1279,15 @@ html {
 #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 2)); }
 #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 3)); }
 
-@media (min-width: 768px) {
-  #uc-1:checked ~ .usecase-section .usecase-p1,
-  #uc-1:checked ~ .usecase-section .usecase-n1,
-  #uc-2:checked ~ .usecase-section .usecase-p2,
-  #uc-2:checked ~ .usecase-section .usecase-n2,
-  #uc-3:checked ~ .usecase-section .usecase-p3,
-  #uc-3:checked ~ .usecase-section .usecase-n3,
-  #uc-4:checked ~ .usecase-section .usecase-p4,
-  #uc-4:checked ~ .usecase-section .usecase-n4 { display: flex; }
-}
+/* Hiện đúng cặp prev/next theo slide đang :checked (mọi kích thước, kể cả mobile) */
+#uc-1:checked ~ .usecase-section .usecase-p1,
+#uc-1:checked ~ .usecase-section .usecase-n1,
+#uc-2:checked ~ .usecase-section .usecase-p2,
+#uc-2:checked ~ .usecase-section .usecase-n2,
+#uc-3:checked ~ .usecase-section .usecase-p3,
+#uc-3:checked ~ .usecase-section .usecase-n3,
+#uc-4:checked ~ .usecase-section .usecase-p4,
+#uc-4:checked ~ .usecase-section .usecase-n4 { display: flex; }
 
 /* Desktop ≥1025: gap 40px → bước trượt lớn hơn */
 @media (min-width: 1025px) {
@@ -1367,24 +1366,34 @@ html {
   .usecase-card-icon { width: 80px; height: 80px; }
 }
 
-/* --- Mobile <768px: scroll-snap, ẩn nút tròn --- */
+/* --- Mobile <768px: carousel 1 card/lượt, nút mũi tên 2 bên (không cuộn tay) --- */
 @media (max-width: 767px) {
   .usecase-section { padding-top: 40px; padding-bottom: 40px; }
-  /* Mobile: cuộn ngang native, JS không trượt (transform none) */
-  .usecase-track {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    -webkit-overflow-scrolling: touch;
-    transform: none !important;
+  /* Sân khấu full-bleed = đúng bề rộng màn hình → nút mũi tên bám sát 2 mép lề.
+     transform khiến stage thành mốc định vị: top:50% nằm GIỮA card. */
+  .usecase-stage {
+    position: relative;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
-  .usecase-card {
-    flex: 0 0 82%;
-    scroll-snap-align: center;
-  }
-  /* Mobile cuộn native: ẩn card bản sao để không lặp nội dung */
+  /* Card to hơn 1 chút (82% bề rộng màn hình), căn giữa, chừa lề 2 bên cho nút */
+  .usecase-viewport { width: 82%; margin-left: auto; margin-right: auto; }
+  .usecase-track { gap: 16px; }
+  /* 1 card đầy khung nhìn (của viewport) */
+  .usecase-card { flex: 0 0 100%; }
+  /* Chỉ 1 card/lượt → không cần card bản sao */
   .usecase-card--clone { display: none; }
-  .usecase-nav { display: none; }
+
+  /* Bước trượt = 1 card + gap 16px */
+  #uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -1)); }
+  #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -2)); }
+  #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -3)); }
+
+  /* Nút mũi tên ra NGOÀI card, sát 2 mép lề màn hình */
+  .usecase-nav { width: 32px; height: 32px; font-size: 19px; }
+  .usecase-nav--prev { left: 4px; }
+  .usecase-nav--next { right: 4px; }
 
   .usecase-stats {
     flex-wrap: wrap;
@@ -1532,33 +1541,52 @@ html {
   background: var(--red);
 }
 
-@media (min-width: 768px) {
-  #cs-1:checked ~ .casestudy-section .casestudy-p1 { display: flex; }
-  #cs-1:checked ~ .casestudy-section .casestudy-n1 { display: flex; }
-  #cs-2:checked ~ .casestudy-section .casestudy-p2 { display: flex; }
-  #cs-2:checked ~ .casestudy-section .casestudy-n2 { display: flex; }
-  #cs-3:checked ~ .casestudy-section .casestudy-p3 { display: flex; }
-  #cs-3:checked ~ .casestudy-section .casestudy-n3 { display: flex; }
-  #cs-4:checked ~ .casestudy-section .casestudy-p4 { display: flex; }
-  #cs-4:checked ~ .casestudy-section .casestudy-n4 { display: flex; }
-}
+/* Hiện đúng cặp prev/next theo slide đang :checked (mọi kích thước, kể cả mobile) */
+#cs-1:checked ~ .casestudy-section .casestudy-p1 { display: flex; }
+#cs-1:checked ~ .casestudy-section .casestudy-n1 { display: flex; }
+#cs-2:checked ~ .casestudy-section .casestudy-p2 { display: flex; }
+#cs-2:checked ~ .casestudy-section .casestudy-n2 { display: flex; }
+#cs-3:checked ~ .casestudy-section .casestudy-p3 { display: flex; }
+#cs-3:checked ~ .casestudy-section .casestudy-n3 { display: flex; }
+#cs-4:checked ~ .casestudy-section .casestudy-p4 { display: flex; }
+#cs-4:checked ~ .casestudy-section .casestudy-n4 { display: flex; }
 
 @media (max-width: 767px) {
-  .casestudy-slide { flex-direction: column; gap: 20px; }
-  .casestudy-slide-left { flex: 0 0 100%; width: 100%; }
+  .casestudy-slide { flex-direction: column; gap: 16px; align-items: center; }
+  /* column flex → flex-basis là CHIỀU CAO; phải để auto kẻo block kéo cao 100% gây khoảng trắng */
+  .casestudy-slide-left { flex: 0 0 auto; width: 100%; }
   .casestudy-tables { flex-direction: column; }
-  .casestudy-arrow { flex: 0 0 auto; transform: rotate(90deg); margin: 4px auto; }
-  .casestudy-slide-right { width: 100%; }
-  .casestudy-ai-img { max-width: 260px; }
-  .casestudy-viewport { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-  .casestudy-track { transform: none !important; }
-  .casestudy-slide { scroll-snap-align: start; }
+  /* Mũi tên đỏ: kéo xuống dưới, cách table khoảng 5px */
+  .casestudy-arrow { flex: 0 0 auto; transform: rotate(90deg); margin: 12px auto 5px; }
+  /* Bỏ ảnh robot 5.png trên mobile → dots sát table hơn */
+  .casestudy-slide-right { display: none; }
+  /* Carousel điều khiển bằng nút bấm (radio transform), KHÔNG cuộn tay */
+  .casestudy-track { align-items: flex-start; }
+  .casestudy-dots { margin-top: 16px; }
+
+  /* Mốc định vị nút = vùng slide → top:50% nằm GIỮA slide (ngang chỗ mũi tên đỏ giữa 2 table) */
+  .casestudy-stage { position: relative; }
+  /* 2 nút mũi tên: căn giữa slide theo chiều dọc, sát 2 lề màn hình theo chiều ngang.
+     stage nằm trong .container (đệm 24px) nên đẩy ra mép màn hình bằng calc. */
+  .casestudy-section .usecase-nav { width: 32px; height: 32px; font-size: 19px; top: calc(50% + 40px); }
+  .casestudy-section .usecase-nav--prev { left: calc((100% - 100vw) / 2 + 4px); }
+  .casestudy-section .usecase-nav--next { right: calc((100% - 100vw) / 2 + 4px); }
+
+  /* Subtitle luôn chiếm chỗ 2 dòng → slide có subtitle 1 dòng (AI Legal Operations)
+     bị đẩy 2 table xuống cho khớp các slide còn lại; nút mũi tên cũng khớp luôn */
+  .casestudy-slide-subtitle {
+    line-height: 1.3;
+    min-height: 2.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .casestudy-slide { flex-direction: column; gap: 24px; }
-  .casestudy-slide-left { flex: 0 0 100%; width: 100%; }
-  .casestudy-slide-right { width: 100%; }
+  .casestudy-slide-left { flex: 0 0 auto; width: 100%; }
+  .casestudy-slide-right { flex: 0 0 auto; width: 100%; }
   .casestudy-ai-img { max-width: 300px; }
 }
 
@@ -1767,6 +1795,9 @@ section.cert-section {
 
 .cert-card-list--nowrap li { white-space: nowrap; }
 
+/* Xuống dòng riêng theo từng breakpoint: .cert-br-m chỉ mobile, .cert-br-d chỉ desktop */
+.cert-br-m { display: none; }
+
 /* Below the fixed-size layout: let cards become fluid */
 @media (max-width: 1320px) {
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1787,6 +1818,23 @@ section.cert-section {
   .cert-card { padding: 24px; height: auto; min-height: 0; }
   .cert-card-title { font-size: 22px; }
   .cert-card-list li { font-size: 14px; }
+
+  /* Card 2,3,4: chữ chiếm full chiều ngang, nổi LÊN TRÊN icon bên phải;
+     icon hạ xuống thêm 20px. Card 1 (--stack) giữ nguyên bố cục cũ. */
+  .cert-card-body { position: relative; z-index: 1; }
+
+  .cert-card-media--badge {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(calc(-50% + 20px));
+    z-index: 0;
+  }
+
+  .cert-card-media--tall {
+    bottom: -6px;   /* 14px gốc - 20px */
+    z-index: 0;
+  }
 }
 
 /* ===== 10. CTA + Form ===== */

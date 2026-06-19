@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css?v=2">
-  <link rel="stylesheet" href="css/style.css?v=62">
+  <link rel="stylesheet" href="css/style.css?v=76">
 </head>
 <body>
 
@@ -133,7 +133,7 @@
           <!-- Heading -->
           <h1 class="hero-title">
             XÂY DỰNG ĐỘI NGŨ<br>
-            <span class="hero-ai-border"><span class="hero-title-ai">AI WORKFORCE</span></span><br>
+            <span class="hero-ai-border"><span class="hero-title-ai">AI WORKFORCE 24/7</span></span><br>
             CHO DOANH NGHIỆP
           </h1>
 
@@ -427,22 +427,24 @@
     <input type="radio" name="uc-slide" id="uc-4" hidden>
 
     <section class="usecase-section section" id="ung-dung" aria-label="Ứng dụng thực tế">
-      <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
-      <label for="uc-4" class="usecase-nav usecase-nav--prev usecase-p1" aria-label="Card trước">&#8249;</label>
-      <label for="uc-1" class="usecase-nav usecase-nav--prev usecase-p2" aria-label="Card trước">&#8249;</label>
-      <label for="uc-2" class="usecase-nav usecase-nav--prev usecase-p3" aria-label="Card trước">&#8249;</label>
-      <label for="uc-3" class="usecase-nav usecase-nav--prev usecase-p4" aria-label="Card trước">&#8249;</label>
-
-      <!-- Nút next: 4 label -->
-      <label for="uc-2" class="usecase-nav usecase-nav--next usecase-n1" aria-label="Card sau">&#8250;</label>
-      <label for="uc-3" class="usecase-nav usecase-nav--next usecase-n2" aria-label="Card sau">&#8250;</label>
-      <label for="uc-4" class="usecase-nav usecase-nav--next usecase-n3" aria-label="Card sau">&#8250;</label>
-      <label for="uc-1" class="usecase-nav usecase-nav--next usecase-n4" aria-label="Card sau">&#8250;</label>
-
       <div class="container">
         <h2 class="usecase-title">Ứng dụng thực tế trong doanh nghiệp</h2>
 
-        <div class="usecase-viewport">
+        <!-- Sân khấu carousel: bọc nút mũi tên + viewport để (ở mobile) căn nút theo CHIỀU CAO card -->
+        <div class="usecase-stage">
+          <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
+          <label for="uc-4" class="usecase-nav usecase-nav--prev usecase-p1" aria-label="Card trước">&#8249;</label>
+          <label for="uc-1" class="usecase-nav usecase-nav--prev usecase-p2" aria-label="Card trước">&#8249;</label>
+          <label for="uc-2" class="usecase-nav usecase-nav--prev usecase-p3" aria-label="Card trước">&#8249;</label>
+          <label for="uc-3" class="usecase-nav usecase-nav--prev usecase-p4" aria-label="Card trước">&#8249;</label>
+
+          <!-- Nút next: 4 label -->
+          <label for="uc-2" class="usecase-nav usecase-nav--next usecase-n1" aria-label="Card sau">&#8250;</label>
+          <label for="uc-3" class="usecase-nav usecase-nav--next usecase-n2" aria-label="Card sau">&#8250;</label>
+          <label for="uc-4" class="usecase-nav usecase-nav--next usecase-n3" aria-label="Card sau">&#8250;</label>
+          <label for="uc-1" class="usecase-nav usecase-nav--next usecase-n4" aria-label="Card sau">&#8250;</label>
+
+          <div class="usecase-viewport">
           <div class="usecase-track">
             <div class="usecase-card">
               <div class="usecase-card-icon">
@@ -522,6 +524,7 @@
               </ul>
             </div>
           </div>
+          </div>
         </div>
 
         <!-- Dots: 1 dot / 1 nhóm cuộn. Dot active đồng bộ qua radio :checked (CSS) -->
@@ -577,24 +580,26 @@
     <!-- ===== 07. CASE STUDY ===== -->
     <section class="casestudy-section section" id="case-study" aria-label="Case study tiêu biểu của vAgents">
 
-      <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
-      <label for="cs-4" class="usecase-nav usecase-nav--prev casestudy-p1">&#8249;</label>
-      <label for="cs-1" class="usecase-nav usecase-nav--prev casestudy-p2">&#8249;</label>
-      <label for="cs-2" class="usecase-nav usecase-nav--prev casestudy-p3">&#8249;</label>
-      <label for="cs-3" class="usecase-nav usecase-nav--prev casestudy-p4">&#8249;</label>
-
-      <!-- Nút next: 4 label -->
-      <label for="cs-2" class="usecase-nav usecase-nav--next casestudy-n1">&#8250;</label>
-      <label for="cs-3" class="usecase-nav usecase-nav--next casestudy-n2">&#8250;</label>
-      <label for="cs-4" class="usecase-nav usecase-nav--next casestudy-n3">&#8250;</label>
-      <label for="cs-1" class="usecase-nav usecase-nav--next casestudy-n4">&#8250;</label>
-
       <div class="container">
         <div class="casestudy-header text-center">
           <h2 class="section-title">Case study tiêu biểu của <span class="text-red">vAgents</span></h2>
         </div>
 
-        <div class="casestudy-viewport">
+        <!-- Sân khấu: bọc nút mũi tên + viewport để (mobile) căn nút theo GIỮA slide (ngang chỗ mũi tên đỏ) -->
+        <div class="casestudy-stage">
+          <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
+          <label for="cs-4" class="usecase-nav usecase-nav--prev casestudy-p1">&#8249;</label>
+          <label for="cs-1" class="usecase-nav usecase-nav--prev casestudy-p2">&#8249;</label>
+          <label for="cs-2" class="usecase-nav usecase-nav--prev casestudy-p3">&#8249;</label>
+          <label for="cs-3" class="usecase-nav usecase-nav--prev casestudy-p4">&#8249;</label>
+
+          <!-- Nút next: 4 label -->
+          <label for="cs-2" class="usecase-nav usecase-nav--next casestudy-n1">&#8250;</label>
+          <label for="cs-3" class="usecase-nav usecase-nav--next casestudy-n2">&#8250;</label>
+          <label for="cs-4" class="usecase-nav usecase-nav--next casestudy-n3">&#8250;</label>
+          <label for="cs-1" class="usecase-nav usecase-nav--next casestudy-n4">&#8250;</label>
+
+          <div class="casestudy-viewport">
           <div class="casestudy-track">
 
             <!-- Slide 1: Tuyển dụng -->
@@ -738,7 +743,8 @@
             </div>
 
           </div><!-- /casestudy-track -->
-        </div><!-- /casestudy-viewport -->
+          </div><!-- /casestudy-viewport -->
+        </div><!-- /casestudy-stage -->
 
         <div class="casestudy-dots">
           <label for="cs-1" class="casestudy-dot"></label>
@@ -805,7 +811,7 @@
               <span class="cert-card-icon-wrap"><img class="cert-card-icon" src="images/Ranking.png" alt="" aria-hidden="true" loading="lazy"></span>
               <h3 class="cert-card-title">Stevie awards for technology<br>execllence</h3>
               <ul class="cert-card-list">
-                <li>Viettel skybook đạt Giải Vàng ở hạng mục New<br>Product of the Year Software</li>
+                <li>Viettel skybook đạt Giải Vàng ở hạng mục New<br>Product of the Year</li>
               </ul>
             </div>
             <div class="cert-card-media cert-card-media--badge">
