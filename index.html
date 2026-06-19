@@ -414,9 +414,24 @@
     </section>
 
     <!-- ===== 06. USE CASES ===== -->
+    <!-- CSS-only carousel: 4 radio inputs ngay trước section (sibling selector ~) -->
+    <input type="radio" name="uc-slide" id="uc-1" hidden checked>
+    <input type="radio" name="uc-slide" id="uc-2" hidden>
+    <input type="radio" name="uc-slide" id="uc-3" hidden>
+    <input type="radio" name="uc-slide" id="uc-4" hidden>
+
     <section class="usecase-section section" id="ung-dung" aria-label="Ứng dụng thực tế">
-      <button type="button" class="usecase-nav usecase-nav--prev" aria-label="Card trước">&#8249;</button>
-      <button type="button" class="usecase-nav usecase-nav--next" aria-label="Card sau">&#8250;</button>
+      <!-- Nút prev: 4 label, mỗi cái hiện đúng khi slide tương ứng active -->
+      <label for="uc-4" class="usecase-nav usecase-nav--prev usecase-p1" aria-label="Card trước">&#8249;</label>
+      <label for="uc-1" class="usecase-nav usecase-nav--prev usecase-p2" aria-label="Card trước">&#8249;</label>
+      <label for="uc-2" class="usecase-nav usecase-nav--prev usecase-p3" aria-label="Card trước">&#8249;</label>
+      <label for="uc-3" class="usecase-nav usecase-nav--prev usecase-p4" aria-label="Card trước">&#8249;</label>
+
+      <!-- Nút next: 4 label -->
+      <label for="uc-2" class="usecase-nav usecase-nav--next usecase-n1" aria-label="Card sau">&#8250;</label>
+      <label for="uc-3" class="usecase-nav usecase-nav--next usecase-n2" aria-label="Card sau">&#8250;</label>
+      <label for="uc-4" class="usecase-nav usecase-nav--next usecase-n3" aria-label="Card sau">&#8250;</label>
+      <label for="uc-1" class="usecase-nav usecase-nav--next usecase-n4" aria-label="Card sau">&#8250;</label>
 
       <div class="container">
         <h2 class="usecase-title">Ứng dụng thực tế trong doanh nghiệp</h2>
@@ -464,15 +479,49 @@
                 <li>Giải đáp thắc mắc 24/7</li>
               </ul>
             </div>
+
+            <!-- Bản sao 3 card đầu để luôn đủ 3 card khi cuộn tới nhóm cuối (thay cho infinite-loop của JS) -->
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/g537.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">Tuyển dụng</h3>
+              <ul class="usecase-card-desc">
+                <li>Sàng lọc CV</li>
+                <li>Lên lịch phỏng vấn</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/Vector.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">Pháp chế (Legal)</h3>
+              <ul class="usecase-card-desc">
+                <li>Rà sát hợp đồng</li>
+                <li>Cảnh báo rủi ro</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/4.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">Vận hành &amp; Báo cáo</h3>
+              <ul class="usecase-card-desc">
+                <li>Tổng hợp dữ liệu</li>
+                <li>Tự động báo cáo</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- Dots: 1 dot / 1 nhóm cuộn. JS tự đồng bộ dot active khi bấm prev/next -->
+        <!-- Dots: 1 dot / 1 nhóm cuộn. Dot active đồng bộ qua radio :checked (CSS) -->
         <div class="usecase-dots">
-          <button type="button" class="usecase-dot usecase-dot--active" aria-label="Nhóm 1"></button>
-          <button type="button" class="usecase-dot" aria-label="Nhóm 2"></button>
-          <button type="button" class="usecase-dot" aria-label="Nhóm 3"></button>
-          <button type="button" class="usecase-dot" aria-label="Nhóm 4"></button>
+          <label for="uc-1" class="usecase-dot" aria-label="Nhóm 1"></label>
+          <label for="uc-2" class="usecase-dot" aria-label="Nhóm 2"></label>
+          <label for="uc-3" class="usecase-dot" aria-label="Nhóm 3"></label>
+          <label for="uc-4" class="usecase-dot" aria-label="Nhóm 4"></label>
         </div>
 
         <div class="usecase-stats">
@@ -898,8 +947,6 @@
       </div>
     </div>
   </footer>
-
-  <script src="js/usecase-carousel.js?v=5" defer></script>
 
 </body>
 </html>

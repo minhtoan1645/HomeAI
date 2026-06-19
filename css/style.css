@@ -1257,9 +1257,44 @@ html {
   background: #b5b5b5;
 }
 
-.usecase-dot--active {
+/* Dot active đồng bộ theo radio :checked (thay cho JS) */
+#uc-1:checked ~ .usecase-section .usecase-dots label[for="uc-1"],
+#uc-2:checked ~ .usecase-section .usecase-dots label[for="uc-2"],
+#uc-3:checked ~ .usecase-section .usecase-dots label[for="uc-3"],
+#uc-4:checked ~ .usecase-section .usecase-dots label[for="uc-4"] {
   width: 24px;
   background: var(--red);
+}
+
+/* ===== Radio hack: trượt track + nút prev/next (thay cho usecase-carousel.js) ===== */
+/* Ẩn toàn bộ label nav, chỉ hiện đúng cặp prev/next theo slide đang :checked */
+.usecase-section .usecase-nav { display: none; }
+
+/* Bản sao card chỉ dùng cho hiệu ứng cuộn ở desktop/tablet */
+.usecase-card--clone { display: flex; }
+
+/* Mỗi bước trượt = 1 card + 1 gap. Base (tablet ≥768): gap 20px */
+#uc-1:checked ~ .usecase-section .usecase-track { transform: translateX(0); }
+#uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3)); }
+#uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 2)); }
+#uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 3)); }
+
+@media (min-width: 768px) {
+  #uc-1:checked ~ .usecase-section .usecase-p1,
+  #uc-1:checked ~ .usecase-section .usecase-n1,
+  #uc-2:checked ~ .usecase-section .usecase-p2,
+  #uc-2:checked ~ .usecase-section .usecase-n2,
+  #uc-3:checked ~ .usecase-section .usecase-p3,
+  #uc-3:checked ~ .usecase-section .usecase-n3,
+  #uc-4:checked ~ .usecase-section .usecase-p4,
+  #uc-4:checked ~ .usecase-section .usecase-n4 { display: flex; }
+}
+
+/* Desktop ≥1025: gap 40px → bước trượt lớn hơn */
+@media (min-width: 1025px) {
+  #uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3)); }
+  #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 2)); }
+  #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 3)); }
 }
 
 /* === Stats (4 khối số liệu dưới dots) === */
@@ -1347,6 +1382,8 @@ html {
     flex: 0 0 82%;
     scroll-snap-align: center;
   }
+  /* Mobile cuộn native: ẩn card bản sao để không lặp nội dung */
+  .usecase-card--clone { display: none; }
   .usecase-nav { display: none; }
 
   .usecase-stats {
