@@ -2123,7 +2123,7 @@ section.cert-section {
   .footer-inner {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 64px;
   }
 
@@ -2134,5 +2134,6 @@ section.cert-section {
     justify-content: flex-end;
     gap: 160px;
     padding-right: 40px;
+    padding-top: 85px;
   }
 }
