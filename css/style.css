@@ -477,7 +477,9 @@ html {
   .hero-content { max-width: 100%; }
 
   .hero-title { font-size: 18px; }
-  .hero-title-ai { font-size: 38px; }
+  /* Co giãn theo bề rộng màn hình để "AI WORKFORCE 24/7" luôn vừa 1 dòng,
+     không bị cắt mất "24/7" trên màn nhỏ; tối đa 38px như cũ */
+  .hero-title-ai { font-size: clamp(22px, 9.2vw - 4.5px, 38px); }
 }
 
 
@@ -1581,6 +1583,25 @@ html {
     align-items: center;
     justify-content: center;
   }
+
+  /* 4 slide: bảng BEFORE/AFTER cao bằng nhau, các hàng dàn đều chiều cao
+     → slide 1-3 (5 hàng) và slide 4 (4 hàng) vẫn cùng kích thước */
+  .casestudy-tables .transform-table {
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+  }
+  .casestudy-tables .transform-table-rows {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .casestudy-tables .transform-table-row {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -1768,13 +1789,14 @@ section.cert-section {
 }
 
 .cert-card-title {
-  font-family: 'FS Magistral', var(--font);
-  font-size: 30px;
+  font-family: 'Barlow', var(--font);
+  font-size: 27px;
   font-weight: var(--weight-bold);
   line-height: 1.2;
   color: #ffffff;
   margin-bottom: 14px;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .cert-card-list {
@@ -1784,7 +1806,7 @@ section.cert-section {
 }
 
 .cert-card-list li {
-  font-family: 'FS Magistral', var(--font);
+  font-family: 'Barlow', var(--font);
   font-size: 17px;
   font-weight: var(--weight-regular);
   line-height: 1.5;
@@ -1815,9 +1837,16 @@ section.cert-section {
 @media (max-width: 767px) {
   section.cert-section { margin-top: 40px; }
   .cert-grid { grid-template-columns: 1fr; gap: 18px; }
-  .cert-card { padding: 24px; height: auto; min-height: 0; }
-  .cert-card-title { font-size: 22px; }
+  /* Tất cả card cao bằng nhau (≈ card 1) */
+  .cert-card { padding: 24px; height: auto; min-height: 260px; }
+  .cert-card-title { font-size: 20px; }
   .cert-card-list li { font-size: 14px; }
+
+  /* Xuống dòng theo yêu cầu chỉ trên mobile */
+  .cert-br-m { display: inline; }
+  .cert-br-d { display: none; }
+  /* Card 4 cho phép xuống dòng (bỏ nowrap) để khớp các điểm ngắt mobile */
+  .cert-card-list--nowrap li { white-space: normal; }
 
   /* Card 2,3,4: chữ chiếm full chiều ngang, nổi LÊN TRÊN icon bên phải;
      icon hạ xuống thêm 20px. Card 1 (--stack) giữ nguyên bố cục cũ. */
@@ -1830,8 +1859,13 @@ section.cert-section {
     transform: translateY(calc(-50% + 20px));
     z-index: 0;
   }
+  /* Riêng card 2: icon hạ xuống thêm 20px nữa */
+  .cert-grid .cert-card:nth-child(2) .cert-card-media--badge {
+    transform: translateY(calc(-50% + 40px));
+  }
 
   .cert-card-media--tall {
+    right: -24px;   /* -4px gốc, dịch sang phải thêm 20px */
     bottom: -6px;   /* 14px gốc - 20px */
     z-index: 0;
   }
