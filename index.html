@@ -74,6 +74,12 @@
           </ul>
         </nav>
 
+        <!-- Chọn ngôn ngữ -->
+        <button type="button" class="nav-lang" aria-label="Chọn ngôn ngữ">
+          VN
+          <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
         <!-- Liên hệ button -->
         <a href="https://viettelsoftware.com/" class="nav-login-btn" target="_blank" rel="noopener noreferrer" aria-label="Về Viettel Software">
           Về Viettel Software
@@ -83,12 +89,6 @@
             <line x1="13" y1="10" x2="3" y2="10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
         </a>
-
-        <!-- Chọn ngôn ngữ -->
-        <button type="button" class="nav-lang" aria-label="Chọn ngôn ngữ">
-          VN
-          <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
 
         <!-- Hamburger CSS-only: 3 span biến thành X khi checked -->
         <label for="nav-toggle" class="nav-hamburger" aria-label="Mở menu">
@@ -352,7 +352,7 @@
     <section class="howitworks-section section" id="cach-van-hanh" aria-label="Cách vAgents vận hành">
       <div class="container">
         <div class="howitworks-header text-center">
-          <h2 class="howitworks-title">Cách <span class="text-red">vAgents vận hành</span></h2>
+          <h2 class="howitworks-title"><span class="text-red">Quy trình tích hợp vAgents</span> vào vận hành doanh nghiệp</h2>
         </div>
         <div class="hiw-scroller">
           <div class="hiw">
@@ -869,8 +869,8 @@
             <form class="cta-form" id="lien-he-form" action="" aria-label="Đăng ký dùng thử vAgents">
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-name" class="form-label">Họ và tên *</label>
-                  <input type="text" id="f-name" name="name" class="form-input" placeholder="Name*" required autocomplete="name">
+                  <label for="f-name" class="form-label">Công ty *</label>
+                  <input type="text" id="f-name" name="name" class="form-input" placeholder="Company*" required autocomplete="organization">
                 </div>
                 <div class="form-group">
                   <label for="f-email" class="form-label">Email *</label>
@@ -879,12 +879,12 @@
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-phone" class="form-label">Điện thoại</label>
-                  <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="Phone (Optional)*" autocomplete="tel">
+                  <label for="f-phone" class="form-label">Người đại diện liên hệ *</label>
+                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="Người đại diện liên hệ*" required autocomplete="name">
                 </div>
                 <div class="form-group">
-                  <label for="f-company" class="form-label">Công ty *</label>
-                  <input type="text" id="f-company" name="company" class="form-input" placeholder="Company*" required autocomplete="organization">
+                  <label for="f-company" class="form-label">Điện thoại *</label>
+                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="Phone*" required autocomplete="tel">
                 </div>
               </div>
               <div class="form-group">
@@ -971,6 +971,30 @@
       document.querySelectorAll('.nav-mobile-link').forEach(function (link) {
         link.addEventListener('click', function () { toggle.checked = false; });
       });
+    })();
+  </script>
+
+  <!-- Pain cards: đỏ khi chạm tay vào card trên mobile -->
+  <script>
+    (function () {
+      if (!window.matchMedia('(hover: none)').matches) return;
+
+      var cards = document.querySelectorAll('.pain-card');
+      if (!cards.length) return;
+
+      function clearAll() {
+        cards.forEach(function (c) { c.classList.remove('pain-card--active'); });
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('touchstart', function () {
+          clearAll();
+          card.classList.add('pain-card--active');
+        }, { passive: true });
+      });
+
+      document.addEventListener('touchend', clearAll, { passive: true });
+      document.addEventListener('touchcancel', clearAll, { passive: true });
     })();
   </script>
 
