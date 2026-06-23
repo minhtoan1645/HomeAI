@@ -1338,7 +1338,9 @@ html {
 #uc-1:checked ~ .usecase-section .usecase-dots label[for="uc-1"],
 #uc-2:checked ~ .usecase-section .usecase-dots label[for="uc-2"],
 #uc-3:checked ~ .usecase-section .usecase-dots label[for="uc-3"],
-#uc-4:checked ~ .usecase-section .usecase-dots label[for="uc-4"] {
+#uc-4:checked ~ .usecase-section .usecase-dots label[for="uc-4"],
+#uc-5:checked ~ .usecase-section .usecase-dots label[for="uc-5"],
+#uc-6:checked ~ .usecase-section .usecase-dots label[for="uc-6"] {
   width: 24px;
   background: var(--red);
 }
@@ -1355,6 +1357,8 @@ html {
 #uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3)); }
 #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 2)); }
 #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 3)); }
+#uc-5:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 4)); }
+#uc-6:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 20px) / -3 * 5)); }
 
 /* Hiện đúng cặp prev/next theo slide đang :checked (mọi kích thước, kể cả mobile) */
 #uc-1:checked ~ .usecase-section .usecase-p1,
@@ -1371,6 +1375,8 @@ html {
   #uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3)); }
   #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 2)); }
   #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 3)); }
+  #uc-5:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 4)); }
+  #uc-6:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 40px) / -3 * 5)); }
 }
 
 /* === Stats (4 khối số liệu dưới dots) === */
@@ -1466,6 +1472,8 @@ html {
   #uc-2:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -1)); }
   #uc-3:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -2)); }
   #uc-4:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -3)); }
+  #uc-5:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -4)); }
+  #uc-6:checked ~ .usecase-section .usecase-track { transform: translateX(calc((100% + 16px) * -5)); }
 
   /* Nút mũi tên ra NGOÀI card, sát 2 mép lề màn hình */
   .usecase-nav { width: 32px; height: 32px; font-size: 19px; }
