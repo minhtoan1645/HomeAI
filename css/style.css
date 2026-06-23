@@ -2338,7 +2338,7 @@ section.cert-section {
   background: #fff;
   border-radius: 16px;
   padding: 48px 40px 56px;
-  max-width: 540px;
+  max-width: 580px;
   width: 90%;
   text-align: center;
   position: relative;
@@ -2391,15 +2391,57 @@ section.cert-section {
   text-transform: uppercase;
   letter-spacing: .04em;
   line-height: 1.2;
+  white-space: nowrap;
   margin: 0 auto 10px;
 }
 
 .success-subtitle {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #7C7C7C;
   line-height: 1.6;
   margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .success-modal {
+    padding: 28px 20px 32px;
+    max-width: 320px;
+    width: calc(100% - 32px);
+    border-radius: 12px;
+  }
+
+  .success-close {
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .success-logo {
+    margin-bottom: 20px;
+  }
+
+  .success-logo img {
+    height: 36px;
+  }
+
+  .success-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+  }
+
+  .success-title {
+    font-size: 20px;
+    letter-spacing: .02em;
+    white-space: normal;
+  }
+
+  .success-subtitle {
+    font-size: 13px;
+  }
 }
 
