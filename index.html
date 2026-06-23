@@ -74,11 +74,16 @@
           </ul>
         </nav>
 
-        <!-- Chọn ngôn ngữ -->
-        <button type="button" class="nav-lang" aria-label="Chọn ngôn ngữ">
-          VN
-          <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+        <!-- Chọn ngôn ngữ (dropdown): nút hiện ngôn ngữ đang dùng, bấm xổ ngôn ngữ khác -->
+        <div class="nav-lang-wrap">
+          <button type="button" class="nav-lang" aria-haspopup="true" aria-expanded="false" aria-label="Chọn ngôn ngữ">
+            VN
+            <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-lang-menu" role="menu">
+            <li role="none"><a href="japan.html" class="nav-lang-option" role="menuitem">日本語</a></li>
+          </ul>
+        </div>
 
         <!-- Liên hệ button -->
         <a href="https://viettelsoftware.com/" class="nav-login-btn" target="_blank" rel="noopener noreferrer" aria-label="Về Viettel Software">
@@ -109,6 +114,8 @@
         <li><a href="#case-study" class="nav-mobile-link">Case study</a></li>
         <li><a href="#cta-form" class="nav-mobile-link">Liên hệ</a></li>
         <li><a href="https://viettelsoftware.com/" class="nav-mobile-link nav-mobile-login" target="_blank" rel="noopener noreferrer">Về Viettel Software</a></li>
+        <!-- Đổi ngôn ngữ: sang bản tiếng Nhật -->
+        <li><a href="japan.html" class="nav-mobile-link">日本語</a></li>
       </ul>
     </div>
   </header>
@@ -306,7 +313,7 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <img src="images/1.png" alt="Tạo Agent bằng ngôn ngữ tự nhiên" width="60" height="60">
+              <img src="images/21.png" alt="Tạo Agent bằng ngôn ngữ tự nhiên" width="60" height="60">
             </div>
             <div class="feature-body">
               <h3 class="feature-title">Tạo Agent bằng ngôn ngữ tự nhiên</h3>
@@ -326,7 +333,7 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <img src="images/3.png" alt="Multi-Agent Collaboration" width="60" height="60">
+              <img src="images/1.png" alt="Multi-Agent Collaboration" width="60" height="60">
             </div>
             <div class="feature-body">
               <h3 class="feature-title">Multi-Agent Collaboration</h3>
@@ -336,7 +343,7 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <img src="images/21.png" alt="Governance & Audit" width="60" height="60">
+              <img src="images/3.png" alt="Governance & Audit" width="60" height="60">
             </div>
             <div class="feature-body">
               <h3 class="feature-title">Governance &amp; Audit</h3>

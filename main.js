@@ -2,6 +2,60 @@
   'use strict';
 
   /* =====================================================
+     0. I18N — BỘ CHỮ THEO NGÔN NGỮ
+     Lấy theo <html lang="..."> ; mặc định 'vi' nếu không khớp.
+     Phần 'vi' giữ NGUYÊN chuỗi gốc để bản tiếng Việt không đổi.
+  ===================================================== */
+  var I18N = {
+    vi: {
+      processing:  'Đang xử lý...',
+      errorPrefix: 'Gửi thông tin thất bại.\n',
+      retry:       'Vui lòng thử lại.',
+      networkError: 'Lỗi kết nối. Vui lòng kiểm tra mạng và thử lại.'
+    },
+    ja: {
+      // TODO: rà lại bản dịch tiếng Nhật
+      processing:  '処理中...',
+      errorPrefix: 'エラー: ',
+      retry:       'もう一度お試しください。',
+      networkError: '通信エラーが発生しました。ネットワークを確認して再度お試しください。'
+    }
+  };
+  var LANG = I18N[document.documentElement.lang] || I18N.vi;
+
+
+  /* =====================================================
+     0b. NÚT ĐỔI NGÔN NGỮ (.nav-lang) — dropdown, dùng chung 2 trang
+     Bấm nút để xổ/đóng menu; việc điều hướng nằm ở link <a> trong .nav-lang-menu.
+  ===================================================== */
+  var langBtn = document.querySelector('.nav-lang');
+  if (langBtn) {
+    var langWrap = langBtn.closest('.nav-lang-wrap');
+
+    var closeLang = function () {
+      langBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    /* Bấm nút → đảo trạng thái mở/đóng */
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = langBtn.getAttribute('aria-expanded') === 'true';
+      langBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+
+    /* Bấm ra ngoài → đóng */
+    document.addEventListener('click', function (e) {
+      if (langWrap && !langWrap.contains(e.target)) closeLang();
+    });
+
+    /* Nhấn Esc → đóng */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLang();
+    });
+  }
+
+
+  /* =====================================================
      1. ĐÓNG MENU MOBILE
   ===================================================== */
   var toggle = document.getElementById('nav-toggle');
@@ -57,7 +111,7 @@
       };
 
       submitBtn.disabled  = true;
-      submitBtn.innerHTML = 'Đang xử lý...';
+      submitBtn.innerHTML = LANG.processing;
 
       fetch('https://api-hp.viettelsoftware.com:8443/api/v1/profiles/email-website/create', {
         method:  'POST',
@@ -70,12 +124,12 @@
             openPopup();
           } else {
             return res.text().then(function (errText) {
-              alert('Gửi thông tin thất bại.\n' + (errText || 'Vui lòng thử lại.'));
+              alert(LANG.errorPrefix + (errText || LANG.retry));
             });
           }
         })
         .catch(function () {
-          alert('Lỗi kết nối. Vui lòng kiểm tra mạng và thử lại.');
+          alert(LANG.networkError);
         })
         .finally(function () {
           submitBtn.disabled  = false;

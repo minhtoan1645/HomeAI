@@ -35,7 +35,9 @@
   --border-dark:    #2a2a2a;
 
   /* Typography */
-  --font:           'Inter', system-ui, -apple-system, sans-serif;
+  /* 'Noto Sans JP' xen ngay trước generic 'sans-serif' làm font dự phòng cho glyph
+     kanji/kana (bản tiếng Việt không có glyph Nhật nên không bị ảnh hưởng) */
+  --font:           'Inter', system-ui, -apple-system, 'Noto Sans JP', sans-serif;
   --size-h1:        46px;
   --size-h2:        36px;
   --size-h3:        24px;

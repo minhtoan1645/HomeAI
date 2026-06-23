@@ -200,13 +200,18 @@ html {
   flex-shrink: 0;
 }
 
-/* Chọn ngôn ngữ */
+/* Chọn ngôn ngữ (dropdown) */
+.nav-lang-wrap {
+  position: relative;
+  margin-left: 14px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
 .nav-lang {
   display: inline-flex;
   align-items: center;
   gap: 1px;
-  margin-left: 14px;
-  margin-right: 15px;
   padding: 0;
   background: transparent;
   border: none;
@@ -214,7 +219,6 @@ html {
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-  flex-shrink: 0;
   cursor: pointer;
 }
 
@@ -224,6 +228,50 @@ html {
   flex-shrink: 0;
   align-self: flex-start;
   margin-top: 4px;
+  transition: transform .2s ease;
+}
+
+/* Mở dropdown → xoay chevron */
+.nav-lang[aria-expanded="true"] .nav-lang-chevron {
+  transform: rotate(180deg);
+}
+
+/* Menu ngôn ngữ xổ xuống (ẩn mặc định, hiện khi aria-expanded="true") */
+.nav-lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 124px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  display: none;
+  z-index: 60;
+}
+
+.nav-lang[aria-expanded="true"] ~ .nav-lang-menu {
+  display: block;
+}
+
+.nav-lang-option {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color var(--transition), background var(--transition);
+}
+
+.nav-lang-option:hover {
+  color: var(--red);
+  background: rgba(238, 0, 51, .05);
 }
 
 /* Hamburger (ẩn trên desktop) */
@@ -338,7 +386,7 @@ html {
     font-size: 13px;
   }
 
-  .nav-lang {
+  .nav-lang-wrap {
     margin-right: 0;
   }
 }
@@ -367,7 +415,7 @@ html {
   /* Ẩn desktop nav và login button */
   .site-nav,
   .nav-login-btn,
-  .nav-lang {
+  .nav-lang-wrap {
     display: none;
   }
 
@@ -2392,7 +2440,7 @@ section.cert-section {
 .success-icon svg { width: 100%; height: 100%; }
 
 .success-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif; /* 'Noto Sans JP': dự phòng glyph Nhật */
   font-size: 32px;
   font-weight: 900;
   color: #EE0033;
@@ -2404,7 +2452,7 @@ section.cert-section {
 }
 
 .success-subtitle {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif; /* 'Noto Sans JP': dự phòng glyph Nhật */
   font-size: 16px;
   font-weight: 400;
   color: #7C7C7C;
@@ -2453,5 +2501,21 @@ section.cert-section {
     font-size: clamp(11px, 3.2vw, 13px);
     line-height: 1.5;
   }
+}
+
+
+/* =====================================================
+   OVERRIDE RIÊNG BẢN TIẾNG NHẬT — html[lang="ja"]
+   KHÔNG ảnh hưởng index.html (chỉ áp dụng khi lang="ja").
+   Một số tiêu đề dùng FS Magistral theo thiết kế.
+   LƯU Ý: FS Magistral KHÔNG có glyph kanji/kana → chữ Nhật vẫn rơi xuống
+   'Noto Sans JP'; FS Magistral chỉ tác động lên ký tự Latin (AI, vAgents,
+   số, 24/7...) trong các vùng này.
+===================================================== */
+html[lang="ja"] .hero-title,
+html[lang="ja"] .pain-title-accent,
+html[lang="ja"] .transform-title,
+html[lang="ja"] .features-title {
+  font-family: 'FS Magistral', 'Noto Sans JP', sans-serif;
 }
 

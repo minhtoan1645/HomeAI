@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="vAgents — Nền tảng AI Workforce giúp doanh nghiệp xây dựng đội ngũ AI vận hành toàn diện. Tạo Agent, kết nối hệ thống, thực thi end-to-end.">
+  <meta property="og:title" content="vAgents — AI Workforce cho Doanh Nghiệp">
+  <meta property="og:description" content="Từ AI hỗ trợ sang AI vận hành doanh nghiệp. Xây dựng đội ngũ AI Workforce với vAgents của Viettel Software.">
+  <meta property="og:type" content="website">
+  <title>vAgents — AI Workforce cho Doanh Nghiệp | Viettel Software</title>
+
+  <!-- Google Fonts: Inter 400/500/600/700 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- display=optional: dùng font dự phòng nếu Inter chưa kịp tải, KHÔNG swap sau đó
+       → tránh reflow làm lệch vị trí khi mở link có #anchor (vd .../#giai-phap) -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;700&family=Be+Vietnam+Pro:wght@400;600;700&family=Roboto:wght@400;700;900&family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet">
+
+  <!-- Webfont tiếng Nhật: dự phòng cho glyph kanji/kana (chỉ tải ở bản tiếng Nhật) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=99">
+</head>
+<body>
+
+  <!-- Neo đầu trang: KHÔNG đặt trên header sticky (sticky luôn ở top → trình duyệt
+       coi như đã thấy, không cuộn). Logo trỏ #top sẽ cuộn hẳn lên đầu trang. -->
+  <span id="top" aria-hidden="true"></span>
+
+  <!-- ===== 00. HEADER / NAV ===== -->
+  <!-- CSS-only mobile menu: checkbox input phải đứng TRƯỚC header để sibling selector hoạt động -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-pill">
+
+        <!-- Logo -->
+        <a href="#top" class="site-logo" aria-label="Viettel Software - trang chủ">
+          <img src="images/logo.png" alt="Viettel Software" class="logo-img">
+        </a>
+
+        <!-- Nav desktop -->
+        <nav class="site-nav" aria-label="Menu chính">
+          <ul class="nav-menu" role="list">
+            <li>
+              <a href="#giai-phap" class="nav-link active" aria-current="page">
+                ソリューション
+                <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#vagent" class="nav-link">
+                vAgents
+                <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#ung-dung" class="nav-link">
+                活用例
+                <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#case-study" class="nav-link">
+                活用例
+                <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#cta-form" class="nav-link">
+                お問い合わせ
+                <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Chọn ngôn ngữ (dropdown): nút hiện ngôn ngữ đang dùng, bấm xổ ngôn ngữ khác -->
+        <div class="nav-lang-wrap">
+          <button type="button" class="nav-lang" aria-haspopup="true" aria-expanded="false" aria-label="言語を選択">
+            日本語
+            <svg class="nav-lang-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-lang-menu" role="menu">
+            <li role="none"><a href="index.html" class="nav-lang-option" role="menuitem">Tiếng Việt</a></li>
+          </ul>
+        </div>
+
+        <!-- Liên hệ button -->
+        <a href="https://viettelsoftware.com/" class="nav-login-btn" target="_blank" rel="noopener noreferrer" aria-label="Viettel Software ログイン">
+          Viettel Software ログイン
+          <svg class="nav-login-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M13 3h4a1 1 0 011 1v12a1 1 0 01-1 1h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M9 13l4-3-4-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="13" y1="10" x2="3" y2="10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <!-- Hamburger CSS-only: 3 span biến thành X khi checked -->
+        <label for="nav-toggle" class="nav-hamburger" aria-label="Mở menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- Mobile nav panel — hiển thị khi checkbox checked -->
+    <div class="nav-mobile-panel">
+      <ul class="nav-mobile-menu" role="list">
+        <li><a href="#giai-phap" class="nav-mobile-link">ソリューション</a></li>
+        <li><a href="#vagent" class="nav-mobile-link">vAgents</a></li>
+        <li><a href="#ung-dung" class="nav-mobile-link">活用例</a></li>
+        <li><a href="#case-study" class="nav-mobile-link">活用例</a></li>
+        <li><a href="#cta-form" class="nav-mobile-link">お問い合わせ</a></li>
+        <li><a href="https://viettelsoftware.com/" class="nav-mobile-link nav-mobile-login" target="_blank" rel="noopener noreferrer">Viettel Software ログイン</a></li>
+        <!-- Đổi ngôn ngữ: về bản tiếng Việt -->
+        <li><a href="index.html" class="nav-mobile-link">Tiếng Việt</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== 01. HERO ===== -->
+    <section class="hero-section" id="hero" aria-label="Hero">
+
+      <!-- Layer 0: nền full-width -->
+      <img src="images/Rectangle.png?v=3" alt="" class="hero-bg" aria-hidden="true">
+
+      <!-- Layer 1b: Rectangle1 bên trái, đè lên bg, dưới text -->
+      <img src="images/Rectangle1.png" alt="" class="hero-rect1" aria-hidden="true">
+
+      <!-- Layer 2: nội dung -->
+      <div class="container hero-inner">
+
+        <!-- Div chứa text bên trái -->
+        <div class="hero-content">
+
+          <!-- Heading -->
+          <h1 class="hero-title">
+            企業向け
+            <span class="hero-ai-border">
+              <img class="hero-ai-base" src="images/56.png" alt="AI WORKFORCE 24/7" width="931" height="86">
+              <img class="hero-ai-fill" src="images/57.png" alt="" aria-hidden="true" width="920" height="74">
+            </span>
+            チームの構築
+          </h1>
+
+          <!-- Div text thông tin -->
+          <div class="hero-info">
+            <p>vAgents は、計画立案、タスク実行、マルチタスク連携、および社内システムとの直接統合が可能なAI Agentの構築と運用を企業向けに支援します。</p>
+          </div>
+
+          <!-- Div button -->
+          <div class="hero-actions">
+            <a href="#giai-phap" class="hero-btn">
+              ソリューションを見る
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ===== 02. PAIN POINT ===== -->
+    <section class="pain-section" id="dau-bai" aria-label="Doanh nghiep dang bi gioi han">
+      <div class="container">
+
+        <div class="pain-header">
+          <h2 class="pain-title">
+            多くの企業が<span class="text-red">従来の運用モデル</span>による<br>
+            <span class="pain-title-accent"><span class="text-red">限界</span>に直面しています</span>
+          </h2>
+          <p class="pain-sub">
+            業務量が急増する一方で、人材不足や断片化したAIツールの乱立により、事業拡大や業務最適化が困難になっています。
+          </p>
+        </div>
+
+        <div class="pain-grid">
+
+          <div class="pain-card">
+            <div class="pain-card-inner">
+              <img class="pain-card-watermark" src="images/34.png" alt="" aria-hidden="true">
+              <span class="pain-badge" aria-hidden="true">
+                <span class="pain-badge-num">1</span>
+              </span>
+              <div class="pain-card-icon">
+                <img src="images/35.png" alt="Bieu tuong khoi luong cong viec" loading="lazy">
+              </div>
+              <h3 class="pain-card-title">手作業による業務量の増加</h3>
+            </div>
+            <div class="pain-card-bottom">
+              <p class="pain-card-desc">データ入力、書類処理、レポート作成、ドキュメントチェックなどの手作業に、多くの運用リソースが費やされています。</p>
+            </div>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-card-inner">
+              <img class="pain-card-watermark" src="images/34.png" alt="" aria-hidden="true">
+              <span class="pain-badge" aria-hidden="true">
+                <span class="pain-badge-num">2</span>
+              </span>
+              <div class="pain-card-icon">
+                <img src="images/36.png" alt="Bieu tuong phu thuoc con nguoi" loading="lazy">
+              </div>
+              <h3 class="pain-card-title">人に依存する業務プロセス（属人化）</h3>
+            </div>
+            <div class="pain-card-bottom">
+              <p class="pain-card-desc">多くのタスクが依然として手作業で行われているか、特定の個人に依存しているため、事業の拡大（スケール）が困難です。</p>
+            </div>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-card-inner">
+              <img class="pain-card-watermark" src="images/34.png" alt="" aria-hidden="true">
+              <span class="pain-badge" aria-hidden="true">
+                <span class="pain-badge-num">3</span>
+              </span>
+              <div class="pain-card-icon">
+                <img src="images/37.png" alt="Bieu tuong AI roi rac" loading="lazy">
+              </div>
+              <h3 class="pain-card-title">AIと既存システムの断片化</h3>
+            </div>
+            <div class="pain-card-bottom">
+              <p class="pain-card-desc">チャットボット、RPA、ワークフロー自動化、および社内システムが連携されておらず、一つの統合された組織として機能していません。</p>
+            </div>
+          </div>
+
+          <div class="pain-card">
+            <div class="pain-card-inner">
+              <img class="pain-card-watermark" src="images/34.png" alt="" aria-hidden="true">
+              <span class="pain-badge" aria-hidden="true">
+                <span class="pain-badge-num">4</span>
+              </span>
+              <div class="pain-card-icon">
+                <img src="images/38.png" alt="Bieu tuong giam sat" loading="lazy">
+              </div>
+              <h3 class="pain-card-title">一元的な監視・管理体制の不足</h3>
+            </div>
+            <div class="pain-card-bottom">
+              <p class="pain-card-desc">実際の運用において、処理フロー、アクション履歴、およびAIの制御状況を追跡・把握することが困難です。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03. TRANSFORMATION ===== -->
+    <section class="transform-section section" id="giai-phap" aria-label="Từ AI hỗ trợ sang AI vận hành doanh nghiệp">
+      <div class="container">
+
+        <div class="transform-header text-center">
+          <h2 class="transform-title">
+            支援型AI <span class="text-red">から業務運用型AIへ</span>
+          </h2>
+          <p class="transform-subtitle">
+            企業は単に「AIを使う」のではなく、「AIで業務を運用する」時代へ
+          </p>
+        </div>
+
+        <div class="transform-compare">
+
+          <!-- Bảng trái: AI truyền thống -->
+          <div class="transform-table transform-table--traditional">
+            <div class="transform-table-header">従来のAI</div>
+            <ul class="transform-table-rows">
+              <li class="transform-table-row">段階的な自動化</li>
+              <li class="transform-table-row">人への依存</li>
+              <li class="transform-table-row">変更の困難さ</li>
+              <li class="transform-table-row">監視体制の不足</li>
+            </ul>
+          </div>
+
+          <!-- Bảng phải: vAgents + robot -->
+          <div class="transform-table-wrap">
+            <div class="transform-table transform-table--vagent">
+              <div class="transform-table-header">vAgents</div>
+              <ul class="transform-table-rows">
+                <li class="transform-table-row">エンドツーエンドの実行</li>
+                <li class="transform-table-row">自律的な実行</li>
+                <li class="transform-table-row">コンテキストに応じた柔軟性</li>
+                <li class="transform-table-row">包括的なガバナンス</li>
+              </ul>
+            </div>
+            <img class="transform-robot" src="images/chat.png" alt="" aria-hidden="true" loading="lazy">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04. vAgents FEATURES ===== -->
+    <section class="features-section section" id="vagent" aria-label="vAgents là gì">
+      <div class="container">
+        <div class="features-header text-center">
+          <h2 class="features-title">
+            <span class="text-red">vAgents とは？</span>
+          </h2>
+          <p class="features-desc">
+            vAgents は、企業向けAI Agentの構築・運用プラットフォームです。タスクの受け取り、計画立案、業務実行、そして人との協働が可能な「AI社員」の育成を実現します。
+          </p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="images/21.png" alt="Tạo Agent bằng ngôn ngữ tự nhiên" width="60" height="60">
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">自然言語によるAgent構築</h3>
+              <p class="feature-desc">プログラミング不要</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="images/2.png" alt="Kết nối hệ thống nội bộ" width="60" height="60">
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">社内システムとの連携</h3>
+              <p class="feature-desc">API / Database / ERP / CRM / Web / File</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="images/1.png" alt="Multi-Agent Collaboration" width="60" height="60">
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">マルチエージェント協働</h3>
+              <p class="feature-desc">Agent間連携：協働 / タスク分担 / 並行処理</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="images/3.png" alt="Governance & Audit" width="60" height="60">
+            </div>
+            <div class="feature-body">
+              <h3 class="feature-title">ガバナンス＆監査</h3>
+              <p class="feature-desc">一元的な監視 / 全ログ記録 / 必要に応じた介入</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05. HOW IT WORKS ===== -->
+    <section class="howitworks-section section" id="cach-van-hanh" aria-label="Cách vAgents vận hành">
+      <div class="container">
+        <div class="howitworks-header text-center">
+          <h2 class="howitworks-title"><span class="text-red">vAgentsを企業運用に統合するプロセス</span></h2>
+        </div>
+        <div class="hiw-scroller">
+          <div class="hiw">
+
+            <!-- Đường line uốn lượn (ghép 31.png + 32.png) + 3 tam giác 2 đầu (33.png) -->
+            <span class="hiw-line" aria-hidden="true">
+              <img class="hiw-tri hiw-tri--start" src="images/33.png" alt="">
+              <img class="hiw-tri hiw-tri--end" src="images/33.png" alt="">
+            </span>
+
+            <!-- Bước 1 — trên -->
+            <div class="hiw-step hiw-step--top" style="--c:#FF7871; --x:17.4%;">
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">01</span></span></div>
+              <span class="hiw-stem"></span>
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <img class="hiw-icon" src="images/25.png" alt="">
+              <p class="hiw-label">業務内容<br>の定義</p>
+            </div>
+
+            <!-- Bước 2 — dưới -->
+            <div class="hiw-step hiw-step--bottom" style="--c:#F53F47; --x:30.3%;">
+              <p class="hiw-label">Agentの構築</p>
+              <img class="hiw-icon" src="images/26.png" alt="">
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <span class="hiw-stem"></span>
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">02</span></span></div>
+            </div>
+
+            <!-- Bước 3 — trên -->
+            <div class="hiw-step hiw-step--top" style="--c:#EE0033; --x:43.9%;">
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">03</span></span></div>
+              <span class="hiw-stem"></span>
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <img class="hiw-icon" src="images/27.png" alt="">
+              <p class="hiw-label">社内システ<br>ムとの連携</p>
+            </div>
+
+            <!-- Bước 4 — dưới -->
+            <div class="hiw-step hiw-step--bottom" style="--c:#C9001B; --x:57.3%;">
+              <p class="hiw-label">ナレッジの<br>学習</p>
+              <img class="hiw-icon" src="images/28.png" alt="">
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <span class="hiw-stem"></span>
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">04</span></span></div>
+            </div>
+
+            <!-- Bước 5 — trên -->
+            <div class="hiw-step hiw-step--top" style="--c:#A50002; --x:68.7%;">
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">05</span></span></div>
+              <span class="hiw-stem"></span>
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <img class="hiw-icon" src="images/29.png" alt="">
+              <p class="hiw-label">ワークフ<br>ローの設定</p>
+            </div>
+
+            <!-- Bước 6 — dưới -->
+            <div class="hiw-step hiw-step--bottom" style="--c:#820000; --x:82.5%;">
+              <p class="hiw-label">構築完了・<br>テスト運用</p>
+              <img class="hiw-icon" src="images/30.png" alt="">
+              <span class="hiw-dot"><span class="hiw-dot-core"></span></span>
+              <span class="hiw-stem"></span>
+              <div class="hiw-circle"><span class="hiw-ring"><span class="hiw-disc">06</span></span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06. USE CASES ===== -->
+    <!-- CSS-only carousel: 6 radio inputs ngay trước section (sibling selector ~) -->
+    <input type="radio" name="uc-slide" id="uc-1" hidden checked>
+    <input type="radio" name="uc-slide" id="uc-2" hidden>
+    <input type="radio" name="uc-slide" id="uc-3" hidden>
+    <input type="radio" name="uc-slide" id="uc-4" hidden>
+    <input type="radio" name="uc-slide" id="uc-5" hidden>
+    <input type="radio" name="uc-slide" id="uc-6" hidden>
+
+    <section class="usecase-section section" id="ung-dung" aria-label="Ứng dụng thực tế">
+      <div class="container">
+        <h2 class="usecase-title">企業における実用例</h2>
+
+        <!-- Sân khấu carousel: bọc nút mũi tên + viewport để (ở mobile) căn nút theo CHIỀU CAO card -->
+        <div class="usecase-stage">
+
+          <div class="usecase-viewport">
+          <div class="usecase-track">
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/g537.png" alt="Tuyển dụng">
+              </div>
+              <h3 class="usecase-card-title">採用</h3>
+              <ul class="usecase-card-desc">
+                <li>履歴書（CV）のスクリーニング</li>
+                <li>面接日程の自動調整</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/Vector.png" alt="Pháp chế (Legal)">
+              </div>
+              <h3 class="usecase-card-title">法務</h3>
+              <ul class="usecase-card-desc">
+                <li>契約書のリーガルチェック</li>
+                <li>リスク因子の検知・アラート</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/4.png" alt="Vận hành &amp; Báo cáo">
+              </div>
+              <h3 class="usecase-card-title">運用＆レポート</h3>
+              <ul class="usecase-card-desc">
+                <li>データの集計・統合</li>
+                <li>レポートの自動生成</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/55.png" alt="CSKH &amp; Nội bộ">
+              </div>
+              <h3 class="usecase-card-title">カスタマーサポート＆社内業務</h3>
+              <ul class="usecase-card-desc">
+                <li>人事サポート</li>
+                <li>24時間365日Q&amp;A対応</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/59.png" alt="Trợ lý văn bản">
+              </div>
+              <h3 class="usecase-card-title">Trợ lý văn bản</h3>
+              <ul class="usecase-card-desc">
+                <li>Tạo tờ trình, hợp đồng</li>
+                <li>Tạo kịch bản, kế hoạch</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-card-icon">
+                <img src="images/60.png" alt="Giám sát công việc">
+              </div>
+              <h3 class="usecase-card-title">Giám sát công việc</h3>
+              <ul class="usecase-card-desc">
+                <li>Đánh giá công việc trên jira</li>
+                <li>Cảnh báo sai, thiếu dữ liệu</li>
+              </ul>
+            </div>
+
+            <!-- Bản sao 2 card đầu để luôn đủ 3 card khi cuộn tới nhóm cuối (thay cho infinite-loop của JS) -->
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/g537.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">採用</h3>
+              <ul class="usecase-card-desc">
+                <li>履歴書（CV）のスクリーニング</li>
+                <li>面接日程の自動調整</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/Vector.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">法務</h3>
+              <ul class="usecase-card-desc">
+                <li>契約書のリーガルチェック</li>
+                <li>リスク因子の検知・アラート</li>
+              </ul>
+            </div>
+
+            <div class="usecase-card usecase-card--clone" aria-hidden="true">
+              <div class="usecase-card-icon">
+                <img src="images/4.png" alt="">
+              </div>
+              <h3 class="usecase-card-title">運用＆レポート</h3>
+              <ul class="usecase-card-desc">
+                <li>データの集計・統合</li>
+                <li>レポートの自動生成</li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Dots: 1 dot / 1 nhóm cuộn. Dot active đồng bộ qua radio :checked (CSS) -->
+        <div class="usecase-dots">
+          <label for="uc-1" class="usecase-dot" aria-label="Nhóm 1"></label>
+          <label for="uc-2" class="usecase-dot" aria-label="Nhóm 2"></label>
+          <label for="uc-3" class="usecase-dot" aria-label="Nhóm 3"></label>
+          <label for="uc-4" class="usecase-dot" aria-label="Nhóm 4"></label>
+          <label for="uc-5" class="usecase-dot" aria-label="Nhóm 5"></label>
+          <label for="uc-6" class="usecase-dot" aria-label="Nhóm 6"></label>
+        </div>
+
+        <div class="usecase-stats">
+          <div class="usecase-stat">
+            <div class="usecase-stat-number">2000+</div>
+            <p class="usecase-stat-label">高スキルなIT人材</p>
+            <div class="usecase-stat-icon">
+              <img src="images/39.png" alt="">
+            </div>
+          </div>
+
+          <div class="usecase-stat">
+            <div class="usecase-stat-number">100%</div>
+            <p class="usecase-stat-label">国際基準を満たすプロダクト</p>
+            <div class="usecase-stat-icon">
+              <img src="images/40.png" alt="">
+            </div>
+          </div>
+
+          <div class="usecase-stat">
+            <div class="usecase-stat-number">200+</div>
+            <p class="usecase-stat-label">導入・展開実績</p>
+            <div class="usecase-stat-icon">
+              <img src="images/41.png" alt="">
+            </div>
+          </div>
+
+          <div class="usecase-stat">
+            <div class="usecase-stat-number">200+</div>
+            <p class="usecase-stat-label">パートナー・導入企業数</p>
+            <div class="usecase-stat-icon">
+              <img src="images/42.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS-only carousel: 4 radio inputs ngay trước section (sibling selector ~) -->
+    <input type="radio" name="cs-slide" id="cs-1" hidden checked>
+    <input type="radio" name="cs-slide" id="cs-2" hidden>
+    <input type="radio" name="cs-slide" id="cs-3" hidden>
+    <input type="radio" name="cs-slide" id="cs-4" hidden>
+
+    <!-- ===== 07. CASE STUDY ===== -->
+    <section class="casestudy-section section" id="case-study" aria-label="Case study tiêu biểu của vAgents">
+
+      <div class="container">
+        <div class="casestudy-header text-center">
+          <h2 class="section-title"><span class="text-red">vAgents</span> の主要導入事例</h2>
+        </div>
+
+        <!-- Sân khấu: bọc nút mũi tên + viewport để (mobile) căn nút theo GIỮA slide (ngang chỗ mũi tên đỏ) -->
+        <div class="casestudy-stage">
+
+          <div class="casestudy-viewport">
+          <div class="casestudy-track">
+
+            <!-- Slide 1: Tuyển dụng -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Recruitment Operations: デジタル採用アシスタント</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">導入前</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">数千件の履歴書 (CV) の受領</li>
+                      <li class="transform-table-row">手動でのデータ入力</li>
+                      <li class="transform-table-row">Excelによるレポート集計</li>
+                      <li class="transform-table-row">多大な時間コスト・対応漏れ</li>
+                      <li class="transform-table-row">手作業での履歴書スクリーニング・評価</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">導入後</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">履歴書（CV）の自動処理</li>
+                      <li class="transform-table-row">プロファイルの標準化</li>
+                      <li class="transform-table-row">面接日程の自動調整・割り当て</li>
+                      <li class="transform-table-row">採用タスクの統合管理</li>
+                      <li class="transform-table-row">候補者の分析・レポート作成</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="AI Agent">
+              </div>
+            </div>
+
+            <!-- Slide 2: Pháp chế -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Legal Operations: デジタル法務アシスタント</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">導入前</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">数百件の契約書の手動レビュー</li>
+                      <li class="transform-table-row">標準テンプレートとの手動比較</li>
+                      <li class="transform-table-row">法務レポートの手動集計</li>
+                      <li class="transform-table-row">Excelによる進捗管理</li>
+                      <li class="transform-table-row">全体評価データの不足</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">導入後</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">契約書の自動受付・分類</li>
+                      <li class="transform-table-row">標準テンプレート比較・差異検知</li>
+                      <li class="transform-table-row">契約分析レポートの自動作成</li>
+                      <li class="transform-table-row">法務書類処理ワークフローの管理</li>
+                      <li class="transform-table-row">法務モニタリング・統計ダッシュボード</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/63.png" alt="AI Agent">
+              </div>
+            </div>
+
+            <!-- Slide 3: Vận hành -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Finance Operations: デジタル財務アシスタント</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">導入前</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">複数チャネルからの請求書受領</li>
+                      <li class="transform-table-row">情報の目視・手動チェック</li>
+                      <li class="transform-table-row">複数ステップの支払い処理</li>
+                      <li class="transform-table-row">Excelによる予算管理</li>
+                      <li class="transform-table-row">月次レポート作成に数日を要し、異常値の検知が困難</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">導入後</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">Email、ERP、OCR、ファイルからの請求書自動収集</li>
+                      <li class="transform-table-row">会計システムとのデータ照合</li>
+                      <li class="transform-table-row">支払い承認ワークフローの制御</li>
+                      <li class="transform-table-row">リアルタイムの予算モニタリング</li>
+                      <li class="transform-table-row">財務レポートの自動作成・不正取引アラート</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/61.png" alt="AI Agent">
+              </div>
+            </div>
+
+            <!-- Slide 4: Customer Service -->
+            <div class="casestudy-slide">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Operations: 品質保証（QA)</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">導入前</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">毎日数十件のバグ/サブタスクが起票され、報告品質にばらつきがある。</li>
+                      <li class="transform-table-row">PM/リードが各項目（Summary, Description, Priority等）を目視で確認する手間が発生。</li>
+                      <li class="transform-table-row">情報不足や深刻度の誤りによる、手戻りや確認のやり取りに時間を費やす。</li>
+                      <li class="transform-table-row">チケット大量発生時、手動確認によるチェック漏れや誤分類のリスクがある。</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">導入後</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">起票・更新時に自動スキャンし、報告品質のスコアリングと分析を即座に実行。</li>
+                      <li class="transform-table-row">プロジェクトの定義基準に基づいて、AIが内容を自動照合。</li>
+                      <li class="transform-table-row">起票者に対して、修正のフィードバックと具体的な提案をリアルタイムに提示。</li>
+                      <li class="transform-table-row">手動確認の負担を大幅に削減し、PM/リードが複雑なケースの承認に集中できる体制を構築。</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/62.png" alt="AI Agent">
+              </div>
+            </div>
+
+            <!-- Clone slide 1 — để chuyển từ slide 4 về 1 trông liền mạch -->
+            <div class="casestudy-slide" aria-hidden="true">
+              <div class="casestudy-slide-left">
+                <p class="casestudy-slide-subtitle">AI Recruitment Operations: デジタル採用アシスタント</p>
+                <div class="casestudy-tables">
+                  <div class="transform-table transform-table--traditional">
+                    <div class="transform-table-header">導入前</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">数千件の履歴書 (CV) の受領</li>
+                      <li class="transform-table-row">手動でのデータ入力</li>
+                      <li class="transform-table-row">Excelによるレポート集計</li>
+                      <li class="transform-table-row">多大な時間コスト・対応漏れ</li>
+                      <li class="transform-table-row">手作業での履歴書スクリーニング・評価</li>
+                    </ul>
+                  </div>
+                  <div class="casestudy-arrow" aria-hidden="true">
+                    <img src="images/23.png" alt="">
+                  </div>
+                  <div class="transform-table transform-table--vagent">
+                    <div class="transform-table-header">導入後</div>
+                    <ul class="transform-table-rows">
+                      <li class="transform-table-row">履歴書（CV）の自動処理</li>
+                      <li class="transform-table-row">プロファイルの標準化</li>
+                      <li class="transform-table-row">面接日程の自動調整・割り当て</li>
+                      <li class="transform-table-row">採用タスクの統合管理</li>
+                      <li class="transform-table-row">候補者の分析・レポート作成</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-slide-right">
+                <img class="casestudy-ai-img" src="images/5.png" alt="">
+              </div>
+            </div>
+
+          </div><!-- /casestudy-track -->
+          </div><!-- /casestudy-viewport -->
+        </div><!-- /casestudy-stage -->
+
+        <div class="casestudy-dots">
+          <label for="cs-1" class="casestudy-dot"></label>
+          <label for="cs-2" class="casestudy-dot"></label>
+          <label for="cs-3" class="casestudy-dot"></label>
+          <label for="cs-4" class="casestudy-dot"></label>
+        </div>
+
+      </div><!-- /container -->
+    </section>
+
+    <!-- ===== 08. METRICS ===== -->
+    <section class="metrics-section">
+      <div class="container">
+        <div class="metrics-banner">
+          <div class="metrics-grid">
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/9.png" alt="">
+              <span class="metrics-value">30&ndash;60%</span>
+              <span class="metrics-label">手作業の削減</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/10.png" alt="">
+              <span class="metrics-value">40&ndash;70%</span>
+              <span class="metrics-label">処理時間の短縮</span>
+            </div>
+            <div class="metrics-divider" aria-hidden="true"></div>
+            <div class="metrics-item">
+              <img class="metrics-icon" src="images/11.png" alt="">
+              <span class="metrics-value">30&ndash;60%</span>
+              <span class="metrics-label">運用コストの削減</span>
+            </div>
+          </div>
+        </div><!-- /metrics-banner -->
+      </div>
+    </section>
+
+    <!-- ===== 09. CERTIFICATIONS ===== -->
+    <section class="cert-section section" id="chung-chi" aria-label="Chứng chỉ và giải thưởng">
+      <div class="container">
+        <div class="cert-header text-center">
+          <h2 class="section-title text-red">Chứng chỉ và Giải thưởng</h2>
+        </div>
+        <div class="cert-grid">
+          <article class="cert-card" style="background-image:url('images/48.png')">
+            <div class="cert-card-body">
+              <span class="cert-card-icon-wrap"><img class="cert-card-icon" src="images/Ranking.png" alt="" aria-hidden="true" loading="lazy"></span>
+              <h3 class="cert-card-title">Chứng chỉ Năng lực &amp;<br>Tiêu chuẩn Quốc tế</h3>
+              <ul class="cert-card-list">
+                <li>CMMI Level 5</li>
+                <li>ISO 9001</li>
+                <li>ISO 27001</li>
+              </ul>
+            </div>
+            <div class="cert-card-media cert-card-media--stack">
+              <img src="images/49.png" alt="CMMI Appraised" loading="lazy">
+              <img src="images/50.png" alt="ISO 9001" loading="lazy">
+              <img src="images/51.png" alt="ISO 27001" loading="lazy">
+            </div>
+          </article>
+          <article class="cert-card" style="background-image:url('images/48.png')">
+            <div class="cert-card-body">
+              <span class="cert-card-icon-wrap"><img class="cert-card-icon" src="images/Ranking.png" alt="" aria-hidden="true" loading="lazy"></span>
+              <h3 class="cert-card-title">Stevie Awards for Technology<br>Excellence</h3>
+              <ul class="cert-card-list">
+                <li>Viettel skybook đạt Giải Vàng ở <br class="cert-br-m">hạng mục New <br class="cert-br-d">Product of the Year</li>
+              </ul>
+            </div>
+            <div class="cert-card-media cert-card-media--badge">
+              <img src="images/52.png" alt="2025 Stevie Gold Winner" loading="lazy">
+            </div>
+          </article>
+          <article class="cert-card" style="background-image:url('images/48.png')">
+            <div class="cert-card-body">
+              <span class="cert-card-icon-wrap"><img class="cert-card-icon" src="images/Ranking.png" alt="" aria-hidden="true" loading="lazy"></span>
+              <h3 class="cert-card-title">Giải thưởng Sao Khuê 2025</h3>
+              <ul class="cert-card-list">
+                <li>Dịch vụ phát triển phần mềm - Dịch<br class="cert-br-m"> vụ số tiêu biểu</li>
+                <li>Viettel SKybook - Xếp hạng 5 sao lĩnh <br class="cert-br-m">vực quản trị<br class="cert-br-d"> doanh nghiệp hàng không</li>
+              </ul>
+            </div>
+            <div class="cert-card-media cert-card-media--badge">
+              <img src="images/53.png" alt="Giải thưởng Sao Khuê 2025" loading="lazy">
+            </div>
+          </article>
+          <article class="cert-card" style="background-image:url('images/48.png')">
+            <div class="cert-card-body">
+              <span class="cert-card-icon-wrap"><img class="cert-card-icon" src="images/Ranking.png" alt="" aria-hidden="true" loading="lazy"></span>
+              <h3 class="cert-card-title">Giải thưởng Chuyển đổi số Việt Nam</h3>
+              <ul class="cert-card-list cert-card-list--nowrap">
+                <li>Vinh danh tại Giải thưởng Chuyển đổi số<br class="cert-br-m"> Việt Nam 2025<br class="cert-br-d"> với Dịch vụ phát triển phần<br class="cert-br-m"> mềm quy mô lớn</li>
+              </ul>
+            </div>
+            <div class="cert-card-media cert-card-media--tall">
+              <img src="images/54.png" alt="Giải thưởng Chuyển đổi số Việt Nam" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. CTA + FORM ===== -->
+    <section class="cta-section" id="cta-form" aria-label="Đăng ký dùng thử">
+      <div class="container">
+        <div class="cta-inner">
+
+          <div class="cta-content">
+            <h2 class="cta-title">
+              構築を始める<br>
+              <span class="cta-ai">AI Workforce</span>
+              貴社のために
+            </h2>
+            <p class="cta-desc">競争優位性は、単にAIを「使う」ことではなく、AIで企業を「運用する」ことで生まれます。</p>
+            <img class="cta-robot" src="images/7.png" alt="AI Robot vAgents" loading="lazy">
+          </div>
+
+          <div class="cta-form-card">
+            <p class="cta-form-title"><span style="text-transform:none">vAgents</span> 無料トライアルはこちら</p>
+            <!-- Form tĩnh: action="" theo quyết định đã duyệt -->
+            <form class="cta-form" id="lien-he-form" action="" aria-label="Đăng ký dùng thử vAgents">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name" class="form-label">会社名*</label>
+                  <input type="text" id="f-name" name="name" class="form-input" placeholder="会社名*" required autocomplete="organization">
+                </div>
+                <div class="form-group">
+                  <label for="f-email" class="form-label">メールアドレス*</label>
+                  <input type="email" id="f-email" name="email" class="form-input" placeholder="メールアドレス*" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-phone" class="form-label">担当者名*</label>
+                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="担当者名*" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="f-company" class="form-label">電話番号 (任意)*</label>
+                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="電話番号 (任意)*" required autocomplete="tel">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="f-message" class="form-label">お問い合わせ内容*</label>
+                <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="お問い合わせ内容*" required rows="4"></textarea>
+              </div>
+              <div class="form-consent">
+                <input type="checkbox" id="f-consent" name="consent" class="form-consent-check" required>
+                <label for="f-consent" class="form-consent-text">
+                  <a href="https://viettelsoftware.com/policy-privacy.html" class="form-consent-link" target="_blank" rel="noopener noreferrer">Viettel Softwareの個人情報保護方針に同意し、個人データが法令に準拠して処理されることに同意します。</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">
+                今すぐ申し込む
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 11. FOOTER ===== -->
+  <footer class="site-footer" id="lien-he" aria-label="Footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="#top" class="footer-logo" aria-label="Viettel Software — trang chủ">
+          <img src="images/24.png" alt="Viettel Software" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">
+          Viettel Softwareは、バリューチェーン全体にAI機能を組み込んだエンドツーエンドの<br>
+          テクノロジーサービスを提供する、グローバルなITアウトソーシング企業です。
+        </p>
+        <address class="footer-contact" style="font-style:normal">
+          <span class="footer-contact-item">
+            <img src="images/16.png" alt="" class="footer-icon" aria-hidden="true">
+            ハノイ市コウザイ区ディックヴォンハウ通り36A
+          </span>
+          <a href="tel:+84988889446" class="footer-contact-item">
+            <img src="images/17.png" alt="" class="footer-icon" aria-hidden="true">
+            (+84) 988 889 446
+          </a>
+          <a href="mailto:contact@viettelsoftware.com" class="footer-contact-item">
+            <img src="images/18.png" alt="" class="footer-icon" aria-hidden="true">
+            contact@viettelsoftware.com
+          </a>
+        </address>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4 class="footer-nav-title">会社情報</h4>
+          <ul role="list">
+            <li><a href="#" class="footer-link">会社概要</a></li>
+            <li><a href="#faqs" class="footer-link">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-nav-title">ソーシャルメディア</h4>
+          <ul role="list">
+            <li><a href="https://www.facebook.com/viettelsoftwarejapan" class="footer-link" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/company/viettel-software-japan-%E3%83%99%E3%83%88%E3%83%86%E3%83%AB-%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>Copyright 2022, Viettel Software. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== POPUP: ĐĂNG KÝ THÀNH CÔNG ===== -->
+  <div class="success-overlay" id="success-overlay" role="dialog" aria-modal="true" aria-label="Đăng ký thành công" hidden>
+    <div class="success-modal">
+      <button type="button" class="success-close" id="success-close" aria-label="Đóng">✕</button>
+      <div class="success-logo">
+        <img src="images/logo.png" alt="Viettel Software">
+      </div>
+      <div class="success-icon">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="36" cy="36" r="36" fill="#22C55E"/>
+          <path d="M20 36l12 12 20-22" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="success-title">Đăng ký thành công !</p>
+      <p class="success-subtitle">Viettel Software sẽ sớm liên hệ lại với bạn.</p>
+    </div>
+  </div>
+
+  <script defer src="main.js"></script>
+</body>
+</html>
