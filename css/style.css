@@ -412,14 +412,16 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, .08);
   }
 
-  /* Ẩn desktop nav và login button */
+  /* Ẩn desktop nav và login button — GIỮ lại dropdown đổi ngôn ngữ cho mobile */
   .site-nav,
-  .nav-login-btn,
-  .nav-lang-wrap {
+  .nav-login-btn {
     display: none;
   }
 
   .site-logo { margin-right: auto; }
+
+  /* Dropdown đổi ngôn ngữ vẫn hiện ở mobile, chừa khoảng cách trước hamburger */
+  .nav-lang-wrap { margin-right: 12px; }
 
   .nav-hamburger { display: flex; }
 
