@@ -3,8 +3,6 @@
 
   /* =====================================================
      0. I18N — BỘ CHỮ THEO NGÔN NGỮ
-     Lấy theo <html lang="..."> ; mặc định 'vi' nếu không khớp.
-     Phần 'vi' giữ NGUYÊN chuỗi gốc để bản tiếng Việt không đổi.
   ===================================================== */
   var I18N = {
     vi: {
@@ -25,8 +23,7 @@
 
 
   /* =====================================================
-     0b. NÚT ĐỔI NGÔN NGỮ (.nav-lang) — dropdown, dùng chung 2 trang
-     Bấm nút để xổ/đóng menu; việc điều hướng nằm ở link <a> trong .nav-lang-menu.
+     0b. NÚT ĐỔI NGÔN NGỮ 
   ===================================================== */
   var langBtn = document.querySelector('.nav-lang');
   if (langBtn) {
