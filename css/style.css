@@ -8,35 +8,35 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/css/font-viettel/FS Magistral-Light.ttf') format('truetype');
+  src: url('font-viettel/FS Magistral-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FS Magistral';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/css/font-viettel/FS Magistral-Book.ttf') format('truetype');
+  src: url('font-viettel/FS Magistral-Book.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FS Magistral';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/css/font-viettel/FS Magistral-Medium.ttf') format('truetype');
+  src: url('font-viettel/FS Magistral-Medium.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FS Magistral';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/css/font-viettel/FS Magistral-Bold.ttf') format('truetype');
+  src: url('font-viettel/FS Magistral-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FS Magistral';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('/css/font-viettel/FS Magistral-ExtraBold.ttf') format('truetype');
+  src: url('font-viettel/FS Magistral-ExtraBold.ttf') format('truetype');
 }
 /* ===== Fonts: FS PFBeauSansPro ===== */
 @font-face {
@@ -44,14 +44,14 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/css/font-viettel/FS PFBeauSansPro-Light.ttf') format('truetype');
+  src: url('font-viettel/FS PFBeauSansPro-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FS PFBeauSansPro';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/css/font-viettel/FS PFBeauSansPro-Bold.ttf') format('truetype');
+  src: url('font-viettel/FS PFBeauSansPro-Bold.ttf') format('truetype');
 }
 
 /* ===== 00. Header / Nav ===== */
