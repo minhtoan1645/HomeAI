@@ -9,14 +9,14 @@
   <meta property="og:type" content="website">
   <title>vAgents — AI Workforce cho Doanh Nghiệp | Viettel Software</title>
 
-  <!-- Google Fonts: Roboto 400/700/900 (dùng cho màn hình gửi form thành công).
-       Font tiêu đề (FS Magistral) và body (FS PFBeauSansPro) là webfont nội bộ,
+  <!-- Google Fonts: Roboto 400/700/900 (font chính toàn trang).
+       Riêng section Chứng chỉ dùng FS Magistral — webfont nội bộ,
        khai báo @font-face trong css/style.css -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- display=optional: dùng font dự phòng nếu Roboto chưa kịp tải, KHÔNG swap sau đó
-       → tránh reflow làm lệch vị trí khi mở link có #anchor (vd .../#giai-phap) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=optional" rel="stylesheet">
+  <!-- display=swap: hiện font dự phòng trong lúc tải rồi swap sang Roboto khi xong
+       (bắt buộc dùng swap để glyph tiếng Việt luôn dùng đúng Roboto, tránh lỗi font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css?v=2">
   <link rel="stylesheet" href="css/style.css?v=100">
