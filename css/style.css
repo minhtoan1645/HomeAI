@@ -38,20 +38,15 @@
   font-display: swap;
   src: url('font-viettel/FS Magistral-ExtraBold.ttf') format('truetype');
 }
-/* ===== Fonts: FS PFBeauSansPro ===== */
-@font-face {
-  font-family: 'FS PFBeauSansPro';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('font-viettel/FS PFBeauSansPro-Light.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'FS PFBeauSansPro';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('font-viettel/FS PFBeauSansPro-Bold.ttf') format('truetype');
+
+/* ===== Riêng section Chứng chỉ & Giải thưởng giữ FS Magistral =====
+   (toàn bộ phần còn lại của trang dùng Roboto qua --font / --font-heading) */
+.cert-section,
+.cert-section h1, .cert-section h2, .cert-section h3, .cert-section h4,
+.cert-section .section-title,
+.cert-section .cert-card-title,
+.cert-section .cert-card-list li {
+  font-family: 'FS Magistral', 'Noto Sans JP', sans-serif;
 }
 
 /* ===== 00. Header / Nav ===== */
@@ -1922,7 +1917,6 @@ section.cert-section {
 }
 
 .cert-card-title {
-  font-family: 'Barlow', var(--font);
   font-size: 27px;
   font-weight: var(--weight-bold);
   line-height: 1.2;
@@ -1938,7 +1932,6 @@ section.cert-section {
 }
 
 .cert-card-list li {
-  font-family: 'Barlow', var(--font);
   font-size: 17px;
   font-weight: var(--weight-regular);
   line-height: 1.5;
@@ -2088,6 +2081,7 @@ section.cert-section {
 }
 
 .cta-form-title {
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 800;
   color: #EF0039;
@@ -2504,20 +2498,3 @@ section.cert-section {
     line-height: 1.5;
   }
 }
-
-
-/* =====================================================
-   OVERRIDE RIÊNG BẢN TIẾNG NHẬT — html[lang="ja"]
-   KHÔNG ảnh hưởng index.html (chỉ áp dụng khi lang="ja").
-   Một số tiêu đề dùng FS Magistral theo thiết kế.
-   LƯU Ý: FS Magistral KHÔNG có glyph kanji/kana → chữ Nhật vẫn rơi xuống
-   'Noto Sans JP'; FS Magistral chỉ tác động lên ký tự Latin (AI, vAgents,
-   số, 24/7...) trong các vùng này.
-===================================================== */
-html[lang="ja"] .hero-title,
-html[lang="ja"] .pain-title-accent,
-html[lang="ja"] .transform-title,
-html[lang="ja"] .features-title {
-  font-family: 'FS Magistral', 'Noto Sans JP', sans-serif;
-}
-
