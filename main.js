@@ -119,6 +119,9 @@
           if (res.ok) {
             form.reset();
             openPopup();
+            if (typeof fbq === 'function') {
+              fbq('track', 'CompleteRegistration');
+            }
           } else {
             return res.text().then(function (errText) {
               alert(LANG.errorPrefix + (errText || LANG.retry));
