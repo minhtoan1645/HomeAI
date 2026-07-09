@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <title>vAgents — AI Workforce cho Doanh Nghiệp | Viettel Software</title>
 
-  <!-- Meta Pixel Code — THAY 'YOUR_PIXEL_ID' (2 chỗ) bằng Pixel ID thật từ Meta Events Manager -->
+  <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -937,17 +937,19 @@
                 </div>
                 <div class="form-group">
                   <label for="f-email" class="form-label">Email *</label>
-                  <input type="email" id="f-email" name="email" class="form-input" placeholder="Email*" required autocomplete="email">
+                  <input type="email" id="f-email" name="email" class="form-input" placeholder="Email*" required autocomplete="email"
+                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Email phải đúng định dạng, ví dụ: ten@congty.com">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-phone" class="form-label">Người đại diện liên hệ *</label>
-                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="Người đại diện liên hệ*" required autocomplete="name">
+                  <label for="f-phone" class="form-label">Người đại diện liên hệ</label>
+                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="Người đại diện liên hệ" autocomplete="name">
                 </div>
                 <div class="form-group">
                   <label for="f-company" class="form-label">Điện thoại *</label>
-                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="Số điện thoại*" required autocomplete="tel">
+                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="Số điện thoại*" required autocomplete="tel"
+                         pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Số điện thoại phải gồm đúng 10 chữ số">
                 </div>
               </div>
               <div class="form-group">

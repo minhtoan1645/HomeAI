@@ -940,17 +940,19 @@
                 </div>
                 <div class="form-group">
                   <label for="f-email" class="form-label">メールアドレス*</label>
-                  <input type="email" id="f-email" name="email" class="form-input" placeholder="メールアドレス*" required autocomplete="email">
+                  <input type="email" id="f-email" name="email" class="form-input" placeholder="メールアドレス*" required autocomplete="email"
+                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="メールアドレスを正しい形式で入力してください（例：name@company.com）">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="f-phone" class="form-label">担当者名*</label>
-                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="担当者名*" required autocomplete="name">
+                  <label for="f-phone" class="form-label">担当者名</label>
+                  <input type="text" id="f-phone" name="contact_person" class="form-input" placeholder="担当者名" autocomplete="name">
                 </div>
                 <div class="form-group">
-                  <label for="f-company" class="form-label">電話番号 (任意)*</label>
-                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="電話番号 (任意)*" required autocomplete="tel">
+                  <label for="f-company" class="form-label">電話番号*</label>
+                  <input type="tel" id="f-company" name="phone" class="form-input" placeholder="電話番号*" required autocomplete="tel"
+                         pattern="[0-9]{10,11}" maxlength="11" inputmode="numeric" title="電話番号は10〜11桁の数字で入力してください">
                 </div>
               </div>
               <div class="form-group">
