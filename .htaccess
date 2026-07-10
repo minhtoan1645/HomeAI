@@ -1,0 +1,31 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+# /japan.html -> /japan
+RewriteCond %{THE_REQUEST} \s/+japan\.html[\s?]
+RewriteRule ^japan\.html$ /japan [R=301,L]
+
+# Fix asset relative path khi vào /japan
+# /japan/images/xxx -> /images/xxx
+# /japan/css/xxx    -> /css/xxx
+# /japan/js/xxx     -> /js/xxx
+RewriteRule ^japan/(images|css|js|assets|asset)/(.*)$ /$1/$2 [L,NC]
+
+# Nếu file main.js bị gọi thành /japan/main.js thì trỏ về /main.js
+RewriteRule ^japan/(main\.js)$ /$1 [L,NC]
+
+# /japan hoặc /japan/ render japan.html
+RewriteRule ^japan/?$ /japan.html [L]
+
+# File/thư mục thật thì cho chạy bình thường
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Static file không tồn tại thì trả 404, không redirect về home
+RewriteRule \.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|map)$ - [R=404,L]
+
+# URL page không tồn tại thì redirect về trang chủ
+RewriteRule ^.*$ / [R=301,L]
