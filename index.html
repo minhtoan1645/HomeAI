@@ -33,10 +33,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- display=swap: hiện font dự phòng trong lúc tải rồi swap sang Roboto khi xong
        (bắt buộc dùng swap để glyph tiếng Việt luôn dùng đúng Roboto, tránh lỗi font) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- ital,wght: cần thêm 1,400 (italic 400) cho danh sách in nghiêng ở section
+       "Tại sao doanh nghiệp Nhật Bản..." — không có face này trình duyệt sẽ giả lập nghiêng -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css?v=2">
-  <link rel="stylesheet" href="css/style.css?v=100">
+  <link rel="stylesheet" href="css/style.css?v=121">
 </head>
 <body>
 
@@ -164,15 +166,23 @@
             CHO DOANH NGHIỆP
           </h1>
 
-          <!-- Div text thông tin -->
+          <!-- Div text thông tin: checklist ✓ (dấu ✓ vẽ bằng CSS ::before) -->
           <div class="hero-info">
-            <p>vAgents giúp doanh nghiệp tạo và vận hành các AI Agent có khả năng lập kế hoạch, thực thi công việc, phối hợp đa tác vụ và tích hợp trực tiếp với hệ thống nội bộ.</p>
+            <ul class="hero-list" role="list">
+              <li>Giảm <strong>30 - 60%</strong> khối lượng thao tác thủ công</li>
+              <li>Rút ngắn <strong>40 - 70%</strong> thời gian xử lý quy trình</li>
+              <li>Giảm chi phí vận hành lên đến <strong>20 - 40%</strong></li>
+              <li>Vận hành <strong>24/7</strong></li>
+              <li>Kết nối trực tiếp với ERP, CRM, Email, Ticket, Database và hệ thống nội bộ</li>
+              <li>Giám sát tập trung toàn bộ hoạt động của AI Agent</li>
+            </ul>
+            <p class="hero-note">* Kết quả tham khảo từ các dự án triển khai thực tế, phụ thuộc vào hiện trạng từng doanh nghiệp.</p>
           </div>
 
           <!-- Div button -->
           <div class="hero-actions">
             <a href="#giai-phap" class="hero-btn">
-              XEM GIẢI PHÁP
+              TÌM HIỂU NGAY
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -270,7 +280,16 @@
       </div>
     </section>
 
-    <!-- ===== 03. TRANSFORMATION ===== -->
+    <!-- Neo #giai-phap: nav "Giải pháp" và nút hero đều trỏ tới đây.
+         Giữ lại vì section 03 (chủ nhân cũ của id này) đang bị TẮT bên dưới. -->
+    <span id="giai-phap" aria-hidden="true"></span>
+
+    <!-- ===== 03. TRANSFORMATION — ĐANG TẮT, KHÔNG HIỂN THỊ =====
+         Code giữ nguyên trong <template> nên trình duyệt không render và
+         không tải ảnh. MUỐN BẬT LẠI: xóa dòng <template> mở ngay dưới đây
+         và dòng </template> ở cuối section, rồi xóa <span id="giai-phap">
+         phía trên (vì id sẽ quay về nằm trên chính section này). -->
+    <template id="tpl-transform-section">
     <section class="transform-section section" id="giai-phap" aria-label="Từ AI hỗ trợ sang AI vận hành doanh nghiệp">
       <div class="container">
 
@@ -313,13 +332,15 @@
         </div>
       </div>
     </section>
+    </template>
+    <!-- ===== HẾT phần 03 đang tắt ===== -->
 
     <!-- ===== 04. vAgents FEATURES ===== -->
     <section class="features-section section" id="vagent" aria-label="vAgents là gì">
       <div class="container">
         <div class="features-header text-center">
           <h2 class="features-title">
-            Vậy <span class="text-red">vAgents là gì ?</span>
+            Giới thiệu <span class="text-red">vAgents là gì ?</span>
           </h2>
           <p class="features-desc">
             vAgents là nền tảng triển khai và vận hành AI Agent cho doanh nghiệp, cho phép xây dựng các "nhân viên AI"
@@ -369,6 +390,81 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- ===== 04b. GIÁ TRỊ ĐẠT ĐƯỢC ===== -->
+    <section class="value-section section" id="gia-tri" aria-label="Giá trị đạt được khi doanh nghiệp ứng dụng AI Agent">
+      <div class="container">
+
+        <div class="value-header text-center">
+          <h2 class="value-title">
+            Giá trị đạt được khi <span class="text-red">doanh nghiệp ứng dụng AI Agent</span>
+          </h2>
+          <p class="value-desc">
+            Tự động hóa quy trình bằng đội ngũ AI Agent có khả năng lập kế hoạch, thực thi công việc và phối hợp
+            với con người như một nhân viên thực thụ, làm việc liên tục không ngừng nghỉ.
+          </p>
+        </div>
+
+        <!-- Khung đỏ bọc 4 card + nút CTA -->
+        <div class="value-banner">
+          <div class="value-grid">
+
+            <article class="value-card">
+              <div class="value-card-media">
+                <img src="images/64.png" alt="AI Employee cho các tác vụ lặp lại" loading="lazy">
+              </div>
+              <div class="value-card-body">
+                <h3 class="value-card-title">AI Employee cho các tác vụ lặp lại</h3>
+                <p class="value-card-desc">Tự động xử lý email, nhập liệu, báo cáo, phân loại hồ sơ và tổng hợp thông tin.</p>
+              </div>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card-media">
+                <img src="images/65.png" alt="AI Assistant cho đội ngũ vận hành" loading="lazy">
+              </div>
+              <div class="value-card-body">
+                <h3 class="value-card-title">AI Assistant cho đội ngũ vận hành</h3>
+                <p class="value-card-desc">Hỗ trợ tra cứu dữ liệu, trả lời câu hỏi và đưa ra khuyến nghị.</p>
+              </div>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card-media">
+                <img src="images/66.png" alt="AI Workflow Orchestration" loading="lazy">
+              </div>
+              <div class="value-card-body">
+                <h3 class="value-card-title">AI Workflow Orchestration</h3>
+                <p class="value-card-desc">Điều phối nhiều hệ thống và nhiều Agent trong cùng một quy trình.</p>
+              </div>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card-media">
+                <img src="images/67.png" alt="AI Monitoring Center" loading="lazy">
+              </div>
+              <div class="value-card-body">
+                <h3 class="value-card-title">AI Monitoring Center</h3>
+                <p class="value-card-desc">Theo dõi toàn bộ hoạt động, lịch sử xử lý và hiệu suất của từng Agent.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="value-cta">
+            <a href="#cta-form" class="value-btn">
+              ĐĂNG KÝ DÙNG THỬ MIỄN PHÍ
+              <span class="value-btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -847,6 +943,77 @@
       </div>
     </section>
 
+    <!-- ===== 08b. VÌ SAO CHỌN VIETTEL SOFTWARE ===== -->
+    <!-- CSS-only carousel: radio inputs phải đứng TRƯỚC section (sibling selector ~).
+         THÊM ẢNH MỚI = thêm 1 <input id="wy-N">, 1 <div class="why-slide"> và 1 <label for="wy-N">,
+         rồi thêm 1 dòng transform trong css/style.css (mục 08b). -->
+    <input type="radio" name="wy-slide" id="wy-1" hidden checked>
+    <input type="radio" name="wy-slide" id="wy-2" hidden>
+    <input type="radio" name="wy-slide" id="wy-3" hidden>
+    <input type="radio" name="wy-slide" id="wy-4" hidden>
+    <input type="radio" name="wy-slide" id="wy-5" hidden>
+    <input type="radio" name="wy-slide" id="wy-6" hidden>
+
+    <section class="why-section section" id="vi-sao" aria-label="Vì sao doanh nghiệp Nhật Bản chọn Viettel Software">
+      <div class="container">
+
+        <div class="why-header text-center">
+          <h2 class="why-title">
+            Tại sao doanh nghiệp Nhật Bản <span class="text-red">tin tưởng lựa chọn Viettel Software?</span>
+          </h2>
+        </div>
+
+        <div class="why-card">
+
+          <ul class="why-list" role="list">
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Nhiều kinh nghiệm triển khai giải pháp CNTT quy mô lớn.</li>
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Đội ngũ kỹ sư AI và chuyên gia triển khai quốc tế.</li>
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Hỗ trợ triển khai từ xa hoặc onsite theo nhu cầu.</li>
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Hỗ trợ tư vấn bằng tiếng Nhật.</li>
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Không phát sinh chi phí khi dùng thử vAgents.</li>
+            <li><img class="why-tick" src="images/69.png" alt="" aria-hidden="true" loading="lazy">Cam kết bảo mật dữ liệu theo tiêu chuẩn doanh nghiệp.</li>
+          </ul>
+
+          <div class="why-media">
+            <div class="why-viewport">
+              <div class="why-track">
+                <!-- Ảnh 1 -->
+                <div class="why-slide">
+                  <img src="images/68.png" alt="Diễn đàn kinh tế Việt Nam - Kansai" loading="lazy">
+                </div>
+                <!-- Ảnh 2-6: TẠM DÙNG LẠI 68.png — thay src khi có ảnh mới -->
+                <div class="why-slide">
+                  <img src="images/68.png" alt="" loading="lazy">
+                </div>
+                <div class="why-slide">
+                  <img src="images/68.png" alt="" loading="lazy">
+                </div>
+                <div class="why-slide">
+                  <img src="images/68.png" alt="" loading="lazy">
+                </div>
+                <div class="why-slide">
+                  <img src="images/68.png" alt="" loading="lazy">
+                </div>
+                <div class="why-slide">
+                  <img src="images/68.png" alt="" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <div class="why-dots">
+              <label for="wy-1" class="why-dot" aria-label="Ảnh 1"></label>
+              <label for="wy-2" class="why-dot" aria-label="Ảnh 2"></label>
+              <label for="wy-3" class="why-dot" aria-label="Ảnh 3"></label>
+              <label for="wy-4" class="why-dot" aria-label="Ảnh 4"></label>
+              <label for="wy-5" class="why-dot" aria-label="Ảnh 5"></label>
+              <label for="wy-6" class="why-dot" aria-label="Ảnh 6"></label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 09. CERTIFICATIONS ===== -->
     <section class="cert-section section" id="chung-chi" aria-label="Chứng chỉ và giải thưởng">
       <div class="container">
@@ -923,7 +1090,9 @@
               cho doanh nghiệp của bạn
             </h2>
             <p class="cta-desc">Lợi thế cạnh tranh không chỉ là sử dụng AI, mà là vận hành doanh nghiệp bằng AI.</p>
-            <img class="cta-robot" src="images/7.png" alt="AI Robot vAgents" loading="lazy">
+            <!-- cta-steps.png = 70.png đã cắt bỏ viền trong suốt (~8.7%/cạnh) để ảnh
+                 lấp đầy khung, căn thẳng mép trái với tiêu đề. Bản gốc vẫn là images/70.png -->
+            <img class="cta-robot" src="images/cta-steps.png" alt="Chỉ 3 bước để bắt đầu với vAgents" loading="lazy">
           </div>
 
           <div class="cta-form-card">
@@ -963,7 +1132,7 @@
                 </label>
               </div>
               <button type="submit" class="btn btn-primary form-submit">
-                ĐĂNG KÝ TẠI ĐÂY
+                <span class="form-submit-text">Dùng thử vAgents miễn phí<br>ngay hôm nay!</span>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </form>
@@ -988,14 +1157,6 @@
           with AI-enabled capabilities embedded across the entire value chain.
         </p>
         <address class="footer-contact" style="font-style:normal">
-          <span class="footer-contact-item">
-            <img src="images/16.png" alt="" class="footer-icon" aria-hidden="true">
-            36A P.Dịch Vọng Hậu, Cầu Giấy, Hà nội
-          </span>
-          <a href="tel:+84988889446" class="footer-contact-item">
-            <img src="images/17.png" alt="" class="footer-icon" aria-hidden="true">
-            (+84) 988 889 446
-          </a>
           <a href="mailto:contact@viettelsoftware.com" class="footer-contact-item">
             <img src="images/18.png" alt="" class="footer-icon" aria-hidden="true">
             contact@viettelsoftware.com

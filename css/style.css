@@ -39,6 +39,31 @@
   src: url('font-viettel/FS Magistral-ExtraBold.ttf') format('truetype');
 }
 
+/* ===== Fonts: FS PFBeauSansPro (repo chỉ có 2 file: Light + Bold) =====
+   Không có file Regular/Medium → khai báo Light cho cả 300 và 400 để trình
+   duyệt khỏi tự suy weight, tránh lệch nét giữa các máy. */
+@font-face {
+  font-family: 'FS PFBeauSansPro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('font-viettel/FS PFBeauSansPro-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'FS PFBeauSansPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('font-viettel/FS PFBeauSansPro-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'FS PFBeauSansPro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('font-viettel/FS PFBeauSansPro-Bold.ttf') format('truetype');
+}
+
 /* ===== Riêng section Chứng chỉ & Giải thưởng giữ FS Magistral =====
    (toàn bộ phần còn lại của trang dùng Roboto qua --font / --font-heading) */
 .cert-section,
@@ -425,6 +450,15 @@ html {
 
 /* ===== 01. Hero ===== */
 
+/* Riêng khối hero dùng FS PFBeauSansPro (webfont nội bộ).
+   'Noto Sans JP' đứng sau để bản tiếng Nhật vẫn có glyph kanji/kana. */
+.hero-title,
+.hero-list li,
+.hero-info p,
+.hero-btn {
+  font-family: 'FS PFBeauSansPro', 'Noto Sans JP', sans-serif;
+}
+
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -529,6 +563,54 @@ html {
   max-width: 420px;
 }
 
+/* Checklist: dấu ✓ vẽ bằng ::before → text vẫn copy được sạch */
+.hero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  max-width: 700px;
+}
+
+.hero-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #FFFFFF;
+}
+
+.hero-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.hero-list strong {
+  font-weight: 700;
+}
+
+/* Ghi chú (*) dưới checklist — đè .hero-info p nên cần specificity cao hơn */
+.hero-info .hero-note {
+  margin-top: 18px;
+  max-width: none;   /* bỏ giới hạn 700px để câu ghi chú nằm trọn 1 dòng */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #FFFFFF;
+}
+
+/* Luôn 1 dòng, không xuống hàng. Cỡ chữ co theo bề rộng màn hình để câu dài
+   không tràn ra ngoài container ở tablet/màn hẹp. */
+@media (min-width: 768px) {
+  .hero-info .hero-note {
+    white-space: nowrap;
+    font-size: clamp(12px, 1.65vw, 16px);
+  }
+}
+
 /* Div button */
 .hero-actions {
   display: flex;
@@ -580,6 +662,10 @@ html {
   /* Co giãn theo bề rộng màn hình để "AI WORKFORCE 24/7" luôn vừa 1 dòng,
      không bị cắt trên màn nhỏ */
   .hero-ai-border { width: clamp(260px, 86vw, 500px); }
+
+  .hero-list { gap: 9px; }
+  .hero-list li { font-size: 15px; padding-left: 21px; }
+  .hero-info .hero-note { font-size: 14px; margin-top: 15px; }
 }
 
 
@@ -941,7 +1027,12 @@ html {
 /* ===== 04. vAgents Features ===== */
 
 .features-section {
-  background: #ffffff;
+  /* Nền vân sáng dùng chung với section 03/06/09 */
+  background-color: #f0f0f0;
+  background-image: url('../images/Asset 1@4x 1.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding-top: 48px;
 }
 
@@ -1025,6 +1116,166 @@ html {
   .feature-card { padding: 24px; gap: 24px; }
   .feature-icon img { width: 60px; height: 60px; }
   .feature-title { font-size: 22px; }
+}
+
+/* ===== 04b. Giá trị đạt được ===== */
+
+.value-section {
+  background: #ffffff;
+}
+
+.value-header {
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+
+.value-title {
+  font-size: 28px;
+  font-weight: var(--weight-bold);
+  color: var(--black);
+  line-height: var(--lh-tight);
+}
+
+.value-desc {
+  font-size: var(--size-sm);
+  color: var(--black);
+  line-height: var(--lh-normal);
+  margin: 14px auto 0;
+}
+
+/* Khung đỏ: gradient sáng → sẫm dần xuống dưới, phủ thêm lớp chấm bi mờ */
+.value-banner {
+  border-radius: 24px;
+  padding: 16px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, .13) 1.1px, transparent 1.2px) 0 0 / 12px 12px,
+    linear-gradient(180deg, #EE0033 0%, #CE0020 48%, #8E0012 100%);
+  box-shadow: 0 8px 28px rgba(142, 0, 18, .22);
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Card: ảnh bên trái, nội dung bên phải. Nền gradient trắng → #DFE0E4 */
+.value-card {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DFE0E4 100%);
+}
+
+.value-card-media {
+  flex: 0 0 auto;
+  width: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  align-self: stretch;
+}
+
+.value-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.value-card-body {
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+  padding-right: 6px;
+}
+
+.value-card-title {
+  font-size: 19px;
+  font-weight: var(--weight-bold);
+  color: var(--red);
+  line-height: var(--lh-tight);
+  margin: 0 0 10px;
+}
+
+.value-card-desc {
+  font-size: var(--size-body);
+  color: #2c2c2c;
+  line-height: var(--lh-normal);
+  margin: 0;
+}
+
+/* Nút CTA cuối khung */
+.value-cta {
+  display: flex;
+  justify-content: center;
+  padding: 22px 0 10px;
+}
+
+.value-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 8px 8px 32px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, #FFFFFF 0%, #DFE0E4 100%);
+  color: var(--red);
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .22);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.value-btn:hover {
+  color: var(--red-dark);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+
+.value-btn:active {
+  transform: translateY(1px);
+}
+
+.value-btn-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+}
+
+.value-btn-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+  .value-card { gap: 14px; padding: 12px; }
+  .value-card-media { width: 104px; }
+  .value-card-title { font-size: 16px; margin-bottom: 7px; }
+  .value-card-desc  { font-size: 14px; }
+  .value-btn { font-size: 13px; padding-left: 22px; gap: 10px; }
+  .value-btn-icon { width: 30px; height: 30px; }
+}
+
+@media (min-width: 768px) {
+  .value-banner { padding: 22px; }
+  .value-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (min-width: 1025px) {
+  .value-title { font-size: 36px; }
+  .value-desc { font-size: var(--size-body); }
+  .value-card { padding: 16px; gap: 24px; }
+  .value-card-media { width: 162px; }
+  .value-card-title { font-size: 21px; }
 }
 
 /* ===== 05. How It Works ===== */
@@ -1827,14 +2078,174 @@ html {
   .metrics-divider { margin: 18px 0; }
 }
 
+/* ===== 08b. Vì sao chọn Viettel Software ===== */
+
+.why-section {
+  margin-top: 48px;      /* tách khỏi banner số liệu phía trên */
+  padding-bottom: 72px;  /* khoảng cách xuống mục Chứng chỉ */
+  background-color: #f0f0f0;
+  background-image: url('../images/Asset 1@4x 1.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.why-header {
+  max-width: 900px;
+  margin: 0 auto 32px;
+}
+
+.why-title {
+  font-size: 24px;
+  font-weight: var(--weight-bold);
+  color: var(--black);
+  line-height: var(--lh-tight);
+}
+
+/* Tiêu đề luôn nằm 1 dòng từ tablet trở lên; cỡ chữ co theo bề rộng màn hình
+   để câu dài không tràn ra ngoài container. */
+@media (min-width: 768px) {
+  .why-title {
+    white-space: nowrap;
+    font-size: clamp(20px, 2.5vw, 32px);
+  }
+}
+
+/* Card: nền trắng (padding-box) + viền gradient #FFFFFF → #DFE0E4 (border-box).
+   Bóng lệch xuống dưới và sang phải. */
+.why-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border: 2px solid transparent;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, #DFE0E4 0%, #FFFFFF 100%) padding-box,
+    linear-gradient(180deg, #FFFFFF 0%, #DFE0E4 100%) border-box;
+  box-shadow: 10px 14px 28px rgba(0, 0, 0, .10), 4px 6px 12px rgba(0, 0, 0, .05);
+}
+
+/* Danh sách gạch đầu dòng bằng ảnh tick 69.png */
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: var(--lh-normal);
+  color: #1a1a1a;
+}
+
+.why-tick {
+  flex-shrink: 0;
+  width: 22px;
+  height: auto;
+  margin-top: 2px;
+}
+
+/* Cột ảnh + dots */
+.why-media {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.why-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.why-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-slide {
+  flex: 0 0 100%;
+}
+
+.why-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.why-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #b5b5b5;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Trượt track theo dot đang chọn — mỗi bước = 1 ảnh (100%) */
+#wy-1:checked ~ .why-section .why-track { transform: translateX(0); }
+#wy-2:checked ~ .why-section .why-track { transform: translateX(-100%); }
+#wy-3:checked ~ .why-section .why-track { transform: translateX(-200%); }
+#wy-4:checked ~ .why-section .why-track { transform: translateX(-300%); }
+#wy-5:checked ~ .why-section .why-track { transform: translateX(-400%); }
+#wy-6:checked ~ .why-section .why-track { transform: translateX(-500%); }
+
+/* Dot active */
+#wy-1:checked ~ .why-section .why-dots label[for="wy-1"],
+#wy-2:checked ~ .why-section .why-dots label[for="wy-2"],
+#wy-3:checked ~ .why-section .why-dots label[for="wy-3"],
+#wy-4:checked ~ .why-section .why-dots label[for="wy-4"],
+#wy-5:checked ~ .why-section .why-dots label[for="wy-5"],
+#wy-6:checked ~ .why-section .why-dots label[for="wy-6"] {
+  width: 24px;
+  background: var(--red);
+}
+
+/* --- Responsive --- */
+@media (min-width: 768px) {
+  .why-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 32px;
+  }
+  .why-media { width: 46%; flex-shrink: 0; }
+  /* margin-left:auto → khối chữ dồn sang phải; margin-right chừa lại một
+     khoảng để chữ không dính sát cột ảnh. */
+  .why-list { gap: 20px; margin-left: auto; margin-right: 28px; }
+}
+
+@media (min-width: 1025px) {
+  .why-title { font-size: 32px; }
+  .why-card { gap: 40px; padding: 36px 40px; }
+  .why-list { gap: 22px; margin-right: 48px; }
+  .why-list li { font-size: 18px; }
+  .why-tick { width: 24px; }
+}
+
 /* ===== 09. Certifications ===== */
 
 section.cert-section {
-  background: url('../images/Asset 1@4x 1.png') center / cover no-repeat;
+  background: #ffffff;
   overflow: hidden;
   padding-top: 56px;
   padding-bottom: 96px;
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .cert-header { margin-bottom: 32px; }
@@ -2064,11 +2475,13 @@ section.cert-section {
   margin-bottom: 16px;
 }
 
+/* Ảnh "Chỉ 3 bước để bắt đầu" (70.png) — ảnh nằm ngang và có chữ bên trong,
+   nên để rộng hơn ảnh robot cũ thì chữ mới đọc được */
 .cta-robot {
   display: block;
   width: 100%;
-  max-width: 260px;
-  margin: 0 auto;
+  max-width: 560px;
+  margin: 8px 0 0;   /* căn mép trái, sát phần chữ phía trên */
 }
 
 /* --- Card form phải --- */
@@ -2205,6 +2618,12 @@ section.cert-section {
   filter: brightness(1.06);
 }
 
+/* Chữ nút 2 dòng — <br> nằm trong span để không phá layout flex của nút */
+.form-submit-text {
+  text-align: center;
+  line-height: 1.35;
+}
+
 .form-submit svg {
   width: 18px;
   height: 18px;
@@ -2221,18 +2640,23 @@ section.cert-section {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 52px;
+    gap: 40px;
   }
 
-  .cta-content { flex: 0 0 560px; }
+  /* Cột trái rộng thêm 32px để ảnh 3 bước to hơn; 592 + 40 + 600 = 1232 = đúng
+     bề rộng trong của .container (1280 - 24×2), không tràn ngang. */
+  .cta-content { flex: 0 0 592px; }
 
   .cta-title { font-size: 32px; }
 
   .cta-ai { font-size: 68px; }
 
+  /* Thu nhỏ còn 94% cột và đẩy trái 24px (ăn vào phần padding của .container
+     nên không sinh cuộn ngang) để khung ảnh khớp mép trái với tiêu đề. */
   .cta-robot {
-    margin: 0;
+    width: 85%;
     max-width: 100%;
+    margin: 0 0 0 -24px;
   }
 
   .cta-form-card {
